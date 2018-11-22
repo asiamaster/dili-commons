@@ -167,3 +167,32 @@
 .l-btn:hover .icon-map{
 	background:url('icons/map-on.png');
 }
+
+.icon-top{
+	background:url('icons/top.png') no-repeat center center;
+}
+.l-btn:hover .icon-top{
+	background:url('icons/top-on.png');
+}
+
+.icon-copy{
+	background:url('icons/copy.png') no-repeat center center;
+}
+.l-btn:hover .icon-copy{
+	background:url('icons/copy-on.png');
+}
+
+.icon-down{
+	background:url('icons/down.png') no-repeat center center;
+}
+.l-btn:hover .icon-down{
+	background:url('icons/dl-on.png');
+}
+
+.icon-up{
+	background:url('icons/up.png') no-repeat center center;
+}
+.l-btn:hover .icon-up{
+	background:url('icons/up-on.png');
+}
+

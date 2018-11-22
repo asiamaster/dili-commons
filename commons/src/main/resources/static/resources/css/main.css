@@ -242,6 +242,11 @@ h2 {
     background: rgba(245, 245, 245, 0.4);
 }
 
+/*表格选中行*/
+.datagrid-row-selected {
+    background: #0081c2;
+}
+
 /*表格行高*/
 .datagrid-row {
     height: 42px;
