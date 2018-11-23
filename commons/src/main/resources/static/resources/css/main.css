@@ -231,12 +231,16 @@ h2 {
 .datagrid-row-alt {
     background: rgba(245, 245, 245, 0.4);
 }
-
 /*表格选中行*/
 .datagrid-row-selected {
     background: #0081c2;
 }
-
+/*表格hover*/
+.datagrid-row-over,
+.datagrid-header td.datagrid-header-over {
+    background: #0081c2;
+    color: #fff;
+}
 /*表格行高*/
 .datagrid-row {
     height: 42px;
@@ -306,6 +310,7 @@ h2 {
 .datagrid-cell, .datagrid-cell-group, .datagrid-header-rownumber, .datagrid-cell-rownumber {
     font-size: 14px;
 }
+
 
 /*上传图片*/
 .fileimg-box {
