@@ -149,20 +149,9 @@
 .sidemenu .tree-node-hover {
     background: #0081c2;
 }
-.sidemenu-tooltip.tooltip-left {
-    margin: 0 12px;
-}
 
 /*easyui.css end*/
 
-
-* {
-    -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box;
-    -o-box-sizing: border-box;
-    -ms-box-sizing: border-box;
-    box-sizing: border-box;
-}
 
 body {
     font-family:"Microsoft YaHei","Helvetica", "Tahoma", "Arial", "STXihei", "SimSun", "sans-serif";
@@ -225,6 +214,7 @@ h2 {
 }
 /*更改表格表头标题文字大小*/
 .datagrid-header span {
+    font-size: 15px !important;
     font-weight: 700;
 }
 .datagrid-header-row {
@@ -235,6 +225,7 @@ h2 {
     margin-top: 4px;
     margin-bottom: 4px;
     color: inherit;
+    font-size: 15px;
 }
 
 /*表格行斑马纹*/
@@ -267,6 +258,54 @@ h2 {
     text-align: center;
     overflow: hidden;
 }
+
+
+.l-btn-text,
+.panel-body {
+    font-size: 14px;
+}
+.panel-body {
+    font-size: 15px;
+}
+/*表格菜单行分页条字体*/
+.pagination-info{
+    font-size: 14px;
+}
+/*更改datagrid中的数据*/
+.datagrid-cell{
+    font-size: 14px;
+}
+.panel-header,
+.datagrid-toolbar, .datagrid-pager {
+    background: #fff;
+}
+
+/*更改treegrid的递归列*/
+.tree-title{
+    font-size: 14px;
+}
+/*textbox的label字体*/
+.textbox-label{
+    font-size: 14px;
+}
+/*按钮字体*/
+.l-btn-text{
+    font-size: 16px;
+}
+/*菜单字体*/
+.menu-text{
+    font-size: 176px;
+}
+/*tab字体*/
+.tabs-title{
+    font-size: 14px;
+}
+
+
+
+
+
+
 
 
 
