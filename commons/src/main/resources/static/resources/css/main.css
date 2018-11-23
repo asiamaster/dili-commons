@@ -265,7 +265,7 @@ h2 {
     font-size: 14px;
 }
 .panel-body {
-    font-size: 15px;
+    font-size: 14px;
 }
 /*表格菜单行分页条字体*/
 .pagination-info{
@@ -290,17 +290,21 @@ h2 {
 }
 /*按钮字体*/
 .l-btn-text{
-    font-size: 16px;
+    font-size: 14px;
 }
 /*菜单字体*/
 .menu-text{
-    font-size: 176px;
+    font-size: 14px;
 }
 /*tab字体*/
 .tabs-title{
     font-size: 14px;
 }
+/*表头字体*/
+.pagination span {
+    font-size: 14px;
 
+}
 
 
 
