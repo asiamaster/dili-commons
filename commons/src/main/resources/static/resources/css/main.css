@@ -384,6 +384,24 @@ h2 {
     background: #F5F5F5;
 }
 
+/*表格斑马纹纵向*/
+.table-stripe-vt {
+    width: 100%;
+    border-top: 1px solid  #e6e6e6;
+    border-left: 1px solid  #e6e6e6;
+
+}
+.table-stripe-vt td {
+    line-height: 46px;
+    text-align: center;
+    border-right: 1px solid  #e6e6e6;
+    border-bottom: 1px solid  #e6e6e6;
+
+}
+.table-stripe-vt tr:nth-child(odd) td {
+    background: #F5F5F5;
+}
+
 
 
 
