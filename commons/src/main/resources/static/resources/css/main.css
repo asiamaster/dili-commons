@@ -55,8 +55,7 @@
     background-repeat: repeat-x;
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#fff,endColorstr=#fff,GradientType=0);
 }
-.datagrid-toolbar,
-.datagrid-pager {
+.datagrid-toolbar {
     background: #fff;
 }
 .datagrid-row-over,
@@ -275,8 +274,7 @@ h2 {
 .datagrid-cell{
     font-size: 14px;
 }
-.panel-header,
-.datagrid-toolbar, .datagrid-pager {
+.panel-header {
     background: #fff;
 }
 
@@ -303,7 +301,10 @@ h2 {
 /*表头字体*/
 .pagination span {
     font-size: 14px;
-
+}
+/*表格字体*/
+.datagrid-cell, .datagrid-cell-group, .datagrid-header-rownumber, .datagrid-cell-rownumber {
+    font-size: 14px;
 }
 
 /*上传图片*/
