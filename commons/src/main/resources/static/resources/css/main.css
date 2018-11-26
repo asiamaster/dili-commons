@@ -365,6 +365,9 @@ h2 {
     color: #fff;
     line-height: 30px;
 }
+.fileimg-box .fileimg-edit span {
+    cursor: pointer;
+}
 
 /*表格斑马纹横向*/
 .table-stripe-hr {
