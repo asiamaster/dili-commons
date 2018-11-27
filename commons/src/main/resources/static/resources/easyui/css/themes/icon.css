@@ -53,6 +53,9 @@
 .icon-print{
     background:url('icons/print.png') no-repeat center center;
 }
+.l-btn:hover .icon-print{
+    background:url('icons/print-on.png') no-repeat center center;
+}
 .icon-help{
     background:url('icons/help.png') no-repeat center center;
 }
