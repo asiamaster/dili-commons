@@ -404,6 +404,7 @@ h2 {
 }
 .table-stripe-vt tr:nth-child(odd) td {
     background: #F5F5F5;
+    font-weight: 700;
 }
 
 
