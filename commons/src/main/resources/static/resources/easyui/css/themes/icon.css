@@ -23,6 +23,9 @@
 .icon-remove{
     background:url('icons/edit_remove.png') no-repeat center center;
 }
+.l-btn:hover .icon-remove{
+    background:url('icons/edit_remove-on.png') no-repeat center center;
+}
 .icon-save{
     background:url('icons/filesave.png') no-repeat center center;
 }
@@ -32,8 +35,14 @@
 .icon-cut{
     background:url('icons/cut.png') no-repeat center center;
 }
+.l-btn:hover .icon-cut{
+    background:url('icons/cut-on.png') no-repeat center center;
+}
 .icon-ok{
     background:url('icons/ok.png') no-repeat center center;
+}
+.l-btn:hover .icon-ok{
+    background:url('icons/ok-on.png') no-repeat center center;
 }
 .icon-no{
     background:url('icons/no.png') no-repeat center center;
@@ -43,6 +52,9 @@
 }
 .icon-reload{
     background:url('icons/reload.png') no-repeat center center;
+}
+.l-btn:hover .icon-reload{
+    background:url('icons/reload-on.png') no-repeat center center;
 }
 .icon-search{
     background:url('icons/search.png') no-repeat center center;
@@ -62,8 +74,14 @@
 .icon-undo{
     background:url('icons/undo.png') no-repeat center center;
 }
+.l-btn:hover .icon-undo{
+    background:url('icons/undo-on.png') no-repeat center center;
+}
 .icon-redo{
     background:url('icons/redo.png') no-repeat center center;
+}
+.l-btn:hover .icon-redo{
+    background:url('icons/redo-on.png') no-repeat center center;
 }
 .icon-back{
     background:url('icons/back.png') no-repeat center center;
@@ -77,17 +95,26 @@
 .icon-tip{
     background:url('icons/tip.png') no-repeat center center;
 }
-.icon-tip{
-    background:url('icons/tip.png') no-repeat center center;
+.l-btn:hover .icon-tip{
+    background:url('icons/tip-on.png') no-repeat center center;
 }
 .icon-filter{
     background:url('icons/filter.png') no-repeat center center;
 }
+.l-btn:hover .icon-filter{
+    background:url('icons/filter-on.png') no-repeat center center;
+}
 .icon-man{
     background:url('icons/man.png') no-repeat center center;
 }
+.l-btn:hover .icon-man{
+    background:url('icons/man-on.png') no-repeat center center;
+}
 .icon-lock{
     background:url('icons/lock.png') no-repeat center center;
+}
+.l-btn:hover .icon-lock{
+    background:url('icons/lock-on.png') no-repeat center center;
 }
 .icon-more{
     background:url('icons/more.png') no-repeat center center;
@@ -139,9 +166,6 @@
 }
 .l-btn:hover .icon-detail{
     background:url('icons/detail-on.png') no-repeat center center;
-}
-.l-btn:hover .icon-man{
-    background:url('icons/man-on.png') no-repeat center center;
 }
 
 .icon-play{
