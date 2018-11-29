@@ -252,6 +252,12 @@ h2 {
 /*  -----------表格 end ------  */
 
 
+/*输入框*/
+.textbox .textbox-text {
+    vertical-align: middle;
+}
+
+
 /* datagrid checkbox列的样式*/
 .datagrid-header-check, .datagrid-cell-check {
     padding: 3px;
@@ -433,4 +439,20 @@ h2 {
     right: 20px;
 }
 
+/*查询条件*/
+.search-wrap {
+    padding: 20px 10px;
+}
+.search-wrap .search-item {
+    display: inline-block;
+    width: 240px;
+    padding: 8px 0;
+}
+.search-wrap .search-item.long-item {
+    width: 485px;
+}
+.search-wrap-btn {
+    display: inline-block;
+    margin-left: 20px;
+}
 
