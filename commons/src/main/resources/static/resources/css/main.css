@@ -152,6 +152,18 @@
 /*easyui.css end*/
 
 
+.foncolor-theme {
+    color: #0081c2;
+}
+.bgcolor-theme {
+    background: #0081c2;
+    color: #fff;
+}
+.bgcolor-gray {
+    background: #F5F5F5;
+}
+
+
 body {
     font-family:"Microsoft YaHei","Helvetica", "Tahoma", "Arial", "STXihei", "SimSun", "sans-serif";
     font-size: 14px;
