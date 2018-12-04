@@ -463,6 +463,9 @@ h2 {
 .search-wrap .search-item.long-item {
     width: 485px;
 }
+.search-wrap .textbox-label {
+    width: 96px;
+}
 .search-wrap-btn {
     display: inline-block;
     margin-left: 20px;
