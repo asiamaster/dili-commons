@@ -46,3 +46,9 @@ function plusXing(str,frontLen,endLen) {
     }
     return str.substring(0,frontLen)+xing+str.substring(str.length-endLen);
 }
+
+//清空datagrid选择
+function clearGridSelectedAndChecked(data) {
+    $(this).datagrid("clearSelections");
+    $(this).datagrid("clearChecked");
+}

@@ -11,6 +11,9 @@
 <script type="text/javascript" src="${contextPath}/resources/js/main.js"></script>
 <script type="text/javascript" src="${contextPath}/common/easyui/js/easyui-datagrid-editor-sweetalert.js"></script>
 
+<!-- 本项目公共js -->
+<script type="text/javascript" src="${contextPath}/resources/js/common.js"></script>
+
 <script type="text/javascript" src="https://cdn.bootcss.com/limonte-sweetalert2/7.28.5/sweetalert2.all.min.js"></script>
 <!-- 导出功能 -->
 <#export></#export>
