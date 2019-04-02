@@ -142,13 +142,36 @@
     background: #0081c2;
     color: #fff;
 }
+/*sidemenu*/
+.accordion{
+    border: 0px;
+}
 .sidemenu .accordion-header:hover {
     background: #0081c2;
+    color:#FFF
 }
 .sidemenu .tree-node-hover {
     background: #0081c2;
+    color:#FFF
 }
-
+.sidemenu .accordion-header .panel-title:hover{
+    height: 30px;
+    line-height: 30px;
+    color: #FFF;
+}
+/* 二级sidemenu菜单间隔*/
+.tree-hit,.tree-indent{
+    display: inline-block;
+    height: 18px;
+    width: 20px;
+    margin: 4px 0;
+    vertical-align: middle;
+    overflow: hidden;
+}
+/* 一级sidemenu菜单字体颜色*/
+.sidemenu .accordion-header .panel-title{
+    color: #112;
+}
 /*easyui.css end*/
 
 
@@ -285,9 +308,7 @@ h2 {
 .panel-body {
     font-size: 14px;
 }
-.panel-body {
-    font-size: 14px;
-}
+
 /*表格菜单行分页条字体*/
 .pagination-info{
     font-size: 14px;

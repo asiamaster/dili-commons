@@ -245,3 +245,15 @@
     background:url('icons/up-on.png') no-repeat center center;
 }
 
+.icon-pos{
+    background:url('icons/pos-icon.png') no-repeat center center;
+}
+/* 地图图标 */
+.icon-map{
+    background:url('icons/map.png') no-repeat center center;
+}
+
+.icon-blank{
+    background:url('icons/blank.png') no-repeat center center;
+}
+
