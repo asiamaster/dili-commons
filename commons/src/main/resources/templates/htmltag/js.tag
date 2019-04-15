@@ -9,7 +9,8 @@
 
 <!-- 本项目全局js -->
 <script type="text/javascript" src="${contextPath}/resources/js/main.js"></script>
-<script type="text/javascript" src="${contextPath}/common/easyui/js/easyui-datagrid-editor-sweetalert.js"></script>
+
+<script type="text/javascript" src="${contextPath}/resources/easyui/js/easyui-datagrid-editor-sweetalert.js"></script>
 
 <!-- 本项目公共js -->
 <script type="text/javascript" src="${contextPath}/resources/js/common.js"></script>
