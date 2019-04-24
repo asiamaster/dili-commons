@@ -2,7 +2,7 @@
 
 /* easyui.css start */
 .panel-tool a:hover {
-    background-color: #0081c2;
+    background-color: #3370ff;
 }
 .panel-footer {
     background: #fff;
@@ -15,36 +15,55 @@
     border-top-color: #fff;
 }
 .l-btn:hover {
-    background: #0081c2;
+    background: #3370ff;
     color: #fff;
 }
 .l-btn-plain:hover {
-    background: #0081c2;
+    background: #3370ff;
     color: #fff;
 }
-.combo-arrow-hover {
-    background-color: #0081c2;
+.l-btn-focus {
+    outline: #3370ff dotted thin;
 }
-.combo-arrow:hover {
-    background-color: #0081c2;
+.combo-arrow-hover {
+    background-color: #3370ff;
 }
 .combobox-item-hover {
-    background-color: #0081c2;
+    background-color: #f0f3f6;
+    color: #333;
+}
+.combo-arrow:hover {
+    /*background: transparent;*/
+    /*background-color: #3370ff; *!*/
+}
+.combobox-item-selected {
+    background-color: #3370ff;
     color: #fff;
 }
 .tagbox-label {
-    background: #0081c2;
+    background: #3370ff;
     color: #fff;
 }
 .tabs li a.tabs-inner:hover {
-    background: #0081c2;
+    background: #3370ff;
     color: #fff;
 }
 .tabs-p-tool a:hover,
 .tabs li a:hover.tabs-close,
 .tabs-scroller-over {
-    background-color: #0081c2;
+    background-color: #3370ff;
 }
+.tabs li a.tabs-inner {
+    color: #3370ff;
+}
+.tabs li a.tabs-inner:hover {
+    background: #e6e6e6;
+}
+.tabs-header .tabs-pill li.tabs-selected a.tabs-inner {
+    background: #3370ff;
+    border-color: #ddd;
+}
+
 .datagrid-header,
 .datagrid-td-rownumber {
     background-color: #fff;
@@ -60,7 +79,7 @@
 }
 .datagrid-row-over,
 .datagrid-header td.datagrid-header-over {
-    background: #0081c2;
+    background: #3370ff;
     color: #fff;
 }
 .datalist .datagrid-group,
@@ -68,7 +87,7 @@
     background-color: #fff;
 }
 .m-list li>a:hover {
-    background: #0081c2;
+    background: #3370ff;
     color: #fff;
 }
 .pagination-page-list,
@@ -87,14 +106,14 @@
 .calendar-hover,
 .calendar-nav-hover,
 .calendar-menu-hover {
-    background-color: #0081c2;
+    background-color: #3370ff;
     color: #fff;
 }
 .datebox-button {
     background-color: #fff;
 }
 .spinner-arrow-hover {
-    background-color: #0081c2;
+    background-color: #3370ff;
 }
 .spinner-button-top:hover,
 .spinner-button-bottom:hover,
@@ -102,7 +121,7 @@
 .spinner-button-right:hover,
 .spinner-arrow-up:hover,
 .spinner-arrow-down:hover {
-    background-color: #0081c2;
+    background-color: #3370ff;
 }
 .progressbar {
     border-color: #d4d4d4;
@@ -116,17 +135,18 @@
 }
 .menu-active {
     color: #fff;
-    background: #0081c2;
+    background: #3370ff;
+    border-color: #3370ff;
 }
 .m-btn-active,
 .s-btn-active {
-    background: #0081c2;
+    background: #3370ff;
     color: #fff;
 }
 .m-btn-plain-active,
 .s-btn-plain-active {
     border-color: #ddd;
-    background-color: #0081c2;
+    background-color: #3370ff;
     color: #fff;
 }
 .messager-body .messager-input {
@@ -139,7 +159,7 @@
     border-color: #d4d4d4;
 }
 .tree-node-hover {
-    background: #0081c2;
+    background: #3370ff;
     color: #fff;
 }
 /*sidemenu*/
@@ -147,11 +167,11 @@
     border: 0px;
 }
 .sidemenu .accordion-header:hover {
-    background: #0081c2;
+    background: #3370ff;
     color:#FFF
 }
 .sidemenu .tree-node-hover {
-    background: #0081c2;
+    background: #3370ff;
     color:#FFF
 }
 .sidemenu .accordion-header .panel-title:hover{
@@ -172,74 +192,51 @@
 .sidemenu .accordion-header .panel-title{
     color: #112;
 }
-/*easyui.css end*/
 
+/*日历*/
+.calendar-selected {
+    background-color: #3370ff;
+    border: 1px solid #3370ff;
+}
 
-.foncolor-theme {
-    color: #0081c2;
-}
-.bgcolor-theme {
-    background: #0081c2;
-    color: #fff;
-}
-.bgcolor-gray {
-    background: #F5F5F5;
+.accordion .accordion-header-selected {
+    background: #3370ff;
 }
 
 
-body {
-    font-family:"Microsoft YaHei","Helvetica", "Tahoma", "Arial", "STXihei", "SimSun", "sans-serif";
-    font-size: 14px;
-    padding:15px;
-    margin:0;
+.progressbar-value,
+.progressbar-value .progressbar-text {
+    background-color: #3370ff;
+}
+.tree-node-selected {
+    background: #3370ff;
+}
+.switchbutton-on {
+    background: #3370ff;
+}
+.radiobutton {
+    border: 2px solid #3370ff;
+}
+.radiobutton-inner {
+    background: #3370ff;
+}
+.checkbox {
+    border: 2px solid #3370ff;
+}
+.checkbox-checked {
+    background: #3370ff;
+}
+.sidemenu .tree-node-selected {
+    border-right: 2px solid #3370ff;
+    background: #3370ff;
 }
 
-h2 {
-    font-size: 18px;
-    font-weight: bold;
-    margin: 0;
-    margin-bottom: 15px;
-}
-.demo-info{
-    padding:0 0 12px 0;
-}
-.demo-tip{
-    display:none;
-}
-.label-top{
-    display: block;
-    height: 22px;
-    line-height: 22px;
-    vertical-align: middle;
-}
-/* datagrid row border st */
-.lines-both .datagrid-body td{
-}
-.lines-no .datagrid-body td{
-    border-right:1px dotted transparent;
-    border-bottom:1px dotted transparent;
-}
-.lines-right .datagrid-body td{
-    border-bottom:1px dotted transparent;
-}
-.lines-bottom .datagrid-body td{
-    border-right:1px dotted transparent;
-}
-
-/* datagrid row border end */
-
-/* 无边框文本框 */
-.noborder{
-    border:none;
-}
-
-/* easyui基础字体设置 */
 /*  -----------表格 start------  */
 
 /*表格边框*/
 .datagrid-header td, .datagrid-body td, .datagrid-footer td {
     border-style: solid;
-    border-color: #ebeef5;
+    border-color: transparent;
 }
 
 /*表格表头列*/
@@ -264,17 +261,18 @@ h2 {
 
 /*表格行斑马纹*/
 .datagrid-row-alt {
-    background: rgba(245, 245, 245, 0.4);
+    background: #f4f6f8;
 }
 /*表格选中行*/
 .datagrid-row-selected {
-    background: #0081c2;
+    background: #cad8f8;
+    color: #666;
 }
 /*表格hover*/
 .datagrid-row-over,
 .datagrid-header td.datagrid-header-over {
-    background: #0081c2;
-    color: #fff;
+    background: #e1e8ef;
+    color: #333;
 }
 /*表格行高*/
 .datagrid-row {
@@ -350,6 +348,112 @@ h2 {
     font-size: 14px;
 }
 
+/*表格斑马纹横向*/
+.table-stripe-hr {
+    width: 100%;
+    border-top: 1px solid  #e6e6e6;
+    border-left: 1px solid  #e6e6e6;
+
+}
+.table-stripe-hr td {
+    line-height: 46px;
+    text-align: center;
+    border-right: 1px solid  #e6e6e6;
+    border-bottom: 1px solid  #e6e6e6;
+
+}
+.table-stripe-hr td:nth-child(odd) {
+    background: #F5F5F5;
+}
+
+/*表格斑马纹纵向*/
+.table-stripe-vt {
+    width: 100%;
+    border-top: 1px solid  #e6e6e6;
+    border-left: 1px solid  #e6e6e6;
+
+}
+.table-stripe-vt td {
+    line-height: 46px;
+    text-align: center;
+    border-right: 1px solid  #e6e6e6;
+    border-bottom: 1px solid  #e6e6e6;
+
+}
+.table-stripe-vt tr:nth-child(odd) td {
+    background: #F5F5F5;
+    font-weight: 700;
+}
+
+/*   easyui.css end    */
+
+/*base*/
+body {
+    font-family:"Microsoft YaHei","Helvetica", "Tahoma", "Arial", "STXihei", "SimSun", "sans-serif";
+    font-size: 14px;
+    padding:15px;
+    margin:0;
+}
+
+h2 {
+    font-size: 18px;
+    font-weight: bold;
+    margin: 0;
+    margin-bottom: 15px;
+}
+.red {
+    color: #f00;
+}
+.fz18 {
+    font-size: 18px;
+}
+.bold {
+    font-weight: 700;
+}
+
+.foncolor-theme {
+    color: #3370ff;
+}
+.bgcolor-theme {
+    background: #3370ff;
+    color: #fff;
+}
+.bgcolor-gray {
+    background: #F5F5F5;
+}
+
+.demo-info{
+    padding:0 0 12px 0;
+}
+.demo-tip{
+    display:none;
+}
+.label-top{
+    display: block;
+    height: 22px;
+    line-height: 22px;
+    vertical-align: middle;
+}
+/* datagrid row border st */
+.lines-both .datagrid-body td{
+}
+.lines-no .datagrid-body td{
+    border-right:1px dotted transparent;
+    border-bottom:1px dotted transparent;
+}
+.lines-right .datagrid-body td{
+    border-bottom:1px dotted transparent;
+}
+.lines-bottom .datagrid-body td{
+    border-right:1px dotted transparent;
+}
+
+/* datagrid row border end */
+
+/* 无边框文本框 */
+.noborder{
+    border:none;
+}
 
 /*上传图片*/
 .fileimg-box {
@@ -409,43 +513,6 @@ h2 {
     cursor: pointer;
 }
 
-/*表格斑马纹横向*/
-.table-stripe-hr {
-    width: 100%;
-    border-top: 1px solid  #e6e6e6;
-    border-left: 1px solid  #e6e6e6;
-
-}
-.table-stripe-hr td {
-    line-height: 46px;
-    text-align: center;
-    border-right: 1px solid  #e6e6e6;
-    border-bottom: 1px solid  #e6e6e6;
-
-}
-.table-stripe-hr td:nth-child(odd) {
-    background: #F5F5F5;
-}
-
-/*表格斑马纹纵向*/
-.table-stripe-vt {
-    width: 100%;
-    border-top: 1px solid  #e6e6e6;
-    border-left: 1px solid  #e6e6e6;
-
-}
-.table-stripe-vt td {
-    line-height: 46px;
-    text-align: center;
-    border-right: 1px solid  #e6e6e6;
-    border-bottom: 1px solid  #e6e6e6;
-
-}
-.table-stripe-vt tr:nth-child(odd) td {
-    background: #F5F5F5;
-    font-weight: 700;
-}
-
 
 /*顶部标题*/
 .main-title-top-box {
@@ -491,4 +558,12 @@ h2 {
     display: inline-block;
     margin-left: 20px;
 }
+
+
+
+
+
+
+
+
 
