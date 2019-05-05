@@ -236,7 +236,8 @@
 /*表格边框*/
 .datagrid-header td, .datagrid-body td, .datagrid-footer td {
     border-style: solid;
-    border-color: transparent;
+    /*border-color: transparent;*/
+    border-color: #ebeef5;
 }
 
 /*表格表头列*/
