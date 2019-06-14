@@ -6,7 +6,9 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
 	crossorigin="anonymous">
 -->
-<link rel="stylesheet" type="text/css" href="https://cdn.bootcss.com/limonte-sweetalert2/7.28.5/sweetalert2.min.css">
+
+<link rel="stylesheet" href="${contextPath}/webjars/sweetalert2/7.28.10/dist/sweetalert2.min.css">
+
 <style>
 /*bootstrap兼容问题和easyui的bug*/
 .panel-header, .panel-body {

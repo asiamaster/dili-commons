@@ -76,6 +76,7 @@
 }
 .datagrid-toolbar {
     background: #fff;
+    border: 1px solid #D4D4D4;
 }
 .datagrid-row-over,
 .datagrid-header td.datagrid-header-over {

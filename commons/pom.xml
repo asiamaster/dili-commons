@@ -4,6 +4,7 @@
     <groupId>com.dili</groupId>
     <artifactId>commons</artifactId>
     <description>commons</description>
+    <version>1.0.14-SNAPSHOT</version>
     <packaging>jar</packaging>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -197,6 +198,12 @@
             <version>${springloaded.version}</version>
         </dependency>
         <!-- 内部包  -->
+        <!-- https://mvnrepository.com/artifact/org.webjars.npm/sweetalert2 -->
+        <dependency>
+            <groupId>org.webjars.npm</groupId>
+            <artifactId>sweetalert2</artifactId>
+            <version>7.28.10</version>
+        </dependency>
 
     </dependencies>
 
