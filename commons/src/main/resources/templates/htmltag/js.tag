@@ -14,6 +14,7 @@
 
 <!-- 本项目公共js -->
 <script type="text/javascript" src="${contextPath}/resources/js/common.js"></script>
+<script type="text/javascript" src="${contextPath}/resources/js/commonValidate.js"></script>
 
 <script src="${contextPath}/webjars/sweetalert2/7.28.10/dist/sweetalert2.min.js"></script>
 
