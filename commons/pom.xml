@@ -4,7 +4,7 @@
     <groupId>com.dili</groupId>
     <artifactId>commons</artifactId>
     <description>commons</description>
-    <version>1.0.14-SNAPSHOT</version>
+    <version>1.0.16-SNAPSHOT</version>
     <packaging>jar</packaging>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -31,7 +31,7 @@
     <parent>
         <artifactId>dili-commons</artifactId>
         <groupId>com.dili</groupId>
-        <version>1.0.12-SNAPSHOT</version>
+        <version>1.0.16-SNAPSHOT</version>
     </parent>
 
     <!--地利-->
@@ -123,40 +123,7 @@
                     <!--<skipTests>true</skipTests>-->
                 <!--</configuration>-->
             <!--</plugin>-->
-            <plugin>
-                <groupId>org.mybatis.generator</groupId>
-                <artifactId>mybatis-generator-maven-plugin</artifactId>
-                <version>1.3.5</version>
-                <configuration>
-                    <configurationFile>${basedir}/src/main/resources/generator/generatorConfig.xml</configurationFile>
-                    <overwrite>true</overwrite>
-                    <verbose>true</verbose>
-                </configuration>
-                <dependencies>
-                    <dependency>
-                        <groupId>mysql</groupId>
-                        <artifactId>mysql-connector-java</artifactId>
-                        <version>${mysql.version}</version>
-                    </dependency>
-                    <dependency>
-                        <groupId>tk.mybatis</groupId>
-                        <artifactId>mapper</artifactId>
-                        <version>${mapper.version}</version>
-                    </dependency>
-                    <dependency>
-                        <groupId>com.dili</groupId>
-                        <artifactId>sharp-sword</artifactId>
-                        <version>${sharp-sword.version}</version>
-                        <!--<scope>system</scope>-->
-                        <!--<systemPath>${\project.basedir}/lib/sharp-sword-1.5.4-SNAPSHOT.jar</systemPath>-->
-                    </dependency>
-                    <dependency>
-                        <groupId>com.ibeetl</groupId>
-                        <artifactId>beetl</artifactId>
-                        <version>2.7.12</version>
-                    </dependency>
-                </dependencies>
-            </plugin>
+
         </plugins>
     </build>
 
@@ -165,23 +132,10 @@
         <!-- spring boot 基类  -->
 		<dependency>
 			<groupId>com.dili</groupId>
-			<artifactId>sharp-sword</artifactId>
+			<artifactId>ss-core</artifactId>
 			<version>${sharp-sword.version}</version>
             <scope>provided</scope>
 		</dependency>
-        <dependency>
-            <groupId>org.mybatis.generator</groupId>
-            <artifactId>mybatis-generator-core</artifactId>
-            <version>1.3.5</version>
-        </dependency>
-
-        <!-- if you enable json support in spring mvc. -->
-        <dependency>
-            <groupId>org.codehaus.jackson</groupId>
-            <artifactId>jackson-mapper-asl</artifactId>
-            <version>1.9.13</version>
-        </dependency>
-
 
         <!-- ===============  spring boot starters  =============== -->
         <dependency>
