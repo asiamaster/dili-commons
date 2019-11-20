@@ -2,7 +2,7 @@
 
 /* easyui.css start */
 .panel-tool a:hover {
-    background-color: #3370ff;
+    background-color: #457FDF;
 }
 .panel-footer {
     background: #fff;
@@ -15,18 +15,18 @@
     border-top-color: #fff;
 }
 .l-btn:hover {
-    background: #3370ff;
+    background: #457FDF;
     color: #fff;
 }
 .l-btn-plain:hover {
-    background: #3370ff;
+    background: #457FDF;
     color: #fff;
 }
 .l-btn-focus {
-    outline: #3370ff dotted thin;
+    outline: #457FDF dotted thin;
 }
 .combo-arrow-hover {
-    background-color: #3370ff;
+    background-color: #457FDF;
 }
 .combobox-item-hover {
     background-color: #f0f3f6;
@@ -34,33 +34,33 @@
 }
 .combo-arrow:hover {
     /*background: transparent;*/
-    /*background-color: #3370ff; *!*/
+    /*background-color: #457FDF; *!*/
 }
 .combobox-item-selected {
-    background-color: #3370ff;
+    background-color: #457FDF;
     color: #fff;
 }
 .tagbox-label {
-    background: #3370ff;
+    background: #457FDF;
     color: #fff;
 }
 .tabs li a.tabs-inner:hover {
-    background: #3370ff;
+    background: #457FDF;
     color: #fff;
 }
 .tabs-p-tool a:hover,
 .tabs li a:hover.tabs-close,
 .tabs-scroller-over {
-    background-color: #3370ff;
+    background-color: #457FDF;
 }
 .tabs li a.tabs-inner {
-    color: #3370ff;
+    color: #457FDF;
 }
 .tabs li a.tabs-inner:hover {
     background: #e6e6e6;
 }
 .tabs-header .tabs-pill li.tabs-selected a.tabs-inner {
-    background: #3370ff;
+    background: #457FDF;
     border-color: #ddd;
 }
 
@@ -78,17 +78,17 @@
     background: #fff;
     border: 1px solid #D4D4D4;
 }
-.datagrid-row-over,
-.datagrid-header td.datagrid-header-over {
-    background: #3370ff;
-    color: #fff;
-}
+/*.datagrid-row-over,*/
+/*.datagrid-header td.datagrid-header-over {*/
+/*    background: #457FDF;*/
+/*    color: #fff;*/
+/*}*/
 .datalist .datagrid-group,
 .m-list .m-list-group {
     background-color: #fff;
 }
 .m-list li>a:hover {
-    background: #3370ff;
+    background: #457FDF;
     color: #fff;
 }
 .pagination-page-list,
@@ -107,14 +107,14 @@
 .calendar-hover,
 .calendar-nav-hover,
 .calendar-menu-hover {
-    background-color: #3370ff;
+    background-color: #457FDF;
     color: #fff;
 }
 .datebox-button {
     background-color: #fff;
 }
 .spinner-arrow-hover {
-    background-color: #3370ff;
+    background-color: #457FDF;
 }
 .spinner-button-top:hover,
 .spinner-button-bottom:hover,
@@ -122,7 +122,7 @@
 .spinner-button-right:hover,
 .spinner-arrow-up:hover,
 .spinner-arrow-down:hover {
-    background-color: #3370ff;
+    background-color: #457FDF;
 }
 .progressbar {
     border-color: #d4d4d4;
@@ -136,18 +136,18 @@
 }
 .menu-active {
     color: #fff;
-    background: #3370ff;
-    border-color: #3370ff;
+    background: #457FDF;
+    border-color: #457FDF;
 }
 .m-btn-active,
 .s-btn-active {
-    background: #3370ff;
+    background: #457FDF;
     color: #fff;
 }
 .m-btn-plain-active,
 .s-btn-plain-active {
     border-color: #ddd;
-    background-color: #3370ff;
+    background-color: #457FDF;
     color: #fff;
 }
 .messager-body .messager-input {
@@ -160,7 +160,7 @@
     border-color: #d4d4d4;
 }
 .tree-node-hover {
-    background: #3370ff;
+    background: #457FDF;
     color: #fff;
 }
 /*sidemenu*/
@@ -168,11 +168,11 @@
     border: 0px;
 }
 .sidemenu .accordion-header:hover {
-    background: #3370ff;
+    background: #457FDF;
     color:#FFF
 }
 .sidemenu .tree-node-hover {
-    background: #3370ff;
+    background: #457FDF;
     color:#FFF
 }
 .sidemenu .accordion-header .panel-title:hover{
@@ -196,40 +196,40 @@
 
 /*日历*/
 .calendar-selected {
-    background-color: #3370ff;
-    border: 1px solid #3370ff;
+    background-color: #457FDF;
+    border: 1px solid #457FDF;
 }
 
 .accordion .accordion-header-selected {
-    background: #3370ff;
+    background: #457FDF;
 }
 
 
 .progressbar-value,
 .progressbar-value .progressbar-text {
-    background-color: #3370ff;
+    background-color: #457FDF;
 }
 .tree-node-selected {
-    background: #3370ff;
+    background: #457FDF;
 }
 .switchbutton-on {
-    background: #3370ff;
+    background: #457FDF;
 }
 .radiobutton {
-    border: 2px solid #3370ff;
+    border: 2px solid #457FDF;
 }
 .radiobutton-inner {
-    background: #3370ff;
+    background: #457FDF;
 }
 .checkbox {
-    border: 2px solid #3370ff;
+    border: 2px solid #457FDF;
 }
 .checkbox-checked {
-    background: #3370ff;
+    background: #457FDF;
 }
 .sidemenu .tree-node-selected {
-    border-right: 2px solid #3370ff;
-    background: #3370ff;
+    border-right: 2px solid #457FDF;
+    background: #457FDF;
 }
 
 /*  -----------表格 start------  */
@@ -241,17 +241,18 @@
     border-color: #ebeef5;
 }
 
-/*表格表头列*/
-.datagrid-header td{
-    border-style: none;
-}
+/*去掉表格表头列边框*/
+/*.datagrid-header td{*/
+/*    border-style: none;*/
+/*}*/
 /*更改表格表头标题文字大小*/
 .datagrid-header span {
     font-size: 15px !important;
     font-weight: 700;
 }
+/*更改列头行高*/
 .datagrid-header-row {
-    height: 42px;
+    height: 38px;
 }
 /*更改表格标题的行间距*/
 .panel-title {
@@ -278,7 +279,7 @@
 }
 /*表格行高*/
 .datagrid-row {
-    height: 42px;
+    height: 38px;
 }
 
 /*更改表格中单元格行间距*/
@@ -414,10 +415,10 @@ h2 {
 }
 
 .foncolor-theme {
-    color: #3370ff;
+    color: #457FDF;
 }
 .bgcolor-theme {
-    background: #3370ff;
+    background: #457FDF;
     color: #fff;
 }
 .bgcolor-gray {

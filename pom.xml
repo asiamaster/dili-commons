@@ -6,7 +6,7 @@
 	<groupId>com.dili</groupId>
 	<artifactId>dili-commons</artifactId>
 	<name>dili-commons</name>
-	<version>1.0.18-SNAPSHOT</version>
+	<version>1.0.19-SNAPSHOT</version>
 	<!--<version>1.0.0.RELEASE</version>-->
 	<description>父项目</description>
 	<packaging>pom</packaging>
