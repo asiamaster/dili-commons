@@ -11,10 +11,22 @@
 
 <style>
 /*bootstrap兼容问题和easyui的bug*/
-.panel-header, .panel-body {
+.panel-body {
 	border-width: 0px;
 }
-
+.panel-header {
+	/* background-color: #F2F2F2; */
+	background: -webkit-linear-gradient(top,#ffffff 0,#F2F2F2 100%);
+	background: -moz-linear-gradient(top,#ffffff 0,#F2F2F2 100%);
+	background: -o-linear-gradient(top,#ffffff 0,#F2F2F2 100%);
+	background: linear-gradient(to bottom,#ffffff 0,#F2F2F2 100%);
+	/* background-repeat: repeat-x; */
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#ffffff,endColorstr=#F2F2F2,GradientType=0);
+	color: #404040;
+	border-color: #D4D4D4;
+	border-width: 1px;
+	border-style: solid;
+}
 .datagrid, .combo-p {
 	border: solid 1px #D4D4D4;
 }

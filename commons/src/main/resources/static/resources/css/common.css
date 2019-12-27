@@ -253,6 +253,7 @@
 /*更改列头行高*/
 .datagrid-header-row {
     height: 38px;
+    background-color:ghostwhite;
 }
 /*更改表格标题的行间距*/
 .panel-title {
@@ -260,6 +261,21 @@
     margin-bottom: 4px;
     color: inherit;
     font-size: 15px;
+}
+
+/*表头背景色*/
+.panel-header {
+    /* background-color: #F2F2F2; */
+    background: -webkit-linear-gradient(top,#ffffff 0,#F2F2F2 100%);
+    background: -moz-linear-gradient(top,#ffffff 0,#F2F2F2 100%);
+    background: -o-linear-gradient(top,#ffffff 0,#F2F2F2 100%);
+    background: linear-gradient(to bottom,#ffffff 0,#F2F2F2 100%);
+    /* background-repeat: repeat-x; */
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#ffffff,endColorstr=#F2F2F2,GradientType=0);
+    color: #777;
+    border-color: #D4D4D4;
+    border-width: 1px;
+    border-style: solid;
 }
 
 /*表格行斑马纹*/
@@ -318,9 +334,7 @@
 .datagrid-cell{
     font-size: 14px;
 }
-.panel-header {
-    background: #fff;
-}
+
 
 /*更改treegrid的递归列*/
 .tree-title{
