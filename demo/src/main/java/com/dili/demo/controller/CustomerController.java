@@ -95,4 +95,16 @@ public class CustomerController {
         customerService.delete(id);
         return BaseOutput.success("删除成功");
     }
+
+    /**
+     * 启禁用货站
+     * @param id 货站ID
+     * @param enable 是否启用
+     * @return
+     */
+    @RequestMapping(value = "/doEnable.action", method = {RequestMethod.GET, RequestMethod.POST})
+    @ResponseBody
+    public BaseOutput doEnable(Long id, Boolean enable) {
+        return customerService.updateEnable(id, enable);
+    }
 }
