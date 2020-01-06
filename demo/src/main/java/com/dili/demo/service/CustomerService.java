@@ -11,9 +11,9 @@ import com.dili.ss.domain.BaseOutput;
 public interface CustomerService extends BaseService<Customer, Long> {
     /**
      * 根据用户ID，操作启禁用 货站
-     * @param stationId 货站ID
+     * @param id ID
      * @param enable 是否启用(true-启用，false-禁用)
      * @return
      */
-    BaseOutput updateEnable(Long stationId, Boolean enable);
+    BaseOutput updateEnable(Long id, Boolean enable);
 }

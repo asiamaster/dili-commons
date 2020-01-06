@@ -31,18 +31,13 @@
                     <input type="text" class="form-control" name="code" id="code"/>
                 </div>
                 <div class="form-group mb-2 mr-5">
-                    <label for="certificateNumber" class="justify-content-end mr-2 w-100px">证件号:</label>
-                    <input type="text" class="form-control" name="certificateNumber" id="certificateNumber"/>
-                </div>
-                <div class="form-group mb-2 mr-5">
                     <label for="certificateType" class="justify-content-end mr-2 w-100px">证件类型:</label>
                     <select id="certificateType" name="certificateType" class="form-control w-200px"></select>
                     <#bcomboProvider _id="certificateType" _provider="certificateTypeProvider" _value=""/>
                 </div>
                 <div class="form-group mb-2 mr-5">
-                    <label for="state" class="justify-content-end mr-2 w-100px">状态:</label>
-                    <select id="state" name="state" class="form-control w-200px"></select>
-                    <#bcomboProvider _id="state" _provider="enabledStateProvider" _value=""/>
+                    <label for="certificateType" class="justify-content-end mr-2 w-100px">经营地区:</label>
+                    <#bautoCompleteProvider _hiddenDomainId="operatingArea" _hiddenDomainName="operatingArea" _displayDomainId="_operatingArea" _placeholder="" _provider="cityProvider" _value="" _text="" _option="width:200"/>
                 </div>
                 <div class="btn-group mb-2">
                     <button id="query" type="button" class="btn btn-success mr-1" onclick="queryDataHandler()"><i class="fa fa-search"></i> 查询</button>
@@ -166,9 +161,9 @@
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label class="col-2 col-form-label text-right" for="_certificateAddr">证件地址</label>
+                            <label class="col-2 col-form-label text-right" for="_certificateAddrDisplay">证件地址</label>
                             <div class="col-10">
-                                <input type="text" class="form-control" id="_certificateAddr" name="_certificateAddr" placeholder="如：成都市锦江区..." required/>
+                                <#bautoCompleteProvider _hiddenDomainId="_certificateAddr" _hiddenDomainName="_certificateAddr" _displayDomainId="_certificateAddrDisplay" _placeholder="" _provider="cityProvider" _validatorMethod="isSelected" _value="3#510105#510100" _text="四川省,成都市,青羊区" _required="true" _option="width:630"/>
                             </div>
                         </div>
                         <div class="form-group row">

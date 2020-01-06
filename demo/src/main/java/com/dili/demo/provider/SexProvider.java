@@ -29,7 +29,7 @@ public class SexProvider implements ValueProvider {
 
     static {
         BUFFER.addAll(Stream.of(SexEnum.values())
-                .map(e -> new ValuePairImpl<>(e.getName(), e.getCode()))
+                .map(e -> new ValuePairImpl<>(e.getName(), e.getCode().toString()))
                 .collect(Collectors.toList()));
     }
 

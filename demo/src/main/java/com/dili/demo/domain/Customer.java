@@ -79,9 +79,9 @@ public interface Customer extends IBaseDomain {
     @Column(name = "`sex`")
     @FieldDef(label="性别:男,女")
     @EditMode(editor = FieldEditor.Number, required = false)
-    Boolean getSex();
+    Integer getSex();
 
-    void setSex(Boolean sex);
+    void setSex(Integer sex);
 
     @Column(name = "`photo`")
     @FieldDef(label="照片", maxLength = 6000)

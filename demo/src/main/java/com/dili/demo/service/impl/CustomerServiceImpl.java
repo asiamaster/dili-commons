@@ -21,15 +21,15 @@ public class CustomerServiceImpl extends BaseServiceImpl<Customer, Long> impleme
     }
 
     @Override
-    public BaseOutput updateEnable(Long stationId, Boolean enable) {
+    public BaseOutput updateEnable(Long id, Boolean enable) {
         Customer customer = DTOUtils.newDTO(Customer.class);
-        customer.setId(stationId);
+        customer.setId(id);
         if (enable) {
             customer.setState(EnabledStateEnum.ENABLED.getCode());
         } else {
             customer.setState(EnabledStateEnum.DISABLED.getCode());
         }
-        getActualDao().updateByPrimaryKey(customer);
+        getActualDao().updateByPrimaryKeySelective(customer);
         return BaseOutput.success();
     }
 }

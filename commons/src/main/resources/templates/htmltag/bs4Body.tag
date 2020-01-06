@@ -23,7 +23,7 @@ ${tag.body}
 <script src="/resources/bui/lib/bootstrap-4.3.1/js/bootstrap-table.min.js"></script>
 <script src="/resources/bui/lib/bootstrap-4.3.1/js/bootstrap-table-export.min.js"></script>
 <script src="/resources/bui/lib/bootstrap-4.3.1/js/bootstrap-table-zh-CN.min.js"></script>
-<script src="/resources/assets/dep/jquery/laydate/laydate.js"></script>
+<script src="/resources/bui/lib/laydate/laydate.js"></script>
 <script src="/resources/bui/lib/jquery-validation-1.19.1/jquery.validate.min.js"></script>
 <script src="/resources/bui/lib/jquery-validation-1.19.1/jquery.validate-extend.js"></script>
 <script src="/resources/bui/lib/jquery/jquery.autocomplete.min.js"></script>

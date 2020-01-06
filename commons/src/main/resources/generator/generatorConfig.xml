@@ -84,12 +84,12 @@
         <javaClientGenerator targetPackage="${targetMapperPackage}" targetProject="${targetJavaProject}" type="XMLMAPPER" />
 
         <!-- 生成所有表模型 -->
-        <table tableName="campaign">
+        <!--<table tableName="campaign">
+            <generatedKey column="id" sqlStatement="Mysql" identity="true"/>
+        </table>-->
+        <!-- 生成指定表模型 -->
+        <table domainObjectName="City" tableName="city">
             <generatedKey column="id" sqlStatement="Mysql" identity="true"/>
         </table>
-        <!-- 生成指定表模型 -->
-        <!--<table domainObjectName="Person" tableName="person">-->
-            <!--<generatedKey column="id" sqlStatement="Mysql" identity="true"/>-->
-        <!--</table>-->
     </context>
 </generatorConfiguration>
