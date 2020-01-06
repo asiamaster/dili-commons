@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>基于bootstrap4封装的消息对话框组件</title>
+
+	<link rel="stylesheet" href="/resources/bui/lib/bootstrap-4.3.1/css/bootstrap.min.css" >
+	<link rel="stylesheet" href="/resources/bui/lib/font-awesome-4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="/resources/bui/lib/bootstrap4pop/css/bs4.pop.css">
+	<style>
+		.header{text-align: center;line-height: 30px}
+		
+	</style>
+</head>
+<body>
+
+		<header class="header">
+			<h2>基于bootstrap4封装的消息对话框组件</h2>
+			<p>Feature-rich Notification & Popup Box Plugin Based On Bootstrap 4</p>
+		</header>
+		<div class="container" style="padding:50px 0">
+
+			<h1>bootstrap4.pop</h1>
+
+			<div class="group">
+
+				<button class="btn btn-primary" onclick="demo_dialog()">Dialog</button>
+				<button class="btn btn-primary" onclick="bs4pop.alert('我是对话框内容',undefined, function(){ console.log('我按了确定');})">Alert</button>
+				<button class="btn btn-primary" onclick="bs4pop.confirm('你确定要退出系统吗？',undefined, function(sure){ console.log('我按了确定吗:', sure);})">Confirm</button>
+				<button class="btn btn-primary" onclick="bs4pop.prompt('你算老几？', '第捏',undefined, function(sure, value){ console.log('我算老:', value);})">Prompt</button>
+				<hr>
+				<p>
+					<button class="btn btn-primary" onclick="bs4pop.notice('这个是消息内容', {position: 'topleft'})">Notice topleft</button>
+					<button class="btn btn-primary" onclick="bs4pop.notice('这个是消息内容', {position: 'topcenter'})">Notice topcenter</button>
+					<button class="btn btn-primary" onclick="bs4pop.notice('这个是消息内容', {position: 'topright'})">Notice topright</button>
+				</p>
+				<p>
+					<button class="btn btn-primary" onclick="bs4pop.notice('这个是消息内容', {position: 'center'})">Notice center</button>
+				</p>
+				<p>
+					<button class="btn btn-primary" onclick="bs4pop.notice('这个是消息内容', {position: 'bottomleft'})">Notice bottomleft</button>
+					<button class="btn btn-primary" onclick="bs4pop.notice('这个是消息内容', {position: 'bottomcenter'})">Notice bottomcenter</button>
+					<button class="btn btn-primary" onclick="bs4pop.notice('这个是消息内容', {position: 'bottomright'})">Notice bottomright</button>
+				</p>
+				<hr>
+				<p>
+					<button class="btn btn-primary" onclick="bs4pop.notice('这个是消息内容', {type: 'primary'})">Notice primary</button>
+					<button class="btn btn-primary" onclick="bs4pop.notice('这个是消息内容', {type: 'secondary'})">Notice secondary</button>
+					<button class="btn btn-primary" onclick="bs4pop.notice('这个是消息内容', {type: 'success'})">Notice success</button>
+					<button class="btn btn-primary" onclick="bs4pop.notice('这个是消息内容', {type: 'danger'})">Notice danger</button>
+					<button class="btn btn-primary" onclick="bs4pop.notice('这个是消息内容', {type: 'warning'})">Notice warning</button>
+					<button class="btn btn-primary" onclick="bs4pop.notice('这个是消息内容', {type: 'info'})">Notice info</button>
+					<button class="btn btn-primary" onclick="bs4pop.notice('这个是消息内容', {type: 'light'})">Notice light</button>
+					<button class="btn btn-primary" onclick="bs4pop.notice('这个是消息内容', {type: 'dark'})">Notice dark</button>
+				</p>
+
+			</div>
+
+		</div>
+
+	<script src="/resources/bui/lib/jquery/jquery-3.2.1.min.js"></script>
+		<script src="/resources/bui/lib/bootstrap-4.3.1/js/bootstrap.min.js"></script>
+		<script src="/resources/bui/lib/bootstrap4pop/js/bs4.pop.js"></script>
+	<script>
+
+		function demo_dialog(){
+
+			let dia = bs4pop.dialog({
+
+				title: '对话框标题, 我还能拖拽呢',
+				content: '我是对话框内容',
+				// isIframe : false,
+				closeBtn: true,
+				// backdrop: 'static',
+				// width : '80%',
+				// height : '500px',
+				btns: [
+					{label: '确定',	className: 'btn-primary', onClick(e){}},
+					{label: '取消',	className: 'btn-default', onClick(e){}}
+				],
+				onShowStart: function(){
+					// console.log('onShowStart');
+				},
+				onShowEnd: function(){
+					// console.log('onShowEnd');
+				},
+				onHideStart: function(){
+					// console.log('onHideStart');
+				},
+				onHideEnd: function(){
+					// console.log('onHideEnd');
+				},
+				onDragStart: function(){
+					console.log('onDragStart');
+				},
+				onDragEnd: function(){
+					// console.log('onDragEnd');
+				},
+				onDrag: function(){
+					console.log('onDrag');
+				}
+
+			});
+
+			setTimeout(() => {
+				// dia.hide();
+			}, 2000);
+
+		}
+
+	</script>
+</body>
+</html>
