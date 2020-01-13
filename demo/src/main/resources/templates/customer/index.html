@@ -50,7 +50,7 @@
             </form>
         </div>
     </div>
-    <div class="row">
+    <div class="row">`
         <div class="col-12">
             <div id="toolbar" class="btn-group" role="group" aria-label="Toolbar with button groups">
                 <button id="btn_add" type="button" class="btn btn-primary" onclick="openInsertHandler()"><i class="fa fa-plus"></i> 新增</button>
@@ -163,7 +163,7 @@
                         <div class="form-group row">
                             <label class="col-2 col-form-label text-right" for="_certificateAddrDisplay">证件地址</label>
                             <div class="col-10">
-                                <#bautoCompleteProvider _hiddenDomainId="_certificateAddr" _hiddenDomainName="_certificateAddr" _displayDomainId="_certificateAddrDisplay" _placeholder="" _provider="cityProvider" _validatorMethod="isSelected" _value="3#510105#510100" _text="四川省,成都市,青羊区" _required="true" _option="width:630"/>
+                                <#bautoCompleteProvider _hiddenDomainId="_certificateAddr" _hiddenDomainName="_certificateAddr" _displayDomainId="_certificateAddrDisplay" _placeholder="" _provider="cityProvider" _validatorMethod="isSelected" _value="" _text="" _required="true" _option="width:630"/>
                             </div>
                         </div>
                         <div class="form-group row">
@@ -182,6 +182,18 @@
                                     <label class="custom-control-label" for="customRadioInline3">海鲜</label>
                                 </div>-->
                                 <#bradioGroupProvider _containerId="_state" _name="_state" _provider="enabledStateProvider" _required="true"/>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-2 col-form-label text-right">性别</label>
+                            <div class="col-10 pt-2" id="_sex">
+                                <#bradioGroupProvider _containerId="_sex" _name="_sex" _provider="sexProvider" _required="true"/>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-2 col-form-label text-right">证件类型</label>
+                            <div class="col-10 pt-2" id="_certificateType">
+                                <#bradioGroupProvider _containerId="_certificateType" _name="_certificateType" _provider="certificateTypeProvider" _required="true"/>
                             </div>
                         </div>
                     </form>

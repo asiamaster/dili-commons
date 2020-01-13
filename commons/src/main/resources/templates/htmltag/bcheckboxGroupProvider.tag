@@ -12,6 +12,7 @@
             success: function (result) {
                 $.map(result, function (dataItem) {
                     $('#${_containerId}').append(template('checkboxItem', $.extend(dataItem, {
+                        containerId: '${_containerId!}',
                         name: '${_name!}',
                         checked: values.includes(Number(dataItem.value)),
                         required:${_required!false},

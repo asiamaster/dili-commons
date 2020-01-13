@@ -37,6 +37,17 @@ public class CustomerController {
     }
 
     /**
+     * 跳转到Customer页面
+     * @param modelMap
+     * @return String
+     */
+    @ApiOperation("跳转到Customer页面")
+    @RequestMapping(value="/nav.html", method = RequestMethod.GET)
+    public String nav(ModelMap modelMap) {
+        return "customer/nav";
+    }
+
+    /**
      * 分页查询Customer，返回easyui分页信息
      * @param customer
      * @return String

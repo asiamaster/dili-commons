@@ -11,6 +11,7 @@
             success: function (result) {
                 $.map(result, function (dataItem) {
                     $('#${_containerId}').append(template('radioItem', $.extend(dataItem, {
+                        containerId: '${_containerId!}',
                         name: '${_name!}',
                         checked: '${_value!}' == dataItem.value,
                         required:${_required!false},
