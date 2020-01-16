@@ -155,7 +155,7 @@
     function queryParams(params) {
         let temp = {
             rows: params.limit,   //页面大小
-            page: (params.offset / params.limit) + 1, //页码
+            page: ((params.offset / params.limit) + 1) || 1, //页码
             sort: params.sort,
             order: params.order
         }
@@ -190,6 +190,12 @@
             $('#btn_enable').attr('disabled', true);
             $('#btn_disabled').attr('disabled', true);
         }
+    });
+
+    _grid.on('expand-row.bs.table', function (e,index, row, $detail){
+        var cur_table = $detail.html(template('subTable',{})).find('table');
+        $(cur_table).bootstrapTable();
+        $(cur_table).bootstrapTable('refreshOptions', {url: '/customer/listPage.action'});
     });
 
     /*****************************************自定义事件区 end**************************************/
