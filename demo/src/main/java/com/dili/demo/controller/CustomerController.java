@@ -14,6 +14,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import javax.servlet.http.HttpServletRequest;
+
 /**
  * 由MyBatis Generator工具自动生成
  * This file was generated on 2019-12-27 14:43:13.
@@ -58,7 +60,7 @@ public class CustomerController {
 		@ApiImplicitParam(name="Customer", paramType="form", value = "Customer的form信息", required = false, dataType = "string")
 	})
     @RequestMapping(value="/listPage.action", method = {RequestMethod.GET, RequestMethod.POST})
-    public @ResponseBody String listPage(Customer customer) throws Exception {
+    public @ResponseBody String listPage(Customer customer, HttpServletRequest request) throws Exception {
         return customerService.listEasyuiPageByExample(customer, true).toString();
     }
 
