@@ -170,7 +170,7 @@
                 //多表头遍历
                 for (let cols of opts.columns) {
                     for (let col of cols) {
-                        col['hidden'] = !col.visible;
+                        col['hidden'] = !col.field || !col.visible;
                     }
                 }
                 token = guid();
