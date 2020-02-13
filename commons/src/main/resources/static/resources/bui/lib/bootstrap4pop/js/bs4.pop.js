@@ -124,8 +124,8 @@ let bs4pop = {};
 		opts.id && $el.attr('id', opts.id);
 		opts.className && $el.addClass(opts.className);
 		opts.width && $el.find('.modal-dialog').width(opts.width).css('max-width', opts.width);
-		opts.height && $el.find('.modal-dialog').css({height: opts.height, border: 0, padding: 0, max-height: opts.height});
-		opts.height && $el.find('.modal-content').css({height: opts.height, max-height : opts.height});
+		opts.height && $el.find('.modal-dialog').css({height: opts.height, border: 0, padding: 0, 'max-height': opts.height});
+		opts.height && $el.find('.modal-content').css({height: opts.height, 'max-height' : opts.height});
 		opts.isCenter && $el.find('.modal-dialog').addClass('modal-dialog-centered');//对话框屏幕居中
 
 		//绑定事件
