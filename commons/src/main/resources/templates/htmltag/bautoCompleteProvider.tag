@@ -2,7 +2,12 @@
 <input type="hidden" name="${_hiddenDomainName!}" id="${_hiddenDomainId!}"  value="${_value!}" text="${_text!}"/>
 <script type="text/javascript">
     $(function(){
-        let option = {${_option!}};
+        let option;
+        <% if( isNotEmpty(_optionVariable) ) {%>
+            option = ${_optionVariable!};
+        <% } else { %>
+            option = {${_option!}};
+        <% } %>
         /**
          * 初始化自动完成框
          */
@@ -29,18 +34,18 @@
                 }
             },
             onSelect : function (suggestion) {
-                if (option.onSelect) {
-                    option.onSelect(suggestion);
-                }
-
                 let self = this;
-                $(self).val(suggestion.value);
+                $(self).val(suggestion[option.displayFieldName || 'value']);
 
                 let hiddenDomain = $(self).siblings('input');
                 hiddenDomain.val(suggestion.id);
                 hiddenDomain.prop('text', suggestion.value);
                 if ($(self).hasClass('isSelected')) {
                     $(self).valid();
+                }
+
+                if (option.selectFn) {
+                    option.selectFn(suggestion);
                 }
             }
         },option));
