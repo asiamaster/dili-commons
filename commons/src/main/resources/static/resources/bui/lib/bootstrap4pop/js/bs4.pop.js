@@ -71,6 +71,7 @@ let bs4pop = {};
 
 		}
 
+        let $iframe ;
 		//创建 footer
 		if(opts.btns.length){
 
@@ -93,7 +94,7 @@ let bs4pop = {};
 					};
 
 					//如果返回不是false就自动隐藏dialog
-					if(btn.onClick(evt) !== false){
+					if(btn.onClick(evt,$iframe) !== false){
 						$el.modal('hide');
 					}
 
@@ -116,7 +117,8 @@ let bs4pop = {};
 				$(opts.content).contents().appendTo($body);//移动dom到 modal-body下
 			}
 		}else{
-			$(`<iframe class="d-block w-100 h-100 border-0" src="${opts.content}"></iframe>`).appendTo($body);
+		    $iframe = $(`<iframe class="d-block w-100 h-100 border-0" src="${opts.content}"></iframe>`);
+			$iframe.appendTo($body);
 		}
 
 
