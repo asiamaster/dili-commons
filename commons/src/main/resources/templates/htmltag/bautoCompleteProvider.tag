@@ -1,6 +1,10 @@
 <input type="text" class="form-control ${_validatorMethod!}" id="${_displayDomainId!}" name="${_hiddenDomainName!}Text" value="${_text!}" placeholder="${_placeholder!}" required="${_required!'false'}"/>
 <input type="hidden" name="${_hiddenDomainName!}" id="${_hiddenDomainId!}"  value="${_value!}" text="${_text!}"/>
-<script type="text/javascript">
+<% if(isNotEmpty(_escape) && _escape == "true") {%>
+&lt;script&gt;
+<% }else {%>
+<script>
+<% }%>
     $(function(){
         let option;
         <% if( isNotEmpty(_optionVariable) ) {%>
@@ -50,5 +54,8 @@
             }
         },option));
     });
-
+<% if(isNotEmpty(_escape) && _escape == "true") {%>
+&lt;/script&gt;
+<% }else {%>
 </script>
+<% }%>
