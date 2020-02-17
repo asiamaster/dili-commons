@@ -23,7 +23,11 @@
             serviceUrl: '/provider/getLookupList.action',
             params: {
                 provider: '${_provider!}',
+                <% if( isNotEmpty(_queryParams) ) {%>
+                queryParams: '${_queryParams!}''
+                <% } else { %>
                 queryParams: '{required:true}'
+                <% } %>
             },
             <% } %>
             transformResult: function (result) {

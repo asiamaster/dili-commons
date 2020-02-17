@@ -5,7 +5,12 @@
             <% if( isNotEmpty(_provider) ) {%>
             type: "post",
             url: '/provider/getLookupList.action',
-            data: {provider: '${_provider}'},
+            data: {
+                provider: '${_provider}',
+                <% if( isNotEmpty(_queryParams) ) {%>
+                queryParams: '${_queryParams!}''
+                <% } %>
+            },
             <% } %>
             dataType: "json",
             success: function (result) {
