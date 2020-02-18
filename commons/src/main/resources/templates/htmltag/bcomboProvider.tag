@@ -8,7 +8,7 @@
             data: {
                 provider: '${_provider}',
                 <% if( isNotEmpty(_queryParams) ) {%>
-                queryParams: '${_queryParams!}''
+                queryParams: '${_queryParams!}'
                 <% } %>
             },
             <% } %>
