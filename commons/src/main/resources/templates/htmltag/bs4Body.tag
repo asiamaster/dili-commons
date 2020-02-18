@@ -27,6 +27,7 @@ ${tag.body}
 <script src="/resources/bui/lib/jquery-validation-1.19.1/jquery.validate.min.js"></script>
 <script src="/resources/bui/lib/jquery-validation-1.19.1/jquery.validate-extend.js"></script>
 <script src="/resources/bui/lib/jquery/jquery.autocomplete.min.js"></script>
+<script src="/resources/bui/lib/moment/moment-with-locales.min.js"></script>
 <script src="/resources/bui/lib/vendor/art-template.js"></script>
 </body>
 <#btagBase/>
