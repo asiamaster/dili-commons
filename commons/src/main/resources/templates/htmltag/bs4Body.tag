@@ -29,6 +29,7 @@ ${tag.body}
 <script src="/resources/bui/lib/jquery/jquery.autocomplete.min.js"></script>
 <script src="/resources/bui/lib/moment/moment-with-locales.min.js"></script>
 <script src="/resources/bui/lib/vendor/art-template.js"></script>
+<script src="/resources/bui/js/number.js"></script>
 </body>
 <#btagBase/>
 </html>
