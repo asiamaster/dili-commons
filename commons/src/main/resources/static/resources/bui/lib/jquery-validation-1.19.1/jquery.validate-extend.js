@@ -30,6 +30,8 @@ $.extend($.validator.messages, {
 
         if (element.prop("type") === "checkbox" || element.prop("type") === "radio") {
             error.appendTo(element.parent().parent());
+        } else if ($(element).parent().attr('class').indexOf('input-group') > -1 || $(element).parent().parent().attr('class').indexOf('input-group') > -1) {
+            error.appendTo(element.parents('.input-group'));
         } else {
             error.insertAfter(element);
         }
