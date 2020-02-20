@@ -66,6 +66,20 @@ function accSub(arg1,arg2){
 Number.prototype.sub = function (arg){
     return accSub(arg,this);
 };
+
+function centToYuan(cent) {
+    cent = Number(cent);
+    let result = (cent / 100).toString();
+    if(result.indexOf(".") < 0) {
+        result += ".00";
+    }
+    return result;
+}
+
+//给Number类型增加一个sub方法，调用起来更加方便。
+Number.prototype.centToYuan = function (){
+    return centToYuan(this);
+};
 /**
  *  ---------------加减乘除浮点数计算 end ------------
  */
