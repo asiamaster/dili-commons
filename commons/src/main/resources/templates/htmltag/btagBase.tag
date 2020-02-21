@@ -423,6 +423,28 @@
             return result;
         }
 
+        /**
+         * 为表单number类型进行元转分
+         * @param obj 数据对象 如：$('form').serializeObject()得到number数据为
+         * @returns {*}
+         */
+        function yuanToCentForMoneyEl(obj){
+            for(let field in obj){
+                let value = obj[field];
+                if($('[name='+field+']').hasClass('money')){
+                    if(value instanceof Array){
+                        value.forEach(function(val,index,arr){
+                            arr[index] = Number(val).mul(100);
+                        })
+                    }else{
+                        obj[field] = Number(value).mul(100);
+                    }
+                }
+            }
+            return obj;
+        }
+
+
         return {
             variable: {
                 icons
@@ -447,7 +469,9 @@
                 //data字段添加key前缀
                 addKeyStartWith,
                 //移除data字段添加的前缀
-                removeKeyStartWith
+                removeKeyStartWith,
+                //为表单number类型进行元转分
+                yuanToCentForMoneyEl
             },
             //遮罩层
             loading
