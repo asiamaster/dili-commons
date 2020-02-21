@@ -1,6 +1,13 @@
 <script>
     $(function () {
-        let option = {${_option!}};
+        let option = $.extend(
+            {${_option!}},
+            <% if( isNotEmpty(_onLoadSuccess) ) {%>
+            {onLoadSuccess : ${_onLoadSuccess!}}
+            <% } else { %>
+                {}
+            <% } %>
+        );
         $.ajax($.extend(true,{
             <% if( isNotEmpty(_provider) ) {%>
             type: "post",
@@ -21,6 +28,8 @@
                         text:dataItem["${_textField!'text'}"]
                     })));
                 });
+
+                option.onLoadSuccess && option.onLoadSuccess(result);
             },
             error: function () {
                 console.log('数据接口异常');
