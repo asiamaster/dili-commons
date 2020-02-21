@@ -1,4 +1,8 @@
-<input type="text" class="form-control ${_validatorMethod!}" id="${_displayDomainId!}" name="${_displayDomainName!}" value="${_text!}" placeholder="${_placeholder!}" required="${_required!'false'}"/>
+<input type="text" class="form-control ${_validatorMethod!}" id="${_displayDomainId!}" name="${_displayDomainName!}" value="${_text!}" placeholder="${_placeholder!}"
+   <% if( isNotEmpty(_required) && _required == "true") {%>
+       required
+    <% } %>
+/>
 <input type="hidden" name="${_hiddenDomainName!}" id="${_hiddenDomainId!}"  value="${_value!}" text="${_text!}"/>
 <% if(isNotEmpty(_escape) && _escape == "true") {%>
 &lt;script&gt;
