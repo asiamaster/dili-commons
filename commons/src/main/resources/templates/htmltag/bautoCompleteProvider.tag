@@ -57,7 +57,7 @@
                 }
 
                 if (option.selectFn) {
-                    option.selectFn(suggestion);
+                    option.selectFn(suggestion,self);
                 }
             }
         },option));
