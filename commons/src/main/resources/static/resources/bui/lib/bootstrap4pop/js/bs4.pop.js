@@ -391,7 +391,7 @@ let bs4pop = {};
 			type: 'primary', //primary, secondary, success, danger, warning, info, light, dark
 			position: 'topcenter', //topleft, topcenter, topright, bottomleft, bottomcenter, bottonright, center,
 			appendType: 'append', //append, prepend
-			closeBtn: false,
+			closeBtn: true,
 			autoClose: 2000,
 			className: '',
 
@@ -410,7 +410,7 @@ let bs4pop = {};
 		`);
 
 		// 关闭按钮
-		if(opts.autoClose){
+		if(opts.closeBtn){
 			$el
 				.append(`
 					<button type="button" class="close" data-dismiss="alert" aria-label="Close">
