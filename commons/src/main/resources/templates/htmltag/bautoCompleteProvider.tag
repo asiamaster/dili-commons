@@ -2,6 +2,9 @@
    <% if( isNotEmpty(_required) && _required == "true") {%>
        required
     <% } %>
+    <% if( isNotEmpty(_readonly) && _readonly == "true") {%>
+       readonly
+    <% } %>
 />
 <input type="hidden" name="${_hiddenDomainName!}" id="${_hiddenDomainId!}"  value="${_value!}" text="${_text!}"/>
 <% if(isNotEmpty(_escape) && _escape == "true") {%>
