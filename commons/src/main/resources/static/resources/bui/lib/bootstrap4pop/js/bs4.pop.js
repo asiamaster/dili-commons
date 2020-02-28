@@ -12,7 +12,8 @@ let bs4pop = {};
 			width: 500,//宽度
 			height: '',//高度
 			target: 'body',//在什么dom内创建dialog
-			isIframe : false,//默认是页面层，非iframe
+			isIframe: false,//默认是页面层，非iframe
+			isCenter: true, //默认剧中
 
 			closeBtn: true, //是否有关闭按钮
 			hideRemove: true,//关闭时移除dom

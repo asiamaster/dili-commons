@@ -30,7 +30,7 @@ $.extend($.validator.messages, {
 
         if (element.prop("type") === "checkbox" || element.prop("type") === "radio") {
             error.appendTo(element.parent().parent());
-        } else if ($(element).parent().attr('class').indexOf('input-group') > -1 || $(element).parent().parent().attr('class').indexOf('input-group') > -1) {
+        } else if ($(element).parent().hasClass('input-group') || $(element).parent().hasClass('input-group')) {
             error.appendTo(element.parents('.input-group'));
         } else {
             error.insertAfter(element);
@@ -50,59 +50,83 @@ $.extend($.validator.messages, {
             $(element).addClass("is-valid").removeClass("is-invalid");
         }
     }
-}), jQuery.validator.addMethod("isMobile", function (t, a) {
+}), 
+jQuery.validator.addMethod("isMobile", function (t, a) {
     var d = t.length;
     return this.optional(a) || 11 == d && /^1[3-9]\d{9}$/.test(t)
-}, "请填写正确的手机号码"), jQuery.validator.addMethod("isRealName", function (t, a) {
+}, "请填写正确的手机号码"), 
+jQuery.validator.addMethod("isRealName", function (t, a) {
     return this.optional(a) || /^[\u4E00-\u9FA5+·]{2,10}$/.test(t) && !/^[\u4E00-\u9FA5+·]{2,10}[·]$/.test(t) && !/^[·][\u4E00-\u9FA5+.]{2,10}$/.test(t)
-}, "请填写正确的名字"), jQuery.validator.addMethod("isLetter", function (t, a) {
+}, "请填写正确的名字"), 
+jQuery.validator.addMethod("isLetter", function (t, a) {
     return this.optional(a) || /^[a-z]+$/.test(t)
-}, "请填写字母"), jQuery.validator.addMethod("isRMB", function (t, a) {
+}, "请填写字母"), 
+jQuery.validator.addMethod("isRMB", function (t, a) {
     return this.optional(a) || /^(\d{1,3}(\,\d{3})*|(\d+))(\.\d{1,2})?$/.test(t)
-}, "请输入正确金额"), jQuery.validator.addMethod("isRMB1", function (t, a) {
+}, "请输入正确金额"), 
+jQuery.validator.addMethod("isRMB1", function (t, a) {
     return this.optional(a) || /^[1-9]{1,3}(,\d{3})*\.\d{2}$/.test(t)
-}, "金额格式: 12,234.70"), jQuery.validator.addMethod("isRMB2", function (t, a) {
+}, "金额格式: 12,234.70"), 
+jQuery.validator.addMethod("isRMB2", function (t, a) {
     return this.optional(a) || /^[1-9]{1,3}(,\d{3})*\.\d{1,2}?$/.test(t)
-}, "逗号分隔最多两位小数"), jQuery.validator.addMethod("isRMB3", function (t, a) {
+}, "逗号分隔最多两位小数"), 
+jQuery.validator.addMethod("isRMB3", function (t, a) {
     return this.optional(a) || /^(\d{1,9})(\.\d{1,2})?$/.test(t)
-}, "请输入正确金额不带逗号"), jQuery.validator.addMethod("isIntRMB", function (t, a) {
+}, "请输入正确金额不带逗号"), 
+jQuery.validator.addMethod("isIntRMB", function (t, a) {
     return this.optional(a) || /^(\d{1,3}(\,\d{3})*|(\d+))(\.00)?$/.test(t)
-}, "金额需为整数"), jQuery.validator.addMethod("isInt", function (t, a) {
-    return this.optional(a) || /^\d+$/.test(t)
-}, "请输入整数"), jQuery.validator.addMethod("isNaturalNum", function (t, a) {
+}, "金额需为整数"), 
+jQuery.validator.addMethod("isInt", function (t, a) {
+    return this.optional(a) || /^[-]?\d+$/.test(t)
+}, "请输入整数"), 
+jQuery.validator.addMethod("isNaturalNum", function (t, a) {
     return this.optional(a) || /^(0|[1-9][0-9]*)$/.test(t)
-}, "不小于0的整数"), jQuery.validator.addMethod("maxCurrency", function (t, a, d) {
+}, "不小于0的整数"), 
+jQuery.validator.addMethod("maxCurrency", function (t, a, d) {
     var e = d, o = t.replace(/,/g, "");
     return this.optional(a) || !(o > e)
-}, "不大于{0}"), jQuery.validator.addMethod("minCurrency", function (t, a, d) {
+}, "不大于{0}"), 
+jQuery.validator.addMethod("minCurrency", function (t, a, d) {
     var e = d, o = t.replace(/,/g, "");
     return this.optional(a) || !(o < e)
-}, "不小于{0}"), jQuery.validator.addMethod("floatADecimal", function (t, a) {
-    var d = /^(([1-9]\d+)|\d)(\.\d)?$/.test(t);
+}, "不小于{0}"), 
+jQuery.validator.addMethod("floatADecimal", function (t, a) {
+    var d = /^[-]?(([1-9]\d+)|\d)(\.\d)?$/.test(t);
     return this.optional(a) || d
-}, "最多保留一位小数"), jQuery.validator.addMethod("floatReserve", function (t, a) {
-    var d = /^(([1-9]\d+)|\d)(\.\d{1,2})?$/.test(t);
+}, "最多一位小数"),
+jQuery.validator.addMethod("floatReserve", function (t, a) {
+    var d = /^[-]?(([1-9]\d+)|\d)(\.\d{1,2})?$/.test(t);
     return this.optional(a) || d
-}, "最多两位小数"), jQuery.validator.addMethod("floaFour", function (t, a) {
-    var d = /^(([1-9]\d+)|\d)(\.\d{1,4})?$/.test(t);
+}, "最多两位小数"), 
+jQuery.validator.addMethod("floaFour", function (t, a) {
+    var d = /^[-]?(([1-9]\d+)|\d)(\.\d{1,4})?$/.test(t);
     return this.optional(a) || d
-}, "最多四位小数"), jQuery.validator.addMethod("floatFive", function (t, a) {
-    var d = /^(([1-9]\d+)|\d)(\.\d{1,5})?$/.test(t);
+}, "最多四位小数"), 
+jQuery.validator.addMethod("floatFive", function (t, a) {
+    var d = /^[-]?(([1-9]\d+)|\d)(\.\d{1,5})?$/.test(t);
     return this.optional(a) || d
-}, "最多五位小数"), jQuery.validator.addMethod("isIdCard0", function (t, a) {
+}, "最多五位小数"), 
+jQuery.validator.addMethod("isIdCard0", function (t, a) {
     return this.optional(a) || /^(^[1-9]\d{7}((0\d)|(1[0-2]))(([0|1|2]\d)|3[0-1])\d{3}$)|(^[1-9]\d{5}[1-9]\d{3}((0\d)|(1[0-2]))(([0|1|2]\d)|3[0-1])((\d{4})|\d{3}[Xx])$)$/.test(t)
-}, "请填写正确身份证号"), jQuery.validator.addMethod("isIdCard", function (t, a) {
+}, "请填写正确身份证号"), 
+jQuery.validator.addMethod("isIdCard", function (t, a) {
     return this.optional(a) || /^[0-9a-zA-Z()]{1,18}$/.test(t)
-}, "请填写正确身份证号"), jQuery.validator.addMethod("isWord", function (t, a) {
+}, "请填写正确身份证号"), 
+jQuery.validator.addMethod("isWord", function (t, a) {
     return this.optional(a) || /^[a-zA-Z0-9-\u4e00-\u9fa5]+$/.test(t)
-}, "仅限数字字母汉字"), jQuery.validator.addMethod("isChinese", function (t, a) {
+}, "仅限数字/字母/汉字"),
+jQuery.validator.addMethod("isChinese", function (t, a) {
     return this.optional(a) || /^[\u4e00-\u9fa5]+$/.test(t)
-}, "仅限汉字"), jQuery.validator.addMethod("standardTime", function (t, a) {
+}, "仅限汉字"), 
+jQuery.validator.addMethod("standardTime", function (t, a) {
     return this.optional(a) || /^((19|20)[0-9]{2})-(0?[1-9]|1[012])-(0?[1-9]|[12][0-9]|3[01]) ([01]?[0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9]$/.test(t)
-}, "格式(YYYY-MM-DD hh:ii:ss)"), jQuery.validator.addMethod("standardDate", function (t, a) {
+}, "日期时间格式(YYYY-MM-DD hh:ii:ss)"),
+jQuery.validator.addMethod("standardDate", function (t, a) {
     return this.optional(a) || /^((19|20)[0-9]{2})-(0?[1-9]|1[012])-(0?[1-9]|[12][0-9]|3[01])$/.test(t)
-}, "格式(YYYY-MM-DD)"), jQuery.validator.addMethod("isIP", function (t, a) {
+}, "日期格式(YYYY-MM-DD)"),
+jQuery.validator.addMethod("isIP", function (t, a) {
     return this.optional(a) || /^\d{1,3}\.\d{1,3}\.\d{1,3}$/.test(t)
-}, "请输入正确IP地址"), jQuery.validator.addMethod("isSelected", function (t, a) {
+}, "请输入正确IP地址"), 
+jQuery.validator.addMethod("isSelected", function (t, a) {
     return this.optional(a) || $(a).siblings('input').val() ? true : false
 }, "请选择下拉框选项");
