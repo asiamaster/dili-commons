@@ -1,4 +1,8 @@
+<% if(isNotEmpty(_escape) && _escape == "true") {%>
+&lt;script&gt;
+<% }else {%>
 <script>
+<% }%>
     $(function () {
         let option = $.extend(
             {${_option!}},
@@ -36,4 +40,8 @@
             }
         },option));
     })
+<% if(isNotEmpty(_escape) && _escape == "true") {%>
+&lt;/script&gt;
+<% }else {%>
 </script>
+<% }%>

@@ -1,4 +1,8 @@
+<% if(isNotEmpty(_escape) && _escape == "true") {%>
+&lt;script&gt;
+<% }else {%>
 <script>
+<% }%>
     $(function () {
         let option = {${_option!}};
         let values = ${_values!'[]'};
@@ -33,4 +37,8 @@
             }
         },option));
     })
+<% if(isNotEmpty(_escape) && _escape == "true") {%>
+&lt;/script&gt;
+<% }else {%>
 </script>
+<% }%>

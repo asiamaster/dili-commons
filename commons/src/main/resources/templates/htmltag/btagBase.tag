@@ -444,6 +444,24 @@
             return obj;
         }
 
+        /**
+         * 反转义html
+         * @param str
+         * @returns {*}
+         */
+        function HTMLDecode(str) {
+            var s = "";
+            if (str.length == 0) return "";
+            s = str.replace(/&amp;/g, "&");
+            s = s.replace(/&lt;/g, "<");
+            s = s.replace(/&gt;/g, ">");
+            s = s.replace(/&nbsp;/g, " ");
+            s = s.replace(/&#39;/g, "\'");
+            s = s.replace(/&quot;/g, "\"");
+            s = s.replace(/<br\/>/g, "\n");
+            return s;
+        }
+
 
         return {
             variable: {
@@ -471,7 +489,9 @@
                 //移除data字段添加的前缀
                 removeKeyStartWith,
                 //为表单number类型进行元转分
-                yuanToCentForMoneyEl
+                yuanToCentForMoneyEl,
+                //反转义HTML
+                HTMLDecode
             },
             //遮罩层
             loading
