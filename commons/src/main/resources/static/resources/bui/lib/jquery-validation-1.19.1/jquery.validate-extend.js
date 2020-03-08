@@ -129,4 +129,10 @@ jQuery.validator.addMethod("isIP", function (t, a) {
 }, "请输入正确IP地址"), 
 jQuery.validator.addMethod("isSelected", function (t, a) {
     return this.optional(a) || $(a).siblings('input').val() ? true : false
-}, "请选择下拉框选项");
+}, "请选择下拉框选项"),
+jQuery.validator.addMethod("minDate", function (value, element,param) {
+    return this.optional(element) || moment(value,"YYYY-MM-DD",true).isValid()? !moment(value).isBefore(param) : true;
+}, "不小于{0}"),
+jQuery.validator.addMethod("maxDate", function (value, element,param) {
+    return this.optional(element) || moment(value,"YYYY-MM-DD",true).isValid()? !moment(value).isAfter(param) : true;
+}, "不大于{0}");
