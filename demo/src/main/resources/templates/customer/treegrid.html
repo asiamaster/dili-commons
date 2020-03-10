@@ -1,53 +1,39 @@
 <#bs4Body>
-<table id="table"></table>
+<table id="table"  data-toggle="table" data-url="/treegrid.json" data-id-field="id" data-tree-show-field="name" data-parent-id-field="pid">
+    <thead>
+    <tr>
+    <th data-field="ck" data-checkbox="true"></th>
+    <th data-field="name">
+        名称
+    </th>
+    <th data-field="status">
+        状态
+    </th>
+    <th data-field="permissionValue">
+        权限值
+    </th>
+    </tr>
+    </thead>
+</table>
 </#bs4Body>
 <#btreegrid/>
 <script>
-    var $table = $('#table')
+
 
     $(function() {
-        $table.bootstrapTable({
-            url: '/treegrid.json',
-            striped: true,
-            sidePagination: 'server',
-            idField: 'id',
-            showColumns: true,
-            columns: [
-                {
-                    field: 'ck',
-                    checkbox: true
-                },
-                {
-                    field: 'name',
-                    title: '名称'
-                },
-                {
-                    field: 'status',
-                    title: '状态',
-                    sortable: true,
-                    align: 'center',
-                    formatter: 'statusFormatter'
-                },
-                {
-                    field: 'permissionValue',
-                    title: '权限值'
-                }
-            ],
-            treeShowField: 'name',
-            parentIdField: 'pid',
-            onPostBody: function() {
-                var columns = $table.bootstrapTable('getOptions').columns
+        var _grid = $('#table');
+        _grid.on('post-body.bs.table', function (e,index, row, $detail){
+            var columns = _grid.bootstrapTable('getOptions').columns;
 
-                if (columns && columns[0][1].visible) {
-                    $table.treegrid({
-                        treeColumn: 1,
-                        onChange: function() {
-                            $table.bootstrapTable('resetWidth')
-                        }
-                    })
-                }
+            if (columns && columns[0][1].visible) {
+                _grid.treegrid({
+                    treeColumn: 1,
+                    onChange: function() {
+                        // _grid.bootstrapTable('resetWidth')
+                    }
+                })
             }
-        })
+        });
     })
 
     function typeFormatter(value, row, index) {

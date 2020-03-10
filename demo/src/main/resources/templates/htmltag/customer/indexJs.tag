@@ -203,9 +203,9 @@
 
         if (columns && columns[0][1].visible) {
             _grid.treegrid({
-                treeColumn: 1,
+                treeColumn: 2,
                 onChange: function() {
-                    _grid.bootstrapTable('resetWidth')
+
                 }
             })
         }
