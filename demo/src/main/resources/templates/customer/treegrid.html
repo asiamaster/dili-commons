@@ -2,14 +2,14 @@
 <table id="table"  data-toggle="table" data-url="/treegrid.json" data-id-field="id" data-tree-show-field="name" data-parent-id-field="pid">
     <thead>
     <tr>
-    <th data-field="ck" data-checkbox="true"></th>
-    <th data-field="name">
+    <th data-field="ck" data-checkbox="true" data-align="center"></th>
+    <th data-field="name" data-align="left">
         名称
     </th>
-    <th data-field="status">
+    <th data-field="status" data-formatter="statusFormatter" data-align="center">
         状态
     </th>
-    <th data-field="permissionValue">
+    <th data-field="permissionValue" data-align="center">
         权限值
     </th>
     </tr>
@@ -35,19 +35,6 @@
             }
         });
     })
-
-    function typeFormatter(value, row, index) {
-        if (value === 'menu') {
-            return '菜单'
-        }
-        if (value === 'button') {
-            return '按钮'
-        }
-        if (value === 'api') {
-            return '接口'
-        }
-        return '-'
-    }
 
     function statusFormatter(value, row, index) {
         if (value === 1) {
