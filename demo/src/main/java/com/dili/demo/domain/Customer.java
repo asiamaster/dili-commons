@@ -229,4 +229,11 @@ public interface Customer extends IBaseDomain {
     Integer getState();
 
     void setState(Integer state);
+
+    @Column(name = "`pid`")
+    @FieldDef(label="pid")
+    @EditMode(editor = FieldEditor.Number, required = true)
+    Long getPid();
+
+    void setPid(Long pid);
 }

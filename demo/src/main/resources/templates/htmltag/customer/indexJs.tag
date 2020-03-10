@@ -198,5 +198,20 @@
         $(cur_table).bootstrapTable('refreshOptions', {url: '/customer/listPage.action'});
     });
 
+    _grid.on('post-body.bs.table', function (e,index, row, $detail){
+        var columns = _grid.bootstrapTable('getOptions').columns;
+
+        if (columns && columns[0][1].visible) {
+            _grid.treegrid({
+                treeColumn: 1,
+                onChange: function() {
+                    _grid.bootstrapTable('resetWidth')
+                }
+            })
+        }
+    });
+
+
+
     /*****************************************自定义事件区 end**************************************/
 </script>
