@@ -44,6 +44,17 @@ public class CustomerController {
      * @return String
      */
     @ApiOperation("跳转到Customer页面")
+    @RequestMapping(value="/treegrid.html", method = RequestMethod.GET)
+    public String treegrid(ModelMap modelMap) {
+        return "customer/treegrid";
+    }
+
+    /**
+     * 跳转到Customer页面
+     * @param modelMap
+     * @return String
+     */
+    @ApiOperation("跳转到Customer页面")
     @RequestMapping(value="/nav.html", method = RequestMethod.GET)
     public String nav(ModelMap modelMap) {
         return "customer/nav";
