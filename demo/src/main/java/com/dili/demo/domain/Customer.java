@@ -236,4 +236,11 @@ public interface Customer extends IBaseDomain {
     Long getPid();
 
     void setPid(Long pid);
+
+    @Column(name = "`level`")
+    @FieldDef(label="等級")
+    @EditMode(editor = FieldEditor.Number, required = false)
+    Integer getLevel();
+
+    void setLevel(Integer level);
 }

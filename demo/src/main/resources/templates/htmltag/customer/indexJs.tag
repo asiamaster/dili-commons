@@ -198,12 +198,13 @@
         $(cur_table).bootstrapTable('refreshOptions', {url: '/customer/listPage.action'});
     });
 
-    _grid.on('post-body.bs.table', function (e,index, row, $detail){
+    _grid.on('post-body.bs.table', function (e,data){
         var columns = _grid.bootstrapTable('getOptions').columns;
 
         if (columns && columns[0][1].visible) {
             _grid.treegrid({
                 treeColumn: 2,
+                initialState:"collapsed",
                 onChange: function() {
 
                 }

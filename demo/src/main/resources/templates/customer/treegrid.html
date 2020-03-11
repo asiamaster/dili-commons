@@ -3,7 +3,7 @@
     <thead>
     <tr>
     <th data-field="ck" data-checkbox="true" data-align="center"></th>
-    <th data-field="name" data-align="left">
+    <th data-field="name" data-align="left" data-formatter="nameFormatter">
         名称
     </th>
     <th data-field="status" data-formatter="statusFormatter" data-align="center">
@@ -22,13 +22,17 @@
 
     $(function() {
         var _grid = $('#table');
-        _grid.on('post-body.bs.table', function (e,index, row, $detail){
+        _grid.on('post-body.bs.table', function (e,data){
             var columns = _grid.bootstrapTable('getOptions').columns;
 
             if (columns && columns[0][1].visible) {
                 _grid.treegrid({
                     treeColumn: 1,
+                    // expanderExpandedClass: 'fa fa-minus',
+                    // expanderCollapsedClass: 'fa fa-plus',
+                    // expanderTemplate: '<span class="treegrid-expander"></span>',
                     onChange: function() {
+                        console.log($(this).treegrid('getDepth'))
                         // _grid.bootstrapTable('resetWidth')
                     }
                 })
@@ -41,5 +45,9 @@
             return '<span class="label label-success">正常</span>'
         }
         return '<span class="label label-default">锁定</span>'
+    }
+
+    function nameFormatter(value, row, index) {
+        return '<span><i class="fa fa-file-text-o"></i> '+value+'</span>'
     }
 </script>
