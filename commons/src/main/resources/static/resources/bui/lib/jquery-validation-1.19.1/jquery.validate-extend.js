@@ -98,7 +98,7 @@ jQuery.validator.addMethod("floatReserve", function (t, a) {
     var d = /^[-]?(([1-9]\d+)|\d)(\.\d{1,2})?$/.test(t);
     return this.optional(a) || d
 }, "最多两位小数"), 
-jQuery.validator.addMethod("floaFour", function (t, a) {
+jQuery.validator.addMethod("floatFour", function (t, a) {
     var d = /^[-]?(([1-9]\d+)|\d)(\.\d{1,4})?$/.test(t);
     return this.optional(a) || d
 }, "最多四位小数"), 
