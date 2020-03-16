@@ -22,7 +22,7 @@
 
     $(function() {
         var _grid = $('#table');
-        _grid.on('post-body.bs.table', function (e,data){
+        _grid.on('load-success.bs.table', function (e,data){
             var columns = _grid.bootstrapTable('getOptions').columns;
 
             if (columns && columns[0][1].visible) {
