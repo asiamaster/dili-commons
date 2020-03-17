@@ -135,12 +135,20 @@ let bs4pop = {};
 		opts.hideRemove && $el.on('hidden.bs.modal',  function(){
 			$el.modal('dispose').remove();//移除dom
 		});
-		$el.on('show.bs.modal', opts.onShowStart);
-		$el.on('shown.bs.modal', opts.onShowEnd);
-		$el.on('hide.bs.modal', opts.onHideStart);
-		$el.on('hidden.bs.modal', opts.onHideEnd);
-		opts.closeBtn && $el.find('.close').on('click', function(){
-			return opts.onClose();
+		$el.on('show.bs.modal', evt => {
+			opts.onShowStart(evt,$iframe);
+		});
+		$el.on('shown.bs.modal', evt => {
+			opts.onShowEnd(evt,$iframe);
+		});
+		$el.on('hide.bs.modal', evt => {
+			opts.onHideStart(evt,$iframe);
+		});
+		$el.on('hidden.bs.modal', evt => {
+			opts.onHideEnd(evt,$iframe);
+		});
+		opts.closeBtn && $el.find('.close').on('click', function(evt){
+			return opts.onClose(evt,$iframe);
 		});
 
 		//拖拽
