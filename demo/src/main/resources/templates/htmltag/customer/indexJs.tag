@@ -21,7 +21,7 @@
         $(window).resize(function () {
             _grid.bootstrapTable('resetView')
         });
-        queryDataHandler();
+        _grid.bootstrapTable('refreshOptions', {url: '/customer/listPage.action'});
     });
     /******************************驱动执行区 end****************************/
 
@@ -144,12 +144,13 @@
      * 查询处理
      */
     function queryDataHandler() {
-        _grid.bootstrapTable('refreshOptions', {url: '/customer/listPage.action'});
+        _grid.bootstrapTable('refresh');
     }
 
     /**
      * table参数组装
      * 可修改queryParams向服务器发送其余的参数
+     * 前置 table初始化时 queryParams方法拿不到option对象，需要在页面加载时初始化option
      * @param params
      */
     function queryParams(params) {
@@ -198,13 +199,12 @@
         $(cur_table).bootstrapTable('refreshOptions', {url: '/customer/listPage.action'});
     });
 
-    _grid.on('post-body.bs.table', function (e,data){
+    _grid.on('load-success.bs.table', function (e,data){
         var columns = _grid.bootstrapTable('getOptions').columns;
 
         if (columns && columns[0][1].visible) {
             _grid.treegrid({
                 treeColumn: 2,
-                initialState:"collapsed",
                 onChange: function() {
 
                 }
