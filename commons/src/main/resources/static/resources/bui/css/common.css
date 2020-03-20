@@ -1,3 +1,43 @@
+/*base settging*/
+
+html {
+    font-size: 14px;
+}
+
+.red {
+    color: #E54937;
+}
+
+.breadcrumb {
+    font-weight: 700;
+    background-color: #F0F3F6;
+}
+.form-control:disabled, .form-control[readonly] {
+    background-color: #F6F7F9;
+}
+.form-control {
+    border-color: #DBDDE1;
+}
+
+.input-group-text {
+    background-color: #ECF3FF;
+    border-color: #D7E4FA
+}
+
+/*table*/
+.table thead th {
+    background-color: #F6F7F9;
+}
+.table-bordered td, .table-bordered th {
+    border: 1px solid #eee;
+}
+
+.btn-r-b {
+    position: fixed;
+    right: 20px;
+    bottom: 10px;
+}
+
 /****************************suggestions style begin****************************************/
 .autocomplete-suggestions {
     overflow-y: auto;
