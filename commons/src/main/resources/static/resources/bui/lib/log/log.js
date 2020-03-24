@@ -90,11 +90,12 @@ let Log = {};
 
     /**
      * 构建update对象
+     * @param extendContent
      * @returns {string}
      */
-    Log.buildUpdateContent = function () {
+    Log.buildUpdateContent = function (extendContent) {
         let content = [];
-        let newContent = this.buildFields();
+        let newContent = $.extend(this.buildFields(),extendContent);
         for (let field in this.oldContent){
             if(newContent[field] != this.oldContent[field]){
                 content.push('【' + field + '】：从‘' + this.oldContent[field] + '’修改为‘' + newContent[field] + '’\n');
