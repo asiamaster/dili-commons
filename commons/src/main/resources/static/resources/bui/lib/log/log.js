@@ -1,5 +1,12 @@
-(function(context){
-    context.Log = {};
+/**
+ * log.js 前端日志模块
+ * @Date 2020-03-23 17:30:00
+ * @author jiangchengyong
+ *
+ ***/
+
+let Log = {};
+(function(Log){
     $(function () {
         //构建老数据对象
        Log.oldContent = Log.buildFields();
@@ -90,4 +97,8 @@
         }
         return content.join("");
     }
-})(window);
+})(Log);
+
+if( typeof module === "object" && typeof module.exports === "object" ){
+    module.exports = Log
+}
