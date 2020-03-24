@@ -1,5 +1,5 @@
-let Log = {};
-(function(Log){
+(function(context){
+    context.Log = {};
     $(function () {
         //构建老数据对象
        Log.oldContent = Log.buildFields();
@@ -90,4 +90,4 @@ let Log = {};
         }
         return content.join("");
     }
-})(Log);
+})(window);
