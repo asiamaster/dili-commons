@@ -12,6 +12,11 @@ let Log = {};
        Log.oldContent = Log.buildFields();
     });
 
+    /**
+     * 日志记载方法
+     * @param logObj
+     * description {id,marketId,systemCode,businessType,businessId,businessCode,content,notes,operatorId,operatorName,createTime,operationType,operationTypeText}
+     */
     Log.operatorLog = function (logObj) {
         $.ajax({
             type: "POST",
