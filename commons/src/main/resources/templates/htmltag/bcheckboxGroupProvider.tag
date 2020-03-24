@@ -21,16 +21,28 @@
             <% } %>
             dataType: "json",
             success: function (result) {
-                $.map(result, function (dataItem) {
+                $.each(result, function (index,dataItem) {
                     $('#${_containerId}').append(template('checkboxItem', $.extend(dataItem, {
                         containerId: '${_containerId!}',
                         name: '${_name!}',
                         checked: values.includes(Number(dataItem.value)),
                         required:${_required!false},
                         value:dataItem["${_valueField!'value'}"],
-                        text:dataItem["${_textField!'text'}"]
+                        text:dataItem["${_textField!'text'}"],
+                        index,
+                        <% if( isNotEmpty(_log)) {%>
+                        _log : '${_log}',
+                        <% } %>
                     })));
                 });
+
+                <% if( isNotEmpty(_log)) {%>
+                $.extend(Log.oldContent, {
+                    '${_log}': $('[name="${_name!}"]:checked').map(function () {
+                        return $(this).next().text();
+                    }).get().join()
+                });
+                <% } %>
             },
             error: function () {
                 console.log('数据接口异常');

@@ -1,4 +1,7 @@
 <input type="text" class="form-control ${_validatorMethod!}" id="${_displayDomainId!}" name="${_displayDomainName!}" value="${_text!}" placeholder="${_placeholder!}"
+   <% if( isNotEmpty(_log)) {%>
+       _log=${_log}
+    <% } %>
    <% if( isNotEmpty(_required) && _required == "true") {%>
        required
     <% } %>

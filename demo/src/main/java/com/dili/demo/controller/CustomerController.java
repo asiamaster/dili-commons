@@ -55,6 +55,17 @@ public class CustomerController {
      * @return String
      */
     @ApiOperation("跳转到Customer页面")
+    @RequestMapping(value="/log.html", method = RequestMethod.GET)
+    public String log(ModelMap modelMap) {
+        return "customer/log";
+    }
+
+    /**
+     * 跳转到Customer页面
+     * @param modelMap
+     * @return String
+     */
+    @ApiOperation("跳转到Customer页面")
     @RequestMapping(value="/nav.html", method = RequestMethod.GET)
     public String nav(ModelMap modelMap) {
         return "customer/nav";

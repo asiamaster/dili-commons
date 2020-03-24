@@ -1,15 +1,15 @@
 <script id="radioItem" type="text/html">
     <div class="custom-control custom-radio custom-control-inline">
-        <input type="radio" id="r{{containerId}}{{value}}" value="{{value}}" name="{{name}}" class="custom-control-input" {{checked ?
+        <input type="radio" {{_log?index == 0? '_log='+_log : '' : ''}} id="r_{{containerId}}{{value}}" value="{{value}}" name="{{name}}" class="custom-control-input" {{checked ?
         'checked':''}} {{required ? 'required':''}}>
-        <label class="custom-control-label" for="r{{containerId}}{{value}}">{{text}}</label>
+        <label class="custom-control-label" for="r_{{containerId}}{{value}}">{{text}}</label>
     </div>
 </script>
 <script id="checkboxItem" type="text/html">
     <div class="custom-control custom-checkbox custom-control-inline">
-        <input type="checkbox" id="c{{containerId}}{{value}}" value="{{value}}" name="{{name}}" class="custom-control-input" {{checked
+        <input type="checkbox" {{_log?index == 0? '_log='+_log : '' : ''}} id="c_{{containerId}}{{value}}" value="{{value}}" name="{{name}}" class="custom-control-input" {{checked
                ? 'checked':''}} {{required ? 'required':''}}>
-        <label class="custom-control-label" for="c{{containerId}}{{value}}">{{text}}</label>
+        <label class="custom-control-label" for="c_{{containerId}}{{value}}">{{text}}</label>
     </div>
 </script>
 <script id="optionItem" type="text/html">
