@@ -37,11 +37,13 @@
                 });
 
                 <% if( isNotEmpty(_log)) {%>
-                $.extend(Log.oldContent, {
-                    '${_log}': $('[name="${_name!}"]:checked').map(function () {
-                        return $(this).next().text();
-                    }).get().join()
-                });
+                if(typeof(${_logVariable!'Log'}) !== 'undefined'){
+                    $.extend(${_logVariable!'Log'}.oldFields, {
+                        '${_log}': $('[name="${_name!}"]:checked').map(function () {
+                            return $(this).next().text();
+                        }).get().join()
+                    });
+                }
                 <% } %>
             },
             error: function () {

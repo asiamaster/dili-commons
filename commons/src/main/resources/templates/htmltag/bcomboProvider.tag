@@ -35,7 +35,9 @@
 
                 <% if( isNotEmpty(_log)) {%>
                 $('#${_id}').attr('_log','${_log}');
-                $.extend(Log.oldContent,Log.buildFields('#${_id}'));
+                if(typeof(${_logVariable!'Log'}) !== 'undefined'){
+                    $.extend(${_logVariable!'Log'}.oldFields,Log.buildFields('#${_id}'));
+                }
                 <% } %>
 
                 option.onLoadSuccess && option.onLoadSuccess(result);

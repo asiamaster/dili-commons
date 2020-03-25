@@ -1,84 +1,118 @@
 <#bs4Body>
 <form id="form" method="post" class="form-horizontal" action="">
-    <input name="id" id="id" type="hidden">
-    <div class="form-group row">
-        <label class="col-2 col-form-label text-right" for="code" _log>客户编号</label>
-        <div class="col-10">
-            <input type="text" class="form-control" id="code" name="code" placeholder="如：001" value="001" required/>
+    <div id="LogUp">
+        <div class="form-group row">
+            <label class="col-2 col-form-label text-right" for="code" _log>客户编号</label>
+            <div class="col-10">
+                <input type="text" class="form-control" id="code" name="code" placeholder="如：001" value="001" required/>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-2 col-form-label text-right" for="name" _log>客户名称</label>
+            <div class="col-10">
+                <input type="text" class="form-control" id="name" name="name" placeholder="如：张三" value="张三" required/>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-2 col-form-label text-right" for="certificateType" >证件类型</label>
+            <div class="col-10">
+                <select id="certificateType" name="certificateType" class="form-control w-200px"></select>
+                <#bcomboProvider _logVariable="Log" _log="证件类型" _id="certificateType" _provider="certificateTypeProvider" _value="1" _onLoadSuccess=""/>
+            </div>
         </div>
     </div>
-    <div class="form-group row">
-        <label class="col-2 col-form-label text-right" for="name" _log>客户名称</label>
-        <div class="col-10">
-            <input type="text" class="form-control" id="name" name="name" placeholder="如：张三" value="张三" required/>
+    <div id="LogDown">
+        <div class="form-group row">
+            <label class="col-2 col-form-label text-right" for="remarks" _log>备注</label>
+            <div class="col-10">
+                <textarea class="form-control" id="remarks" name="remarks">你好</textarea>
+            </div>
         </div>
-    </div>
-    <div class="form-group row">
-        <label class="col-2 col-form-label text-right" for="certificateType" >证件类型</label>
-        <div class="col-10">
-            <select id="certificateType" name="certificateType" class="form-control w-200px"></select>
-            <#bcomboProvider _log="证件类型" _id="certificateType" _provider="certificateTypeProvider" _value="1" _onLoadSuccess=""/>
+        <div class="form-group row">
+            <label class="col-2 col-form-label text-right" for="cellphone" _log>手机号</label>
+            <div class="col-10">
+                <input type="text" class="form-control" id="cellphone" name="cellphone" placeholder="如：13888888888" value="13888888888" required />
+            </div>
         </div>
-    </div>
-    <div class="form-group row">
-        <label class="col-2 col-form-label text-right" for="remarks" _log>备注</label>
-        <div class="col-10">
-            <textarea class="form-control" id="remarks" name="remarks">你好</textarea>
+
+        <div class="form-group row">
+            <label class="col-2 col-form-label text-right" for="certificateNumber">证件号</label>
+            <div class="col-10">
+                <input _log="证件号" type="text" class="form-control" id="certificateNumber" name="certificateNumber" placeholder="如：511602198902244293" value="511602198902244293" required/>
+            </div>
         </div>
-    </div>
-    <div class="form-group row">
-        <label class="col-2 col-form-label text-right" for="cellphone" _log>手机号</label>
-        <div class="col-10">
-            <input type="text" class="form-control" id="cellphone" name="cellphone" placeholder="如：13888888888" value="13888888888" required />
+        <div class="form-group row">
+            <label class="col-2 col-form-label text-right" for="birthdate">出生日期</label>
+            <div class="col-10">
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <label for="birthdate"  class="input-group-text fa fa-calendar"></label>
+                    </div>
+                    <input _log="出生日期" type="text" name="birthdate" id="birthdate" class="form-control" value="2020-03-23" required/>
+                </div>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-2 col-form-label text-right" for="customRadioInline1" _log>状态</label>
+            <div class="col-10 pt-2" id="_state">
+                <div class="custom-control custom-radio custom-control-inline">
+                    <input type="radio" id="customRadioInline1" value="1" name="customRadioInline1" class="custom-control-input" required>
+                    <label class="custom-control-label" for="customRadioInline1">水果</label>
+                </div>
+                <div class="custom-control custom-radio custom-control-inline">
+                    <input type="radio" id="customRadioInline2" value="2" name="customRadioInline1" class="custom-control-input">
+                    <label class="custom-control-label" for="customRadioInline2">蔬菜</label>
+                </div>
+                <div class="custom-control custom-radio custom-control-inline">
+                    <input type="radio" id="customRadioInline3" value="3" name="customRadioInline1" class="custom-control-input">
+                    <label class="custom-control-label" for="customRadioInline3">海鲜</label>
+                </div>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-2 col-form-label text-right">证件类型ck</label>
+            <div class="col-10 pt-2" id="certificateTypeCk">
+                <#bcheckboxGroupProvider _log="证件类型ck" _containerId="certificateTypeCk" _name="certificateTypeCk" _provider="certificateTypeProvider" _values="[1]" _required="true"/>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-2 col-form-label text-right" for="_certificateAddrDisplay">证件地址</label>
+            <div class="col-10">
+                <#bautoCompleteProvider _log="证件地址" _hiddenDomainId="_certificateAddr" _hiddenDomainName="_certificateAddr" _displayDomainId="_certificateAddrDisplay" _placeholder="" _provider="cityProvider" _validatorMethod="isSelected" _value="" _text="成都" _option="width:630"/>
+            </div>
+        </div>
+        <div class="breadcrumb" data-toggle="collapse" data-target="#boothInfo" aria-expanded="true"
+             aria-controls="boothInfo">
+            摊位信息
+        </div>
+        <div id="boothInfo1">
+            <table class="table table-bordered table-hover table-striped" id="boothTable" _logTable="摊位项">
+                <thead>
+                <tr>
+                    <th style="font-weight:normal;" >摊位编号<i class="red">*</i></th>
+                    <th style="font-weight:normal;">数量<i class="red">*</i></th>
+                    <th style="font-weight:normal;">单位<i class="red">*</i></th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td><!--<label for="t1" _log>摊位编号</label>--><input class="form-control" type="text" id="t1" name="boothNo" value="0"/></td>
+                    <td><input class="form-control" type="text" name="number" _log="数量" value="0"/></td>
+                    <td><input class="form-control" type="text" name="unitPrice" _log="单位" value="0"/></td>
+                </tr>
+                <tr>
+                    <td><input class="form-control" type="text" name="boothNo" _log="摊位编号" value="10"/></td>
+                    <td><input class="form-control" type="text" name="number" _log="数量" value="10"/></td>
+                    <td><input class="form-control" type="text" name="unitPrice" _log="单位" value="0"/></td>
+                </tr>
+                </tbody>
+            </table>
+
         </div>
     </div>
 
-    <div class="form-group row">
-        <label class="col-2 col-form-label text-right" for="certificateNumber">证件号</label>
-        <div class="col-10">
-            <input _log="证件号" type="text" class="form-control" id="certificateNumber" name="certificateNumber" placeholder="如：511602198902244293" value="511602198902244293" required/>
-        </div>
-    </div>
-    <div class="form-group row">
-        <label class="col-2 col-form-label text-right" for="birthdate">出生日期</label>
-        <div class="col-10">
-            <div class="input-group">
-                <div class="input-group-prepend">
-                    <label for="birthdate"  class="input-group-text fa fa-calendar"></label>
-                </div>
-                <input _log="出生日期" type="text" name="birthdate" id="birthdate" class="form-control" value="2020-03-23" required/>
-            </div>
-        </div>
-    </div>
-    <div class="form-group row">
-        <label class="col-2 col-form-label text-right">状态</label>
-        <div class="col-10 pt-2" id="_state">
-            <!--<div class="custom-control custom-radio custom-control-inline">
-                <input type="radio" id="customRadioInline1" value="1" name="customRadioInline1" class="custom-control-input" required>
-                <label class="custom-control-label" for="customRadioInline1">水果</label>
-            </div>
-            <div class="custom-control custom-radio custom-control-inline">
-                <input type="radio" id="customRadioInline2" value="2" name="customRadioInline1" class="custom-control-input">
-                <label class="custom-control-label" for="customRadioInline2">蔬菜</label>
-            </div>
-            <div class="custom-control custom-radio custom-control-inline">
-                <input type="radio" id="customRadioInline3" value="3" name="customRadioInline1" class="custom-control-input">
-                <label class="custom-control-label" for="customRadioInline3">海鲜</label>
-            </div>-->
-            <#bradioGroupProvider _log="状态" _containerId="_state" _name="_state" _provider="enabledStateProvider" _value="1" _required="true"/>
-        </div>
-    </div>
-    <div class="form-group row">
-        <label class="col-2 col-form-label text-right">证件类型ck</label>
-        <div class="col-10 pt-2" id="certificateTypeCk">
-            <#bcheckboxGroupProvider _log="证件类型ck" _containerId="certificateTypeCk" _name="certificateTypeCk" _provider="certificateTypeProvider" _values="[1]" _required="true"/>
-        </div>
-    </div>
-    <div class="form-group row">
-        <label class="col-2 col-form-label text-right" for="_certificateAddrDisplay">证件地址</label>
-        <div class="col-10">
-            <#bautoCompleteProvider _log="证件地址" _hiddenDomainId="_certificateAddr" _hiddenDomainName="_certificateAddr" _displayDomainId="_certificateAddrDisplay" _placeholder="" _provider="cityProvider" _validatorMethod="isSelected" _value="" _text="成都" _option="width:630"/>
-        </div>
-    </div>
 </form>
 </#bs4Body>
+<script>
+    Logger.defaults.isInitDefaultLog = true;
+</script>
