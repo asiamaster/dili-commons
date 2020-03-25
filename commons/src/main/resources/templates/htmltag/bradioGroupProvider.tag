@@ -36,7 +36,9 @@
                 });
 
                 <% if( isNotEmpty(_log)) {%>
-                $.extend(Log.oldContent,{'${_log}':$('[name="${_name!}"]:checked').next().text()});
+                if(typeof(${_logVariable!'Log'}) !== 'undefined'){
+                    $.extend(${_logVariable!'Log'}.oldFields,{'${_log}':$('[name="${_name!}"]:checked').next().text()});
+                }
                 <% } %>
             },
             error: function () {
