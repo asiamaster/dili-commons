@@ -23,7 +23,9 @@
     Logger.defaults = {
         //作用范围
         scope : 'body',
+        //是否初始化默认实例
         isInitDefaultLog : true,
+        //日志记录远程URL
         remoteUrl: 'http://logger.diligrp.com:8283/api/businessLog/save',
         /**
          * tr 行元素格式化
