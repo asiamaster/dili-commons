@@ -31,5 +31,8 @@ ${tag.body}
 <script src="/resources/bui/lib/log/logger.js"></script>
 <script src="/resources/bui/js/number.js"></script>
 </body>
+<script>
+    Logger && (Logger.defaults.remoteUrl = '<#config name="logger.remoteUrl"/>/api/businessLog/save')
+</script>
 <#btagBase/>
 </html>
