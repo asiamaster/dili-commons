@@ -88,7 +88,7 @@
                     let objEl = $('#' + $(el).prop('htmlFor'));
                     if (objEl.prop('tagName') == "SELECT") {
                         let option = objEl.find("option:selected");
-                        fields[$(el).text()] = option.val() ? option.text() : '';
+                        fields[$(el).text()] = option.length > 0? option.val() ? option.text() : '' : '';
                     } else if (objEl.prop('type') == "radio") {
                         if (!fields[$(el).text()]) {
                             fields[$(el).text()] = $('[name="' + objEl.prop('name') + '"]:checked').next().text();
@@ -108,7 +108,7 @@
                     if ($(el).prop('tagName') == "SELECT") {
                         if (!fields[field]) {
                             let option = $(el).find("option:selected");
-                            fields[field] = option.val() ? option.text() : '';
+                            fields[field] = option.length > 0? option.val() ? option.text() : '' : '';
                         }
                     } else if ($(el).prop('type') == "radio") {
                         if (!fields[field]) {
