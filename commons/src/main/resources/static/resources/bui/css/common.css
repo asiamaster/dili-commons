@@ -38,6 +38,7 @@ html {
     bottom: 10px;
 }
 
+
 /****************************suggestions style begin****************************************/
 .autocomplete-suggestions {
     overflow-y: auto;
@@ -67,8 +68,12 @@ table > tbody > tr > td {
     text-overflow: ellipsis;
     max-width: 250px;
 }
-
-
+/*列表页table中列图标*/
+#grid .detail-icon {
+    width: 100%;
+    display: inline-block;
+    text-align: center;
+}
 /****************************loading style begin****************************************/
 .cover{
     position:fixed;
