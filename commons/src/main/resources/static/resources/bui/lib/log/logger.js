@@ -60,7 +60,7 @@
         operatorLog(logObj) {
             $.ajax({
                 type: "POST",
-                url: this.url,
+                url: this.remoteUrl,
                 data: JSON.stringify(logObj),
                 processData: false,
                 dataType: "json",
