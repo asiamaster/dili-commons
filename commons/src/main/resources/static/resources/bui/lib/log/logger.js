@@ -6,13 +6,6 @@
  ***/
 
 (function () {
-    $(function () {
-        //构建老数据对象
-        if(Logger.defaults.isInitDefaultLog){
-            window.Log = new Logger();
-        }
-    });
-
     window.Logger = Logger;
     function Logger(option) {
         this.oldFields = {};
@@ -137,9 +130,16 @@
         buildFields(selector) {
             let self = this;
             let $el = selector ? $(selector) : $(`${self.scope} [_log]:not([_logTable] [_log])`);
-            let fields = self.buildFields2El($el);
-            let $table = $('[_logTable]');
-
+            let fields = $.extend({},self.buildFields2El($el),self.buildTableFields($('[_logTable]')));
+            return fields;
+        },
+        /**
+         * 构建table fields
+         * @param $table
+         */
+        buildTableFields($table) {
+            let self = this;
+            let fields = {};
             $table.each(function (i, el) {
                 let itemArr = [];
                 $(el).find('tbody tr').each(function () {
@@ -171,3 +171,7 @@
         module.exports = Logger
     }
 })();
+//构建老数据对象
+if(Logger.defaults.isInitDefaultLog){
+    window.Log = new Logger();
+}
