@@ -171,7 +171,7 @@
         module.exports = Logger
     }
 })();
-//构建老数据对象
+//初始化默认实例
 if(Logger.defaults.isInitDefaultLog){
     window.Log = new Logger();
 }
