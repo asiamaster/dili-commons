@@ -30,7 +30,19 @@
             <% } %>
             dataType: "json",
             success: function (result) {
-                $.each(result, function (index,dataItem) {
+                let data;
+                if(result instanceof Array){
+                    data = result;
+                }else if (typeof (result) == 'object') {
+                    if(result.success){
+                        data = result.data;
+                    }else{
+                        bs4pop.alert(result.message, {type: 'error'});
+                        return;
+                    }
+                }
+
+                $.each(data, function (index,dataItem) {
                     $('#${_containerId}').append(template('checkboxItem', $.extend(dataItem, {
                         containerId: '${_containerId!}',
                         name: '${_name!}',

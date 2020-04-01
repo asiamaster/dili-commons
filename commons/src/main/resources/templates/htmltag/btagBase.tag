@@ -330,6 +330,7 @@
                 dataType: 'json',
                 width: 'auto',
                 paramName: 'value',
+                zIndex: '999',
                 onSearchComplete: function (query, suggestions) {
                 },
                 showNoSuggestionNotice: true,

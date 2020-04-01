@@ -34,7 +34,19 @@
             <% } %>
             dataType: "json",
             success: function (result) {
-                $.map(result, function (dataItem) {
+                let data;
+                if(result instanceof Array){
+                    data = result;
+                }else if (typeof (result) == 'object') {
+                    if(result.success){
+                        data = result.data;
+                    }else{
+                        bs4pop.alert(result.message, {type: 'error'});
+                        return;
+                    }
+                }
+
+                $.map(data, function (dataItem) {
                     $('#${_id}').append(template('optionItem', $.extend(dataItem, {
                         selected: '${_value!}' == dataItem.value,
                         value:dataItem["${_valueField!'value'}"],
@@ -57,7 +69,7 @@
                 }
                 <% } %>
 
-                option.onLoadSuccess && option.onLoadSuccess(result);
+                option.onLoadSuccess && option.onLoadSuccess(data);
             },
             error: function () {
                 console.log('数据接口异常');

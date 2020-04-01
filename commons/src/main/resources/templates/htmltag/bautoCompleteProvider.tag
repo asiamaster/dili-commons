@@ -40,8 +40,20 @@
             },
             <% } %>
             transformResult: function (result) {
+                let data;
+                if(result instanceof Array){
+                    data = result;
+                }else if (typeof (result) == 'object') {
+                    if(result.success){
+                        data = result.data;
+                    }else{
+                        bs4pop.alert(result.message, {type: 'error'});
+                        return;
+                    }
+                }
+
                 return {
-                    suggestions: $.map(result, function (dataItem) {
+                    suggestions: $.map(data, function (dataItem) {
                         return $.extend(dataItem, {
                                 id: dataItem["${_valueField!'value'}"],
                                 value: dataItem["${_textField!'text'}"]
