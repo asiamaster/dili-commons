@@ -32,7 +32,8 @@ ${tag.body}
 <script src="/resources/bui/js/number.js"></script>
 </body>
 <script>
-    Logger && (Logger.defaults.remoteUrl = '<#config name="logger.remoteUrl"/>/api/businessLog/save')
+    let loggerContextPath = '<#config name="logger.contextPath"/>';
+    Logger && loggerContextPath && (Logger.defaults.remoteUrl = loggerContextPath + '/api/businessLog/save')
 </script>
 <#btagBase/>
 </html>

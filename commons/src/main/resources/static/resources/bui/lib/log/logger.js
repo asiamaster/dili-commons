@@ -6,13 +6,6 @@
  ***/
 
 (function () {
-    $(function () {
-        //构建老数据对象
-        if(Logger.defaults.isInitDefaultLog){
-            window.Log = new Logger();
-        }
-    });
-
     window.Logger = Logger;
     function Logger(option) {
         this.oldFields = {};
@@ -60,7 +53,7 @@
         operatorLog(logObj) {
             $.ajax({
                 type: "POST",
-                url: this.url,
+                url: this.remoteUrl,
                 data: JSON.stringify(logObj),
                 processData: false,
                 dataType: "json",
@@ -88,7 +81,7 @@
                     let objEl = $('#' + $(el).prop('htmlFor'));
                     if (objEl.prop('tagName') == "SELECT") {
                         let option = objEl.find("option:selected");
-                        fields[$(el).text()] = option.val() ? option.text() : '';
+                        fields[$(el).text()] = option.length > 0? option.val() ? option.text() : '' : '';
                     } else if (objEl.prop('type') == "radio") {
                         if (!fields[$(el).text()]) {
                             fields[$(el).text()] = $('[name="' + objEl.prop('name') + '"]:checked').next().text();
@@ -108,7 +101,7 @@
                     if ($(el).prop('tagName') == "SELECT") {
                         if (!fields[field]) {
                             let option = $(el).find("option:selected");
-                            fields[field] = option.val() ? option.text() : '';
+                            fields[field] = option.length > 0? option.val() ? option.text() : '' : '';
                         }
                     } else if ($(el).prop('type') == "radio") {
                         if (!fields[field]) {
@@ -137,9 +130,16 @@
         buildFields(selector) {
             let self = this;
             let $el = selector ? $(selector) : $(`${self.scope} [_log]:not([_logTable] [_log])`);
-            let fields = self.buildFields2El($el);
-            let $table = $('[_logTable]');
-
+            let fields = $.extend({},self.buildFields2El($el),self.buildTableFields($('[_logTable]')));
+            return fields;
+        },
+        /**
+         * 构建table fields
+         * @param $table
+         */
+        buildTableFields($table) {
+            let self = this;
+            let fields = {};
             $table.each(function (i, el) {
                 let itemArr = [];
                 $(el).find('tbody tr').each(function () {
@@ -171,3 +171,7 @@
         module.exports = Logger
     }
 })();
+//初始化默认实例
+if(Logger.defaults.isInitDefaultLog){
+    window.Log = new Logger();
+}

@@ -27,7 +27,6 @@
          */
         bui.util.initAutoComplete($.extend(true,{
             selector: '#${_displayDomainId!}',
-            width : 200,
             <% if( isNotEmpty(_provider) ) {%>
             type: 'post',
             serviceUrl: '/provider/getLookupList.action',

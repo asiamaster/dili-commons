@@ -4,6 +4,15 @@
 <script>
 <% }%>
     $(function () {
+        //_logTable 动态标签元素计数器
+        let $table = $('#${_id}').parents('[_logTable]');
+        if(typeof(${_logVariable!'Log'}) !== 'undefined' && $table.length > 0){
+            if(typeof(${_logVariable!'Log'}.tableItemTagCount) == 'undefined'){
+                ${_logVariable!'Log'}.tableItemTagCount = 0;
+            }
+            ++${_logVariable!'Log'}.tableItemTagCount;
+        }
+
         let option = $.extend(
             {${_option!}},
             <% if( isNotEmpty(_onLoadSuccess) ) {%>
@@ -34,9 +43,17 @@
                 });
 
                 <% if( isNotEmpty(_log)) {%>
-                $('#${_id}').attr('_log','${_log}');
                 if(typeof(${_logVariable!'Log'}) !== 'undefined'){
-                    $.extend(${_logVariable!'Log'}.oldFields,Log.buildFields('#${_id}'));
+                    if($table.length > 0){//待所有logTable元素加载完执行日志搜集
+                        if(--${_logVariable!'Log'}.tableItemTagCount == 0){
+                            $.extend(${_logVariable!'Log'}.oldFields, ${_logVariable!'Log'}.buildTableFields($table));
+                        }
+                    }else{
+                        $('#${_id}').attr('_log','${_log}');
+                        if(typeof(${_logVariable!'Log'}) !== 'undefined'){
+                            $.extend(${_logVariable!'Log'}.oldFields,Log.buildFields('#${_id}'));
+                        }
+                    }
                 }
                 <% } %>
 

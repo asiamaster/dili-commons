@@ -54,7 +54,7 @@ let bs4pop = {};
 		//创建 header
 		if(opts.closeBtn || opts.title){
 
-			let $header = $('<div class="modal-header"></div>');
+			let $header = $('<div class="modal-header" style="cursor: all-scroll;"></div>');
 
 			if(opts.title){
 				$header.append(`<h5 class="modal-title"> ${opts.title} </h5>`);
@@ -257,7 +257,7 @@ let bs4pop = {};
 					opts.onDraging();
 				}
 
-				opts.el.css({
+				opts.el.offset({
 					left: startData.targetPageX + moveData.moveX,
 					top: startData.targetPageY + moveData.moveY,
 				});

@@ -92,18 +92,27 @@
                     <th style="font-weight:normal;" >摊位编号<i class="red">*</i></th>
                     <th style="font-weight:normal;">数量<i class="red">*</i></th>
                     <th style="font-weight:normal;">单位<i class="red">*</i></th>
+                    <th style="font-weight:normal;">证件类型<i class="red">*</i></th>
                 </tr>
                 </thead>
                 <tbody>
                 <tr>
-                    <td><!--<label for="t1" _log>摊位编号</label>--><input class="form-control" type="text" id="t1" name="boothNo" value="0"/></td>
+                    <td><!--<label for="t1" _log>摊位编号</label>--><input class="form-control" type="text" id="t1" name="boothNo" _log="摊位编号" value="0"/></td>
                     <td><input class="form-control" type="text" name="number" _log="数量" value="0"/></td>
                     <td><input class="form-control" type="text" name="unitPrice" _log="单位" value="0"/></td>
+                    <td>
+                        <select id="certificateType1" name="certificateType" class="form-control w-200px"></select>
+                        <#bcomboProvider _logVariable="Log" _log="证件类型" _id="certificateType1" _provider="certificateTypeProvider" _value="1" _onLoadSuccess=""/>
+                    </td>
                 </tr>
                 <tr>
                     <td><input class="form-control" type="text" name="boothNo" _log="摊位编号" value="10"/></td>
                     <td><input class="form-control" type="text" name="number" _log="数量" value="10"/></td>
                     <td><input class="form-control" type="text" name="unitPrice" _log="单位" value="0"/></td>
+                    <td>
+                        <select id="certificateType2" name="certificateType" class="form-control w-200px"></select>
+                        <#bcomboProvider _logVariable="Log" _log="证件类型" _id="certificateType2" _provider="certificateTypeProvider" _value="1" _onLoadSuccess=""/>
+                    </td>
                 </tr>
                 </tbody>
             </table>
