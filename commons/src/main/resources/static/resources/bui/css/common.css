@@ -11,6 +11,7 @@ html {
 .breadcrumb {
     font-weight: 700;
     background-color: #F0F3F6;
+    margin-bottom: 0.5rem;
 }
 .form-control:disabled, .form-control[readonly] {
     background-color: #F6F7F9;
@@ -38,6 +39,16 @@ html {
     bottom: 10px;
 }
 
+/*bs*/
+.form-group {
+    margin-bottom: .4rem;
+}
+.form-control {
+    padding: .2rem .4rem;
+}
+label {
+    margin-bottom: .2rem;
+}
 
 /****************************suggestions style begin****************************************/
 .autocomplete-suggestions {
@@ -50,7 +61,6 @@ html {
     line-height: 24px;
     text-indent: 10px;
     cursor: pointer;
-    z-index: 999!important;
 }
 .autocomplete-suggestion:hover {
     background-color: #118bde;
