@@ -49,7 +49,8 @@ html {
     background-color: #fff;
     line-height: 24px;
     text-indent: 10px;
-    cursor: pointer
+    cursor: pointer;
+    z-index: 999!important;
 }
 .autocomplete-suggestion:hover {
     background-color: #118bde;
