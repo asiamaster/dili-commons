@@ -1,4 +1,4 @@
-<input type="text" class="form-control ${_displayDomainClass!} ${_validatorMethod!} ${_validatorMethod!}" id="${_displayDomainId!}" name="${_displayDomainName!}" value="${_text!}" placeholder="${_placeholder!}"
+<input type="text" class="${_displayDomainClass!'form-control'} ${_validatorMethod!} ${_validatorMethod!}" id="${_displayDomainId!}" name="${_displayDomainName!}" value="${_text!}" placeholder="${_placeholder!}"
    <% if( isNotEmpty(_log)) {%>
        _log=${_log}
     <% } %>
