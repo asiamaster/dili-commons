@@ -1,4 +1,4 @@
-<input type="text" class="form-control ${_validatorMethod!}" id="${_displayDomainId!}" name="${_displayDomainName!}" value="${_text!}" placeholder="${_placeholder!}"
+<input type="text" class="form-control ${_displayDomainClass!} ${_validatorMethod!} ${_validatorMethod!}" id="${_displayDomainId!}" name="${_displayDomainName!}" value="${_text!}" placeholder="${_placeholder!}"
    <% if( isNotEmpty(_log)) {%>
        _log=${_log}
     <% } %>
@@ -9,7 +9,7 @@
        readonly
     <% } %>
 />
-<input type="hidden" name="${_hiddenDomainName!}" id="${_hiddenDomainId!}"  value="${_value!}" text="${_text!}"/>
+<input type="hidden" name="${_hiddenDomainName!}" class="${_hiddenDomainClass!}" id="${_hiddenDomainId!}"  value="${_value!}" text="${_text!}"/>
 <% if(isNotEmpty(_escape) && _escape == "true") {%>
 &lt;script&gt;
 <% }else {%>
