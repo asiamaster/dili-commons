@@ -398,7 +398,7 @@ let bs4pop = {};
 		opts = $.extend( true, {
 
 			type: 'primary', //primary, secondary, success, danger, warning, info, light, dark
-			position: 'topcenter', //topleft, topcenter, topright, bottomleft, bottomcenter, bottonright, center,
+			position: 'topcenter', //topleft, topcenter, topright, bottomleft, bottomcenter, bottonright, center, leftcenter, rightcenter
 			appendType: 'append', //append, prepend
 			closeBtn: true,
 			autoClose: 2000,
