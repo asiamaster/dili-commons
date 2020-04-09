@@ -18,7 +18,6 @@ ${tag.body}
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
 <script src="/resources/bui/lib/bootstrap-4.4.1-dist/js/bootstrap.bundle.min.js"></script>
-<script src="/resources/bui/lib/bootstrap-4.4.1-dist/js/bootstrap.min.js"></script>
 <script src="/resources/bui/lib/bootstrap4pop/js/bs4.pop.js"></script>
 <script src="/resources/bui/lib/bootstrap-table/dist/bootstrap-table.min.js"></script>
 <script src="/resources/bui/lib/bootstrap-table/dist/locale/bootstrap-table-zh-CN.min.js"></script>
