@@ -33,7 +33,9 @@ ${tag.body}
 </body>
 <script>
     let loggerContextPath = '<#config name="logger.contextPath"/>';
-    Logger && loggerContextPath && (Logger.defaults.remoteUrl = loggerContextPath + '/api/businessLog/save')
+    Logger && loggerContextPath && (Logger.defaults.remoteUrl = loggerContextPath + '/api/businessLog/save');
+    $(function () { $(document).on("change", "input[type=text]:not(:disabled), textarea:not(:disabled)", function () { $(this).val($.trim($(this).val())) }) })
+
 </script>
 <#btagBase/>
 </html>
