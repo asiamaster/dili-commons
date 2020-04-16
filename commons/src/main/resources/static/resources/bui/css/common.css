@@ -87,6 +87,7 @@ table > tbody > tr > td {
 }
 /****************************loading style begin****************************************/
 .cover{
+    display: none;
     position:fixed;
     z-index:99999;
     left:0;
@@ -115,12 +116,15 @@ table > tbody > tr > td {
     width:50px;
     height:40px;
     text-align:center;
+    font-size: 0;
 }
 .loading-animation span{
     width:5px;
     height:100%;
     display:inline-block;
     background:#007bff;
+    margin-left: 2px;
+    margin-right: 2px;
     animation: mymove 1.2s infinite ease-in-out;
     -webkit-animation:mymove 1.2s infinite ease-in-out;
     /*
@@ -129,6 +133,7 @@ table > tbody > tr > td {
        infinite表示一直循环执行
        ease-in-out表示先慢后快的缓动
    */
+
 }
 .loading-animation >span:nth-child(2){
     -webkit-animation-delay:-1.0s;
