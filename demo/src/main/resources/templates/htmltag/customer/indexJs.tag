@@ -79,7 +79,6 @@
                     data: {id: selectedRow.id, enable: enable},
                     processData:true,
                     dataType: "json",
-                    async : true,
                     success : function(data) {
                         bui.loading.hide();
                         if(data.success){
@@ -122,7 +121,6 @@
             data: _formData,
             processData: true,
             dataType: "json",
-            async: true,
             success: function (data) {
                 bui.loading.hide();
                 if (data.code == "200") {
