@@ -18,7 +18,6 @@ ${tag.body}
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
 <script src="/resources/bui/lib/bootstrap-4.4.1-dist/js/bootstrap.bundle.min.js"></script>
-<script src="/resources/bui/lib/bootstrap-4.4.1-dist/js/bootstrap.min.js"></script>
 <script src="/resources/bui/lib/bootstrap4pop/js/bs4.pop.js"></script>
 <script src="/resources/bui/lib/bootstrap-table/dist/bootstrap-table.min.js"></script>
 <script src="/resources/bui/lib/bootstrap-table/dist/locale/bootstrap-table-zh-CN.min.js"></script>
@@ -34,7 +33,9 @@ ${tag.body}
 </body>
 <script>
     let loggerContextPath = '<#config name="logger.contextPath"/>';
-    Logger && loggerContextPath && (Logger.defaults.remoteUrl = loggerContextPath + '/api/businessLog/save')
+    Logger && loggerContextPath && (Logger.defaults.remoteUrl = loggerContextPath + '/api/businessLog/save');
+    $(function () { $(document).on("change", "input[type=text]:not(:disabled), textarea:not(:disabled)", function () { $(this).val($.trim($(this).val())) }) })
+
 </script>
 <#btagBase/>
 </html>
