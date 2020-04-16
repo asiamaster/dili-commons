@@ -133,8 +133,7 @@
             //通过token判断导出是否完成
             function checkFinished() {
                 if (isFinished(token)) {
-                    setTimeout(bui.loading.hide, 1);
-                    window.clearTimeout(timeoutId);
+                    bui.loading.hide();
                 }
             }
 
@@ -214,7 +213,7 @@
                 $('#token').val(param.token);
                 // 显示进度条
                 bui.loading.show('数据导出中，请稍候。。。');
-                timeoutId = window.setTimeout(checkFinished, 1);
+                setTimeout(checkFinished, 0);
                 $('#_exportForm').submit();
             }
 
@@ -463,6 +462,35 @@
             return s;
         }
 
+        /*
+        * fn [function] 需要防抖的函数
+        * wait [number] 毫秒，防抖期限值
+        */
+        const debounce = (fn, wait, immediate = false) => {
+            let timer;
+
+            return function() {
+                if(timer) clearTimeout(timer);
+                if(immediate) {
+                    let trigger = !timer;
+                    timer = setTimeout(() => {
+                        timer = null;
+                    }, wait);
+
+                    if(trigger) {
+                        console.log(1)
+                        fn.apply(this, arguments);
+                    }
+                    return;
+                }
+
+                timer = setTimeout(() => {
+                    fn.apply(this, arguments);
+                }, wait);
+                return;
+            }
+        };
+
 
         return {
             variable: {
@@ -478,9 +506,9 @@
                 //table-export科学计算法处理
                 doOnMsoNumberFormat,
                 //列表页导出
-                doExport: bexport.doExport,
+                doExport: debounce(bexport.doExport,1000,true),
                 //URL导出
-                exportByUrl: bexport.exportByUrl,
+                exportByUrl: debounce(bexport.exportByUrl,1000,true),
                 //表单回显数据，加载json数据到表单
                 loadFormData,
                 //获取table-row原始数据
@@ -492,7 +520,9 @@
                 //为表单number类型进行元转分
                 yuanToCentForMoneyEl,
                 //反转义HTML
-                HTMLDecode
+                HTMLDecode,
+                //防抖
+                debounce
             },
             //遮罩层
             loading
