@@ -324,11 +324,11 @@
             $(option.selector).autocomplete($.extend(true, {
                 type: 'get',
                 noCache: 1,
+                deferRequestBy: 300,
                 autoFill: true,
                 dataType: 'json',
                 width: 'auto',
                 paramName: 'value',
-                zIndex: '999',
                 onSearchComplete: function (query, suggestions) {
                 },
                 showNoSuggestionNotice: true,
