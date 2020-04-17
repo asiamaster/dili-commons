@@ -92,6 +92,7 @@
             function initLoading() {
                 $("body").append(`
                     <div id="loading" class="loading" style="display: none;">
+                          <div class="cover"></div>
                           <aside class="loading-wrapper">
                             <div>
                               <div class="loading-animation">
