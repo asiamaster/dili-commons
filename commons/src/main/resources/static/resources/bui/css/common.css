@@ -68,10 +68,15 @@ label {
 }
 /****************************suggestions style end****************************************/
 
+/*树菜单图标*/
+.treegrid-expander {
+    display: inline-block;
+    padding-right: 20px;
+    color: #007bff;
+}
+
 
 table > tbody > tr > td {
-    padding: 0px !important;
-    padding-bottom: 0px !important;
     height: 40px;
     word-break: keep-all; /* 不换行 */
     white-space: nowrap; /* 不换行 */
@@ -83,8 +88,6 @@ table > tbody > tr > td {
 #grid .detail-icon {
     display: inline-block;
     width: 100%;
-    padding-left: 10px;
-    padding-right: 10px;
     text-align: center;
 }
 /****************************loading style begin****************************************/
