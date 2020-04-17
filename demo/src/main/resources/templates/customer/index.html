@@ -200,6 +200,7 @@
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">关闭</button>
                     <button type="button" class="btn btn-primary" onclick="saveOrUpdateHandler()">提交</button>
+                    <button type="button" class="btn btn-primary" onclick="bui.util.debounce(saveOrUpdateHandler,1000,true)()">提交</button>
                 </div>
             </div>
         </div>
