@@ -81,8 +81,10 @@ table > tbody > tr > td {
 }
 /*列表页table中列图标*/
 #grid .detail-icon {
-    width: 100%;
     display: inline-block;
+    width: 100%;
+    padding-left: 10px;
+    padding-right: 10px;
     text-align: center;
 }
 /****************************loading style begin****************************************/
