@@ -24,7 +24,7 @@
     }
 
     /**
-     *
+     * ajax封装
      * @param option
      * @returns {undefined}
      */
