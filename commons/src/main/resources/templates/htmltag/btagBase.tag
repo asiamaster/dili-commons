@@ -213,10 +213,15 @@
                 $('#token').val(param.token);
                 // 显示进度条
                 bui.loading.show('数据导出中，请稍候。。。');
-                setTimeout(checkFinished, 0);
-                setTimeout(function () {
-                    $('#_exportForm').submit();
-                }, 0);
+                let worker = new Worker('/resources/bui/js/worker.js');
+                worker.onmessage = function(event) {
+                    bui.loading.hide();
+                };
+                worker.onerror = function(error) {
+                    bui.loading.hide();
+                };
+                worker.postMessage({token});
+                $('#_exportForm').submit();
             }
 
             return {doExport, exportByUrl};
