@@ -214,7 +214,9 @@
                 // 显示进度条
                 bui.loading.show('数据导出中，请稍候。。。');
                 setTimeout(checkFinished, 0);
-                $('#_exportForm').submit();
+                setTimeout(function () {
+                    $('#_exportForm').submit();
+                }, 0);
             }
 
             return {doExport, exportByUrl};
