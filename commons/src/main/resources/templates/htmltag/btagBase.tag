@@ -478,7 +478,6 @@
                     }, wait);
 
                     if(trigger) {
-                        console.log(1)
                         fn.apply(this, arguments);
                     }
                     return;
