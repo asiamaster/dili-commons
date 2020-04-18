@@ -131,24 +131,15 @@
             };
 
             //通过token判断导出是否完成
-            function checkFinished() {
-                if (isFinished(token)) {
-                    bui.loading.hide();
-                }
-            }
-
-            //判断导出是否完成
-            function isFinished(token) {
-                var flag = false;
+            function checkFinished(token) {
                 $.ajax({
                     type: "POST",
                     url: "${contextPath}/export/isFinished.action?token=" + token,
                     processData: true,
                     dataType: "json",
-                    async: false,
                     success: function (data) {
                         if (data == true || data == "true") {
-                            flag = true;
+                            bui.loading.hide();
                         }
                     },
                     error: function (XMLHttpRequest, textStatus, errorThrown) {
@@ -156,7 +147,6 @@
                         flag = true;
                     }
                 });
-                return flag;
             }
 
             //导出excel
@@ -213,14 +203,7 @@
                 $('#token').val(param.token);
                 // 显示进度条
                 bui.loading.show('数据导出中，请稍候。。。');
-                let worker = new Worker('/resources/bui/js/worker.js');
-                worker.onmessage = function(event) {
-                    bui.loading.hide();
-                };
-                worker.onerror = function(error) {
-                    bui.loading.hide();
-                };
-                worker.postMessage({token});
+                checkFinished(token);
                 $('#_exportForm').submit();
             }
 
