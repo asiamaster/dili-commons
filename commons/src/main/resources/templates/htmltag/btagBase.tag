@@ -118,8 +118,6 @@
         let bexport = (function () {
             //当前导出令牌标识
             var token;
-            //循环定时执行ID
-            var timeoutId;
 
             function S4() {
                 return (((1 + Math.random()) * 0x10000) | 0).toString(16).substring(1);
@@ -144,7 +142,6 @@
                     },
                     error: function (XMLHttpRequest, textStatus, errorThrown) {
                         bs4pop.alert('远程访问失败:' + XMLHttpRequest.status + XMLHttpRequest.statusText + "," + textStatus, {type: 'error'});
-                        flag = true;
                     }
                 });
             }
