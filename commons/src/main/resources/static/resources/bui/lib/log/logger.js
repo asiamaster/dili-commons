@@ -9,6 +9,9 @@
     window.Logger = Logger;
     function Logger(option) {
         this.oldFields = {};
+        if(loggerContextPath){
+            Logger.defaults.remoteUrl = loggerContextPath + '/api/businessLog/save';
+        }
         $.extend(this, Logger.defaults, option);
         this.init();
     }
