@@ -52,7 +52,8 @@
             laydate.render({
                 elem: self,//或 elem: document.getElementById('test')、elem: lay('#test') 等
                 type: 'datetime',
-                theme: '#007bff'
+                theme: '#007bff',
+                trigger:'click'
             });
         });
     });
