@@ -12,6 +12,11 @@
     <link rel="stylesheet" href="/resources/bui/css/common.css">
     <script src="/resources/bui/lib/jquery/jquery-3.2.1.min.js"></script>
     <title>bui</title>
+    <script>
+        let loggerContextPath = '<#config name="logger.contextPath"/>';
+        Logger && loggerContextPath && (Logger.defaults.remoteUrl = loggerContextPath + '/api/businessLog/save');
+        $(function () { $(document).on("change", "input[type=text]:not(:disabled), textarea:not(:disabled)", function () { $(this).val($.trim($(this).val())) }) })
+    </script>
 </head>
 <body>
 ${tag.body}
@@ -31,11 +36,5 @@ ${tag.body}
 <script src="/resources/bui/js/number.js"></script>
 <script src="/resources/bui/js/common.js"></script>
 </body>
-<script>
-    let loggerContextPath = '<#config name="logger.contextPath"/>';
-    Logger && loggerContextPath && (Logger.defaults.remoteUrl = loggerContextPath + '/api/businessLog/save');
-    $(function () { $(document).on("change", "input[type=text]:not(:disabled), textarea:not(:disabled)", function () { $(this).val($.trim($(this).val())) }) })
-
-</script>
 <#btagBase/>
 </html>
