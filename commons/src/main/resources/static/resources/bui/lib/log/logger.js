@@ -11,6 +11,7 @@
         this.oldFields = {};
         if(loggerContextPath){
             Logger.defaults.remoteUrl = loggerContextPath + '/api/businessLog/save';
+            loggerContextPath = false;
         }
         $.extend(this, Logger.defaults, option);
         this.init();
