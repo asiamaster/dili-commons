@@ -46,7 +46,7 @@
                     $('#${_containerId}').append(template('checkboxItem', $.extend(dataItem, {
                         containerId: '${_containerId!}',
                         name: '${_name!}',
-                        checked: values.includes(Number(dataItem.value)),
+                        checked: values.includes(dataItem.value),
                         required:${_required!false},
                         value:dataItem["${_valueField!'value'}"],
                         text:dataItem["${_textField!'text'}"],

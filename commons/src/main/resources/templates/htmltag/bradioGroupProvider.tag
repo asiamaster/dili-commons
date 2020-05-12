@@ -45,7 +45,7 @@
                     $('#${_containerId}').append(template('radioItem', $.extend(dataItem, {
                         containerId: '${_containerId!}',
                         name: '${_name!}',
-                        checked: '${_value!}' == dataItem.value,
+                        checked: '${_value!}' == dataItem.value + '',
                         required:${_required!false},
                         value:dataItem["${_valueField!'value'}"],
                         text:dataItem["${_textField!'text'}"],
