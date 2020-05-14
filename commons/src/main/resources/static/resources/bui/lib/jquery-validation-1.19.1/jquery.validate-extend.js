@@ -136,3 +136,11 @@ jQuery.validator.addMethod("minDate", function (value, element,param) {
 jQuery.validator.addMethod("maxDate", function (value, element,param) {
     return this.optional(element) || moment(value,"YYYY-MM-DD",true).isValid()? !moment(value).isAfter(param) : true;
 }, "不大于{0}");
+jQuery.validator.addMethod("isJSON", function(c, a) {
+    try {
+        this.optional(a) || JSON.parse(c);
+    } catch (e) {
+        return false;
+    }
+    return true;
+}, "JSON格式错误");
