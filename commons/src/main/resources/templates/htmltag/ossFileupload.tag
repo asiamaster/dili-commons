@@ -20,8 +20,8 @@ bigImgId  bigImg    用于打开大图的弹出框的div id
     <div class="fileimg-cover" style="display: none;"></div>
     <!-- 查看按钮 -->
     <div class="fileimg-edit" style="display: none;">
-        <span onclick="_showOssBigImg($('#icon').attr('src'),'${bigImgId!"bigImg"}');">查看</span>
-        <span onclick="delImg(this);">删除</span>
+        <span onclick="showOssBigImg($('#icon').attr('src'),'${bigImgId!"bigImg"}');">查看</span>
+        <span onclick="delOssImg(this);">删除</span>
     </div>
 </div>
 <!-- 用于打开大图的弹出框 -->

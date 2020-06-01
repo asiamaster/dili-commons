@@ -38,7 +38,7 @@
      * @param url 图片路径
      * @param viewTagId 用于承载显示图片信息的控件(推荐用DIV)ID，不需要#号
      */
-    function _showOssBigImg(url,viewTagId) {
+    function showOssBigImg(url,viewTagId) {
         if (!url || !viewTagId) {
             return;
         }
