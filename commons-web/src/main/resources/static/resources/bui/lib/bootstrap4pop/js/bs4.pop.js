@@ -142,10 +142,10 @@ let bs4pop = {};
 		$el.on('shown.bs.modal', evt => {
 			//按钮是否自动获取焦点
 			if(opts.btnAutoFocus){
-				$('.modal-footer button').get(0).focus();
+				$('.modal-footer button').length > 0 && $('.modal-footer button').get(0).focus();
 			}
 			//元素焦点自动获取
-			$('.modal-body [autofocus]').get(0).focus();
+			$('.modal-body [autofocus]').length > 0 && $('.modal-body [autofocus]').get(0).focus();
 			opts.onShowEnd(evt,$iframe);
 		});
 		$el.on('hide.bs.modal', evt => {
