@@ -1,0 +1,98 @@
+<#bs4Body>
+<style type="text/css">
+    body {
+        font-size: 16px;
+    }
+
+    #contenter {
+        margin-left: 40%;
+        margin-right: 45%;
+        margin-top: 1%;
+    }
+
+    #contenter form div {
+        margin-bottom: 10px;
+    }
+
+</style>
+<div id="contenter">
+    <form>
+        <div>
+            <label for="realName">姓名：</label>
+            <input type="text" id="realName" name="realName"/>
+        </div>
+        <div>
+            <label for="userName">昵称：</label>
+            <input type="text" id="userName" name="userName" readonly="true"/>
+        </div>
+        <div>
+            <label for="userName1">昵称：</label>
+            <input type="text" id="userName1" name="userName1" disabled="true" />
+        </div>
+        <div>
+            <div contenteditable="true" style="border: thin black solid;">
+
+            </div>
+        </div>
+        <div>
+            <label for="photo">头像：</label>
+            <input type="file" id="photo" name="photo"/>
+        </div>
+        <div>
+            <label for="userName">性别：</label>
+            <input type="radio" name="sex" />男
+            <input type="radio" name="sex" />女
+        </div>
+        <div>
+            <label for="grade">成绩：</label>
+            <input type="number" name="grade" id="grade" max="100"/>
+        </div>
+        <div>
+            <button type="button" hotkey="i" onclick="add()" preventDefault>新增(i)</button>
+            <button type="button" hotkey="D" preventDefault>取消(D)</button>
+            <button type="button" hotkey="s">保存(S)</button>
+            <input type="button" value="测试 input button(a)" hotkey="a"/>
+        </div>
+
+    </form>
+</div>
+
+</#bs4Body>
+<script src="/hotkeys.js"></script>
+<script src="/hk.js"></script>
+<script>
+    hk.start();
+    console.log('init..')
+
+    function add() {
+        bs4pop.dialog({
+            title: '新增',
+            content: template('hkTpl',{}),
+            closeBtn: true,
+            autoFocus: true,
+            btnAutoFocus:true,
+            backdrop : 'static',
+            width: '40%',
+            btns: [
+                {
+                    label: '确定', className: 'btn-primary', onClick(e) {
+                        console.log('sure')
+                    }
+                },
+                {label: '取消', className: 'btn-secondary', onClick(e) {
+                    }}
+            ]
+        });
+    }
+
+</script>
+<script id="hkTpl" type="text/html">
+    <div>
+        <label for="boss">老板：</label>
+        <input type="text" id="boss" autofocus/>
+    </div>
+    <div>
+        <label for="enterprise">企业：</label>
+        <input type="text" id="enterprise"/>
+    </div>
+</script>
