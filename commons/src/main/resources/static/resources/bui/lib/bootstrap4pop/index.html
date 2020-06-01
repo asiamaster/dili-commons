@@ -73,12 +73,13 @@
 				content: '我是对话框内容',
 				// isIframe : false,
 				closeBtn: true,
+				btnAutoFocus:true,
 				// backdrop: 'static',
 				// width : '80%',
 				// height : '500px',
 				btns: [
 					{label: '确定',	className: 'btn-primary', onClick(e,$iframe){}},
-					{label: '取消',	className: 'btn-default', onClick(e,$iframe){}}
+					{label: '取消',	className: 'btn-secondary', onClick(e,$iframe){}}
 				],
 				onShowStart: function(){
 					// console.log('onShowStart');

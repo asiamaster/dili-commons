@@ -19,6 +19,7 @@ let bs4pop = {};
 			hideRemove: true,//关闭时移除dom
 			escape: true, //Esc 退出
 			autoFocus: true,//初始化时自动获得焦点
+			btnAutoFocus: false,//按钮自动获取焦点
 			show: true,//是否在一开始时就显示对话框
 			backdrop: true,//模态背景 true: 显示模态，false: 没有模态，'static': 显示模态，单击模态不关闭对话框
 			btns: [], //footer按钮 [{label: 'Button',	className: 'btn-primary',onClick(e){}}]
@@ -139,6 +140,12 @@ let bs4pop = {};
 			opts.onShowStart(evt,$iframe);
 		});
 		$el.on('shown.bs.modal', evt => {
+			//按钮是否自动获取焦点
+			if(opts.btnAutoFocus){
+				$('.modal-footer button').get(0).focus();
+			}
+			//元素焦点自动获取
+			$('.modal-body [autofocus]').get(0).focus();
 			opts.onShowEnd(evt,$iframe);
 		});
 		$el.on('hide.bs.modal', evt => {
@@ -301,6 +308,7 @@ let bs4pop = {};
 			title: '提示',
 			content: content,
 			hideRemove: true,
+			btnAutoFocus: true,
 			width: 500,
 			btns: [
 				{
@@ -325,6 +333,7 @@ let bs4pop = {};
 			title: '确认框',
 			content: content,
 			hideRemove: true,
+			btnAutoFocus: true,
 			btns: [
 				{
 					label: '确定',
