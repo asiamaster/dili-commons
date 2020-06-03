@@ -1,0 +1,69 @@
+<#bs4Body>
+    <div class="container-fluid">
+        <input type="hidden" id="_sourceChannel" value="<#config name='ia.source.channel.earnest_order'/>">
+        <form id="_form" method="post" action="">
+            <input name="_id" id="_id" type="hidden">
+            <div class="row row-cols-4 collapse show" id="customerInfo">
+                <div class="form-group col">
+                    <label for="_code">客户编号</label>
+                    <input type="text" class="form-control" id="_code" name="_code" placeholder="如：001" required/>
+                </div>
+                <div class="form-group col">
+                    <label for="_name">客户名称</label>
+                    <input type="text" class="form-control" id="_name" name="_name" placeholder="如：张三" required/>
+                </div>
+                <div class="form-group col">
+                    <label for="_cellphone">手机号</label>
+                    <input type="text" class="form-control" id="_cellphone" name="_cellphone" placeholder="如：13888888888" required/>
+                </div>
+
+                <div class="form-group col">
+                    <label for="_certificateNumber">证件号</label>
+                    <input type="text" class="form-control" id="_certificateNumber" name="_certificateNumber" placeholder="如：511602198902244293" required/>
+                </div>
+                <div class="form-group col">
+                    <label for="_birthdate">出生日期</label>
+                    <input type="text" id="endTime" name="_birthdate" id="_birthdate" class="form-control laydate layend">
+                </div>
+                <div class="form-group col">
+                    <label for="_certificateAddrDisplay">证件地址</label>
+                    <#bautoCompleteProvider _escape="true" _hiddenDomainId="_certificateAddr" _hiddenDomainName="_certificateAddr" _displayDomainId="_certificateAddrDisplay" _placeholder="" _provider="cityProvider" _validatorMethod="isSelected" _value="" _text="" _option=""/>
+                </div>
+                <div class="form-group col">
+                    <label for="_state">状态</label>
+                    <div id="_state">
+                        <!--<div class="custom-control custom-radio custom-control-inline">
+                            <input type="radio" id="customRadioInline1" value="1" name="customRadioInline1" class="custom-control-input" required>
+                            <label class="custom-control-label" for="customRadioInline1">水果</label>
+                        </div>
+                        <div class="custom-control custom-radio custom-control-inline">
+                            <input type="radio" id="customRadioInline2" value="2" name="customRadioInline1" class="custom-control-input">
+                            <label class="custom-control-label" for="customRadioInline2">蔬菜</label>
+                        </div>
+                        <div class="custom-control custom-radio custom-control-inline">
+                            <input type="radio" id="customRadioInline3" value="3" name="customRadioInline1" class="custom-control-input">
+                            <label class="custom-control-label" for="customRadioInline3">海鲜</label>
+                        </div>-->
+                        <#bradioGroupProvider _escape="true" _containerId="_state" _name="_state" _provider="enabledStateProvider" _required="true"/>
+                    </div>
+                </div>
+                <div class="form-group col">
+                    <label for="_sex">性别</label>
+                    <div id="_sex">
+                        <#bradioGroupProvider _escape="true" _containerId="_sex" _name="_sex" _provider="sexProvider" _required="true"/>
+                    </div>
+                </div>
+                <div class="form-group col">
+                    <label for="_certificateType">证件类型</label>
+                    <div id="_certificateType">
+                        <#bradioGroupProvider _escape="true" _containerId="_certificateType" _name="_certificateType" _provider="certificateTypeProvider" _required="true"/>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+
+</#bs4Body>
+
+<#js_customerAutocompleteJs/>
+<#customer_addJs />
