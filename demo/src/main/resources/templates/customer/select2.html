@@ -1,37 +1,105 @@
 <#bs4Body>
-<div class="container-fluid">
-<form class="form" id="_form">
-    <div class="form-group mb-2 mr-5">
-        <label for="code" class="justify-content-end mr-2 w-100px">客户编号:</label>
-        <input type="text" class="form-control" name="code" id="code" required/>
+<style>
+    .select2-selection.form-control {
+        height: calc(1.5em + .75rem + 2px);
+        border-color: #DBDDE1;
+    }
+    .select2-selection.form-control.is-invalid {
+        border-color: #dc3545;
+    }
+</style>
+    <div class="container-fluid">
+
+        <form id="_form" method="post" action="">
+            <input name="_id" id="_id" type="hidden">
+            <div class="row row-cols-4 collapse show" id="customerInfo">
+                <div class="form-group col">
+                    <label for="_code">客户编号</label>
+                    <input type="text" class="form-control" id="_code" name="_code" placeholder="如：001" required />
+                </div>
+                <div class="form-group col">
+                    <label for="_name">客户名称</label>
+                    <input type="text" class="form-control" id="_name" name="_name" placeholder="如：张三" required />
+                </div>
+                <div class="form-group col">
+                    <label for="_cellphone">手机号</label>
+                    <input type="text" class="form-control" id="_cellphone" name="_cellphone"
+                        placeholder="如：13888888888" required />
+                </div>
+
+                <div class="form-group col">
+                    <label for="_certificateNumber">证件号</label>
+                    <input type="text" class="form-control" id="_certificateNumber" name="_certificateNumber"
+                        placeholder="如：511602198902244293" required />
+                </div>
+                <div class="form-group col">
+                    <label for="_birthdate">出生日期</label>
+                    <input type="text" id="endTime" name="_birthdate" id="_birthdate"
+                        class="form-control laydate layend">
+                </div>
+
+            </div>
+            <div class="row row-cols-2 collapse show" id="">
+                <div class="form-group col">
+                    <label for="s2">区域</label>
+                    <div class="row row-cols-4">
+                        <div class="">
+                            <select id="s2" name="sw" required>
+                            </select>
+                        </div>
+                        <div class="">
+                            <select id="s3" name="s3" required>
+                            </select>
+                        </div>
+                        <div class="">
+                            <select name="other" class="form-control" id="" required>
+                                <option value=""></option>
+                                <option value="1">1</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row row-cols-1 collapse show" id="">
+                <div class="form-group col">
+                    <label for="s4">区域</label>
+                    <div class="">
+                        <select id="s4" name="s44" required>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <button type="button" class="btn btn-primary"
+                onclick="bui.util.debounce(saveOrUpdateHandler,1000,true)()">提交</button>
+        </form>
+
+
+
+
     </div>
-    <div class="form-group">
-        <label for="s2">区域</label>
-        <div class="input-group">
-            <select id="s2" name="sw" class="form-control"  required>
-            </select>
-        </div>
-    </div>
-    <button type="button" class="btn btn-primary" onclick="bui.util.debounce(saveOrUpdateHandler,1000,true)()">提交</button>
-</form>
-</div>
 </#bs4Body>
 <script>
-    function saveOrUpdateHandler(){
+    function saveOrUpdateHandler() {
         if ($('#_form').validate().form() != true) {
             return;
         }
     }
 
     $('#s2,#s3').select2({
+        containerCssClass : 'form-control',
+        width: '100%',
+        // multiple: true,
+        scrollAfterSelect:true,
+        minimumResultsForSearch: 20,
         ajax: {
-            type:'post',
+            type: 'post',
             url: '/provider/getLookupList.action',
             data: function (params) {
                 var query = {
                     value: params.term,
                     // queryParams: '{required:true}',
-                    provider:'cityProvider'
+                    provider: 'cityProvider'
                 }
                 return query;
             },
@@ -46,4 +114,33 @@
             }
         }
     });
+    $('#s4').select2({
+        containerCssClass : 'form-control',
+        width: '100%',
+        multiple: true,
+        scrollAfterSelect:true,
+        minimumResultsForSearch: 20,
+        ajax: {
+            type: 'post',
+            url: '/provider/getLookupList.action',
+            data: function (params) {
+                var query = {
+                    value: params.term,
+                    // queryParams: '{required:true}',
+                    provider: 'cityProvider'
+                }
+                return query;
+            },
+            dataType: 'json',
+            processResults: function (data) {
+                return {
+                    results: $.map(data, function (obj) {
+                        obj.id = obj.value; // replace pk with your identifier
+                        return obj;
+                    })
+                };
+            }
+        }
+    });
+
 </script>

@@ -1,45 +1,20 @@
-/*base settging*/
+/**************************base settging****************************/
 
 html {
     font-size: 14px;
 }
-
 .red {
     color: #E54937;
 }
-
-.breadcrumb {
-    font-weight: 700;
-    background-color: #F0F3F6;
-    margin-bottom: 0.5rem;
-}
-.form-control:disabled, .form-control[readonly] {
-    background-color: #F6F7F9;
-}
-.form-control {
-    border-color: #DBDDE1;
-}
-
-.input-group-text {
-    background-color: #ECF3FF;
-    border-color: #D7E4FA
-}
-
-/*table*/
-.table thead th {
-    background-color: #F6F7F9;
-}
-.table-bordered td, .table-bordered th {
-    border: 1px solid #eee;
-}
-
+/*按钮固定在右下角*/
 .btn-r-b {
     position: fixed;
     right: 20px;
     bottom: 10px;
 }
 
-/*bs*/
+/***************************************bs*****************************/
+/*避免表格中含有输入框时高度太高*/
 .form-group {
     margin-bottom: .4rem;
 }
@@ -48,6 +23,27 @@ html {
 }
 label {
     margin-bottom: .2rem;
+}
+
+/*nav*/
+.breadcrumb {
+    font-weight: 700;
+    background-color: #F0F3F6;
+    margin-bottom: 0.5rem;
+}
+
+/*更改form-control border*/
+.form-control:disabled, .form-control[readonly] {
+    background-color: #F6F7F9;
+}
+.form-control {
+    border-color: #DBDDE1;
+}
+
+/*input-group背景色*/
+.input-group-text {
+    background-color: #ECF3FF;
+    border-color: #D7E4FA
 }
 
 /****************************suggestions style begin****************************************/
@@ -76,6 +72,14 @@ label {
 }
 
 
+/****************************表格******************************/
+/*table*/
+.table thead th {
+    background-color: #F6F7F9;
+}
+.table-bordered td, .table-bordered th {
+    border: 1px solid #eee;
+}
 table > tbody > tr > td {
     height: 40px;
     word-break: keep-all; /* 不换行 */
@@ -84,7 +88,7 @@ table > tbody > tr > td {
     text-overflow: ellipsis;
     max-width: 250px;
 }
-/*detail-icon pad*/
+/*bs-table 单选多选列宽度 detail-icon pad*/
 tr[data-has-detail-view] td:first-child {
     padding: 0;
 }
@@ -98,6 +102,18 @@ tr[data-has-detail-view] td:first-child .detail-icon {
     width: 100%;
     text-align: center;
 }
+
+/****************************  select2  ****************************************/
+
+.select2-selection.form-control {
+    height: calc(1.5em + .75rem + 2px);
+    border-color: #DBDDE1;
+}
+.select2-selection.form-control.is-invalid {
+    border-color: #dc3545;
+}
+
+
 /****************************loading style begin****************************************/
 .cover{
     position:fixed;

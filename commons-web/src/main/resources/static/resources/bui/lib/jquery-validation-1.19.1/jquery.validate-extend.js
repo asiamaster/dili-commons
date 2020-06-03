@@ -32,7 +32,14 @@ $.extend($.validator.messages, {
             error.appendTo(element.parent().parent());
         } else if ($(element).parent().hasClass('input-group')) {
             error.appendTo(element.parents('.input-group'));
-        } else {
+        } else if ($(element).hasClass('select2-hidden-accessible')) {
+            error.insertAfter($(element).next('.select2-container'))
+            $(element).next('.select2-container').find('.form-control').addClass('is-invalid')
+            /*let id = element.attr('id')
+            error.insertAfter($('#select2-' + id + '-container').parents('.select2-container'))
+            $('#select2-' + id + '-container').parent('.form-control').addClass('is-invalid')*/
+        }
+        else {
             error.insertAfter(element);
         }
     },
