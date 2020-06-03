@@ -1,10 +1,4 @@
 <script>
-    /**
-     *
-     * @Date 2019-11-06 17:30:00
-     * @author jiangchengyong
-     *
-     ***/
 
     /*********************变量定义区 begin*************/
     //行索引计数器
@@ -12,7 +6,7 @@
     let _grid = $('#grid');
     let _form = $('#_form');
     let _modal = $('#_modal');
-
+    var dia;
     /*********************变量定义区 end***************/
 
 
@@ -27,13 +21,39 @@
 
     /*****************************************函数区 begin************************************/
     /**
-     * 打开新增窗口
+     * 打开新增窗口:页面层
      */
     function openInsertHandler() {
-        _modal.modal('show');
-        _modal.find('.modal-title').text('货站新增');
+        dia = bs4pop.dialog({
+            title: '页面层新增',//对话框title
+            content: bui.util.HTMLDecode(template('addForm', {})), //对话框内容，可以是 string、element，$object
+            width: '80%',//宽度
+            height: '95%',//高度
+            btns: [{label: '取消',className: 'btn btn-secondary px-5',onClick(e){
 
+                }
+            }, {label: '确定',className: 'btn btn-primary px-5',onClick(e){
+                    bui.util.debounce(saveOrUpdateHandler,1000,true)()
+                    return false;
+                }
+            }]
+        });
     }
+
+    /**
+     打开新增窗口:iframe
+     */
+    function openInsertIframeHandler() {
+        dia = bs4pop.dialog({
+            title: 'iframe新增',//对话框title
+            content: '${contextPath}/customer/add.html', //对话框内容，可以是 string、element，$object
+            width: '80%',//宽度
+            height: '95%',//高度
+            isIframe: true,//默认是页面层，非iframe
+        });
+    }
+
+
 
     /**
      * 打开修改窗口
@@ -87,6 +107,7 @@
                         }else{
                             bs4pop.alert(data.result, {type: 'error'});
                         }
+
                     },
                     error : function() {
                         bui.loading.hide();
@@ -98,10 +119,51 @@
     }
 
 
+    // 提交保存
+    function saveOrUpdateHandler(){
+        let validator = $('#_form').validate({ignore:''})
+        debugger
+        if (!validator.form()) {
+            $('.breadcrumb [data-toggle="collapse"]').html('收起 <i class="fa fa-angle-double-up" aria-hidden="true"></i>');
+            $('.collapse:not(.show)').addClass('show');
+            return false;
+        }
+
+        bui.loading.show('努力提交中，请稍候。。。');
+        let _formData = bui.util.removeKeyStartWith(_form.serializeObject(), "_");
+        let _url = null;
+
+        //没有id就新增
+        if (_formData.id == null || _formData.id == "") {
+            _url = "${contextPath}/customer/insert.action";
+        } else {//有id就修改
+            _url = "${contextPath}/customer/update.action";
+        }
+        $.ajax({
+            type: "POST",
+            url: "${contextPath}/customer/insert.action",
+            data: _formData,
+            dataType: "json",
+            success: function (ret) {
+                bui.loading.hide();
+                if(!ret.success){
+                    bs4pop.alert(ret.message, {type: 'error'});
+                }else{
+                    parent.closeDialog(parent.dia);
+                }
+            },
+            error: function (error) {
+                bui.loading.hide();
+                bs4pop.alert('远程访问失败', {type: 'error'});
+            }
+        });
+    }
+
+
     /**
      *  保存及更新表单数据
      */
-    function saveOrUpdateHandler() {
+    function saveOrUpdateHandler2() {
         if (_form.validate().form() != true) {
             return;
         }
