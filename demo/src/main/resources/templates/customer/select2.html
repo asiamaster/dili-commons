@@ -1,0 +1,49 @@
+<#bs4Body>
+<div class="container-fluid">
+<form class="form" id="_form">
+    <div class="form-group mb-2 mr-5">
+        <label for="code" class="justify-content-end mr-2 w-100px">客户编号:</label>
+        <input type="text" class="form-control" name="code" id="code" required/>
+    </div>
+    <div class="form-group">
+        <label for="s2">区域</label>
+        <div class="input-group">
+            <select id="s2" name="sw" class="form-control"  required>
+            </select>
+        </div>
+    </div>
+    <button type="button" class="btn btn-primary" onclick="bui.util.debounce(saveOrUpdateHandler,1000,true)()">提交</button>
+</form>
+</div>
+</#bs4Body>
+<script>
+    function saveOrUpdateHandler(){
+        if ($('#_form').validate().form() != true) {
+            return;
+        }
+    }
+
+    $('#s2,#s3').select2({
+        ajax: {
+            type:'post',
+            url: '/provider/getLookupList.action',
+            data: function (params) {
+                var query = {
+                    value: params.term,
+                    // queryParams: '{required:true}',
+                    provider:'cityProvider'
+                }
+                return query;
+            },
+            dataType: 'json',
+            processResults: function (data) {
+                return {
+                    results: $.map(data, function (obj) {
+                        obj.id = obj.value; // replace pk with your identifier
+                        return obj;
+                    })
+                };
+            }
+        }
+    });
+</script>

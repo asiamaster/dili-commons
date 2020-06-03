@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="/resources/bui/lib/font-awesome-4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="/resources/bui/lib/bootstrap4pop/css/bs4.pop.css">
     <link rel="stylesheet" href="/resources/bui/lib/bootstrap-table/dist/bootstrap-table.min.css"/>
+    <link rel="stylesheet" href="/resources/bui/lib/select2-4.0.13/dist/css/select2.min.css"/>
     <link rel="stylesheet" href="/resources/bui/css/common.css">
     <script src="/resources/bui/lib/jquery/jquery-3.2.1.min.js"></script>
     <title>bui</title>
@@ -29,6 +30,7 @@ ${tag.body}
 <script src="/resources/bui/lib/jquery-validation-1.19.1/jquery.validate.min.js"></script>
 <script src="/resources/bui/lib/jquery-validation-1.19.1/jquery.validate-extend.js"></script>
 <script src="/resources/bui/lib/jquery/jquery.autocomplete.min.js"></script>
+<script src="/resources/bui/lib/select2-4.0.13/dist/js/select2.min.js"></script>
 <script src="/resources/bui/lib/moment/moment-with-locales.min.js"></script>
 <script src="/resources/bui/lib/vendor/art-template.js"></script>
 <script src="/resources/bui/lib/log/logger.js"></script>

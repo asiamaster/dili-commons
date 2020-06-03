@@ -5,6 +5,8 @@ import com.dili.ss.metadata.FieldEditor;
 import com.dili.ss.metadata.annotation.EditMode;
 import com.dili.ss.metadata.annotation.FieldDef;
 import java.util.Date;
+import java.util.List;
+import java.util.Map;
 import javax.persistence.*;
 import javax.persistence.Column;
 import javax.persistence.GeneratedValue;
@@ -26,6 +28,10 @@ public interface Customer extends IBaseDomain {
     Long getId();
 
     void setId(Long id);
+
+    @Transient
+    List<Map> getChildMap();
+    void setChildMap(List<Map> childMap);
 
     @Column(name = "`code`")
     @FieldDef(label="客户编号", maxLength = 20)

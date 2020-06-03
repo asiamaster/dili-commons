@@ -3,6 +3,9 @@ package com.dili.demo.controller;
 import com.dili.demo.domain.Customer;
 import com.dili.demo.service.CustomerService;
 import com.dili.ss.domain.BaseOutput;
+import com.dili.ss.domain.EasyuiPageOutput;
+import com.dili.ss.metadata.ValueProviderUtils;
+import com.github.pagehelper.Page;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
@@ -15,6 +18,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 /**
  * 由MyBatis Generator工具自动生成
@@ -66,6 +73,17 @@ public class CustomerController {
      * @return String
      */
     @ApiOperation("跳转到Customer页面")
+    @RequestMapping(value="/select2.html", method = RequestMethod.GET)
+    public String select2(ModelMap modelMap) {
+        return "customer/select2";
+    }
+
+    /**
+     * 跳转到Customer页面
+     * @param modelMap
+     * @return String
+     */
+    @ApiOperation("跳转到Customer页面")
     @RequestMapping(value="/nav.html", method = RequestMethod.GET)
     public String nav(ModelMap modelMap) {
         return "customer/nav";
@@ -83,7 +101,16 @@ public class CustomerController {
 	})
     @RequestMapping(value="/listPage.action", method = {RequestMethod.GET, RequestMethod.POST})
     public @ResponseBody String listPage(Customer customer, HttpServletRequest request) throws Exception {
-        return customerService.listEasyuiPageByExample(customer, true).toString();
+        List<Customer> customers = customerService.listByExample(customer);
+        customers.forEach(o->{
+            Map<String,String> map = new HashMap<>();
+            map.put("001","张三");
+            map.put("002","李四");
+            o.setChildMap(Arrays.asList(map));
+        });
+        List results = ValueProviderUtils.buildDataByProvider(customer, customers);
+        long total = results instanceof Page ? ( (Page) results).getTotal() : results.size();
+        return  new EasyuiPageOutput(Integer.parseInt(String.valueOf(total)), results).toString();
     }
 
     /**
