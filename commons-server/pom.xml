@@ -116,13 +116,6 @@
             <scope>provided</scope>
 		</dependency>
 
-        <!-- ===============  spring boot starters  =============== -->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-test</artifactId>
-            <scope>test</scope>
-        </dependency>
-
         <!-- 一维码依赖 -->
         <dependency>
             <groupId>com.google.zxing</groupId>
@@ -130,14 +123,6 @@
             <version>3.3.3</version>
             <scope>provided</scope>
         </dependency>
-        <!-- springloaded -->
-        <!-- https://mvnrepository.com/artifact/org.springframework/springloaded -->
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>springloaded</artifactId>
-            <version>${springloaded.version}</version>
-        </dependency>
-
     </dependencies>
 
 
