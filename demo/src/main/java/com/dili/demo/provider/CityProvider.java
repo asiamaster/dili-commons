@@ -36,10 +36,13 @@ public class CityProvider implements ValueProvider {
 
     @Override
     public List<ValuePair<?>> getLookupList(Object val, Map metaMap, FieldMeta fieldMeta) {
+        List<ValuePair<?>> buffer = new ArrayList<ValuePair<?>>();
+        if(null == val){
+            return buffer;
+        }
         CityListDto city= DTOUtils.newDTO(CityListDto.class);
         city.setKeyword(val.toString());
         List<City> cityList = cityService.listCityByCondition(city);
-        List<ValuePair<?>> buffer = new ArrayList<ValuePair<?>>();
         cityList.forEach(o->{
             buffer.add(new ValuePairImpl(o.getMergerName(), o.getId().toString()));
         });
