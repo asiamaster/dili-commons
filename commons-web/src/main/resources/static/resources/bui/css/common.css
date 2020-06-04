@@ -7,11 +7,16 @@ html {
     color: #E54937;
 }
 /*按钮固定在右下角*/
-.btn-r-b {
+.modal-footer-wrap {
     position: fixed;
-    right: 20px;
-    bottom: 10px;
+    right: 0;
+    bottom: 0;
+    width: 100%;
 }
+.modal-footer-wrap .modal-footer {
+    padding-bottom: 0;
+}
+
 
 /***************************************bs*****************************/
 /*避免表格中含有输入框时高度太高*/

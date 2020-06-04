@@ -1,0 +1,105 @@
+<#bs4Body>
+    <div class="container-fluid">
+        <input type="hidden" id="_sourceChannel" value="<#config name='ia.source.channel.earnest_order'/>">
+        <form id="_form" method="post" action="">
+            <input name="id" id="_id" type="hidden">
+            <div class="row row-cols-4 collapse show" id="customerInfo">
+                <div class="form-group col">
+                    <label for="_code">客户编号</label>
+                    <input type="text" class="form-control" id="code" name="code" value="${customer.code!}" placeholder="如：001" required/>
+                </div>
+                <div class="form-group col">
+                    <label for="_name">客户名称</label>
+                    <input type="text" class="form-control" id="" name="name" value="${customer.name!}" placeholder="如：张三" required/>
+                </div>
+                <div class="form-group col">
+                    <label for="_name">客户名称</label>
+                    <input type="text" class="form-control" id="" name="name" value="${customer.name!}" placeholder="如：张三" required/>
+                </div>
+                <div class="form-group col">
+                    <label for="_name">客户名称</label>
+                    <input type="text" class="form-control" id="" name="name" value="${customer.name!}" placeholder="如：张三" required/>
+                </div>
+                <div class="form-group col">
+                    <label for="_name">客户名称</label>
+                    <input type="text" class="form-control" id="" name="name" value="${customer.name!}" placeholder="如：张三" required/>
+                </div>
+                <div class="form-group col">
+                    <label for="_name">客户名称</label>
+                    <input type="text" class="form-control" id="" name="name" value="${customer.name!}" placeholder="如：张三" required/>
+                </div>
+                <div class="form-group col">
+                    <label for="_name">客户名称</label>
+                    <input type="text" class="form-control" id="" name="name" value="${customer.name!}" placeholder="如：张三" required/>
+                </div>
+                <div class="form-group col">
+                    <label for="_name">客户名称</label>
+                    <input type="text" class="form-control" id="" name="name" value="${customer.name!}" placeholder="如：张三" required/>
+                </div>
+                <div class="form-group col">
+                    <label for="_name">客户名称</label>
+                    <input type="text" class="form-control" id="name" name="name" value="${customer.name!}" placeholder="如：张三" required/>
+                </div>
+                <div class="form-group col">
+                    <label for="_cellphone">手机号</label>
+                    <input type="text" class="form-control" id="cellphone" name="cellphone" value="${customer.cellphone!}" placeholder="如：13888888888" required/>
+                </div>
+
+                <div class="form-group col">
+                    <label for="_certificateNumber">证件号</label>
+                    <input type="text" class="form-control" id="certificateNumber" name="certificateNumber" value="${customer.certificateAddr!}" placeholder="如：511602198902244293" required/>
+                </div>
+                <div class="form-group col">
+                    <label for="_birthdate">出生日期</label>
+                    <input type="text" id="endTime" name="birthdate" id="birthdate" value="${customer.birthdate!}" class="form-control laydate layend">
+                </div>
+                <div class="form-group col">
+                    <label for="_certificateAddrDisplay">证件地址</label>
+                    <#bautoCompleteProvider _hiddenDomainId="certificateAddr" _hiddenDomainName="certificateAddr" _displayDomainId="_certificateAddrDisplay" _placeholder="" _provider="cityProvider" _validatorMethod="isSelected" _text="${customer.certificateAddr!}"  _option=""/>
+                </div>
+                <div class="form-group col">
+                    <label for="_state">状态</label>
+                    <div id="state">
+                        <!--<div class="custom-control custom-radio custom-control-inline">
+                            <input type="radio" id="customRadioInline1" value="1" name="customRadioInline1" class="custom-control-input" required>
+                            <label class="custom-control-label" for="customRadioInline1">水果</label>
+                        </div>
+                        <div class="custom-control custom-radio custom-control-inline">
+                            <input type="radio" id="customRadioInline2" value="2" name="customRadioInline1" class="custom-control-input">
+                            <label class="custom-control-label" for="customRadioInline2">蔬菜</label>
+                        </div>
+                        <div class="custom-control custom-radio custom-control-inline">
+                            <input type="radio" id="customRadioInline3" value="3" name="customRadioInline1" class="custom-control-input">
+                            <label class="custom-control-label" for="customRadioInline3">海鲜</label>
+                        </div>-->
+                        <#bradioGroupProvider _containerId="state" _name="state" _value="${customer.state!}" _provider="enabledStateProvider" _required="true"/>
+                    </div>
+                </div>
+                <div class="form-group col">
+                    <label for="_sex">性别</label>
+                    <div id="sex">
+                        <#bradioGroupProvider _containerId="sex" _name="sex" _value="${customer.sex!}" _provider="sexProvider" _required="true"/>
+                    </div>
+                </div>
+                <div class="form-group col">
+                    <label for="_certificateType">证件类型</label>
+                    <div id="certificateType">
+                        <#bradioGroupProvider _containerId="certificateType" _name="certificateType" _value="${customer.certificateType!}" _provider="certificateTypeProvider" _required="true"/>
+                    </div>
+                </div>
+
+            </div>
+            <div class="modal-footer-wrap">
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary px-5" onclick="javascript: parent.dia.hide()">取消</button>
+                    <button type="button" class="btn btn-primary px-5" onclick="bui.util.debounce(doAddEarnestHandler,1000,true)()" id="formSubmit">确定</button>
+                </div>
+            </div>
+
+        </form>
+    </div>
+
+</#bs4Body>
+
+<#js_customerAutocompleteJs/>
+<#customer_addJs />

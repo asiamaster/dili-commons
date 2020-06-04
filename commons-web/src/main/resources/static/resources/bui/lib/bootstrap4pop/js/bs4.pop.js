@@ -336,19 +336,19 @@ let bs4pop = {};
 			btnAutoFocus: true,
 			btns: [
 				{
-					label: '确定',
-					onClick(){
-						if(cb){
-							return cb(true);
-						}
-					}
-				},
-				{
 					label: '取消',
 					className: 'btn-secondary',
 					onClick(){
 						if(cb){
 							return cb(false);
+						}
+					}
+				},
+				{
+					label: '确定',
+					onClick(){
+						if(cb){
+							return cb(true);
 						}
 					}
 				}
@@ -377,20 +377,21 @@ let bs4pop = {};
 			hideRemove: true,
 			width: 500,
 			btns: [
-				{
-					label: '确定',
-					onClick(){
-						if(cb){
-							return cb(true, $input.val());
-						}
-					}
-				},
+
 				{
 					label: '取消',
 					className: 'btn-secondary',
 					onClick(){
 						if(cb){
 							return cb(false, $input.val());
+						}
+					}
+				},
+				{
+					label: '确定',
+					onClick(){
+						if(cb){
+							return cb(true, $input.val());
 						}
 					}
 				}

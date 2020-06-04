@@ -4,8 +4,6 @@
     //行索引计数器
     //如 let itemIndex = 0;
     let _grid = $('#grid');
-    let _form = $('#_form');
-    let _modal = $('#_modal');
     var dia;
     /*********************变量定义区 end***************/
 
@@ -29,10 +27,10 @@
             content: bui.util.HTMLDecode(template('addForm', {})), //对话框内容，可以是 string、element，$object
             width: '80%',//宽度
             height: '95%',//高度
-            btns: [{label: '取消',className: 'btn btn-secondary px-5',onClick(e){
+            btns: [{label: '取消',className: 'btn btn-secondary',onClick(e){
 
                 }
-            }, {label: '确定',className: 'btn btn-primary px-5',onClick(e){
+            }, {label: '确定',className: 'btn btn-primary',onClick(e){
                     bui.util.debounce(saveOrUpdateHandler,1000,true)()
                     return false;
                 }
@@ -41,38 +39,59 @@
     }
 
     /**
-     打开新增窗口:iframe
+     打开更新窗口:iframe
      */
     function openInsertIframeHandler() {
         dia = bs4pop.dialog({
             title: 'iframe新增',//对话框title
-            content: '${contextPath}/customer/add.html', //对话框内容，可以是 string、element，$object
+            content: '${contextPath}/customer/preSave.html?', //对话框内容，可以是 string、element，$object
             width: '80%',//宽度
-            height: '95%',//高度
+            height: '500px',//高度
             isIframe: true,//默认是页面层，非iframe
+            //按钮放在父页面用此处的 btns 选项。也可以放在页面里直接在页面写div。
+            /*btns: [{label: '取消',className: 'btn btn-secondary',onClick(e, $iframe){
+
+                }
+            }, {label: '确定',className: 'btn btn-primary',onClick(e, $iframe){
+                    let diaWindow = $iframe[0].contentWindow;
+                    bui.util.debounce(diaWindow.saveOrUpdateHandler,1000,true)()
+                    return false;
+                }
+            }]*/
         });
     }
 
 
-
     /**
-     * 打开修改窗口
+     打开更新窗口:iframe
      */
     function openUpdateHandler() {
         //获取选中行的数据
         let rows = _grid.bootstrapTable('getSelections');
         if (null == rows || rows.length == 0) {
             bs4pop.alert('请选中一条数据');
-            return;
+            return false;
         }
-        _modal.modal('show');
-        _modal.find('.modal-title').text('货站修改');
+        dia = bs4pop.dialog({
+            title: 'iframe新增',//对话框title
+            content: '${contextPath}/customer/preSave.html?id='+rows[0].id, //对话框内容，可以是 string、element，$object
+            width: '80%',//宽度
+            height: '500px',//高度
+            isIframe: true,//默认是页面层，非iframe
+            //按钮放在父页面用此处的 btns 选项。也可以放在页面里直接在页面写div。
+            btns: [{label: '取消',className: 'btn btn-secondary',onClick(e, $iframe){
 
-        let formData = $.extend({}, rows[0]);
-        formData = bui.util.addKeyStartWith(bui.util.getOriginalData(formData), "_");
-        bui.util.loadFormData(formData);
-        $('#_account').prop('disabled',true);
+                }
+            }, {label: '确定',className: 'btn btn-primary',onClick(e, $iframe){
+                    let diaWindow = $iframe[0].contentWindow;
+                    bui.util.debounce(diaWindow.saveOrUpdateHandler,1000,true)()
+                    return false;
+                }
+            }]
+
+        });
     }
+
 
     /**
      * 禁启用操作

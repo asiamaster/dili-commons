@@ -44,6 +44,20 @@ public class CustomerController {
      * @param modelMap
      * @return String
      */
+    @RequestMapping(value="/preSave.html", method = RequestMethod.GET)
+    public String preSave(ModelMap modelMap,Long id) {
+        if(id != null){
+            Customer customer = customerService.get(id);
+            modelMap.put("customer",customer);
+        }
+        return "customer/preSave";
+    }
+
+    /**
+     * 跳转到Customer页面
+     * @param modelMap
+     * @return String
+     */
     @RequestMapping(value="/treegrid.html", method = RequestMethod.GET)
     public String treegrid(ModelMap modelMap) {
         return "customer/treegrid";
