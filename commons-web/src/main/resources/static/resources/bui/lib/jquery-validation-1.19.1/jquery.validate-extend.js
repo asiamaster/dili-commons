@@ -30,14 +30,14 @@ $.extend($.validator.messages, {
 
         if (element.prop("type") === "checkbox" || element.prop("type") === "radio") {
             error.appendTo(element.parent().parent());
-        } else if ($(element).parent().hasClass('input-group')) {
-            error.appendTo(element.parents('.input-group'));
         } else if ($(element).hasClass('select2-hidden-accessible')) {
-            error.insertAfter($(element).next('.select2-container'))
-            $(element).next('.select2-container').find('.form-control').addClass('is-invalid')
+            error.insertAfter($(element).next('.select2-container'));
+            // $(element).next('.select2-container').find('.form-control').addClass('is-invalid');
             /*let id = element.attr('id')
             error.insertAfter($('#select2-' + id + '-container').parents('.select2-container'))
             $('#select2-' + id + '-container').parent('.form-control').addClass('is-invalid')*/
+        } else if ($(element).parents().hasClass('input-group')) {
+            error.appendTo(element.parents('.input-group'));
         }
         else {
             error.insertAfter(element);
@@ -46,6 +46,8 @@ $.extend($.validator.messages, {
     highlight: function (element, errorClass, validClass) {
         if ($(element).prop("type") === "checkbox" || $(element).prop("type") === "radio") {
             $('input[name="' + $(element).prop("name") + '"]').addClass("is-invalid").removeClass("is-valid");
+        } else if ($(element).hasClass('select2-hidden-accessible')){
+            $(element).next('.select2-container').find('.form-control').addClass('is-invalid').removeClass("is-valid");
         } else {
             $(element).addClass("is-invalid").removeClass("is-valid");
         }
@@ -53,6 +55,8 @@ $.extend($.validator.messages, {
     unhighlight: function (element, errorClass, validClass) {
         if ($(element).prop("type") === "checkbox" || $(element).prop("type") === "radio") {
             $('input[name="' + $(element).prop("name") + '"]').addClass("is-valid").removeClass("is-invalid");
+        } else if ($(element).hasClass('select2-hidden-accessible')){
+            $(element).next('.select2-container').find('.form-control').addClass('is-valid').removeClass("is-invalid");
         } else {
             $(element).addClass("is-valid").removeClass("is-invalid");
         }
