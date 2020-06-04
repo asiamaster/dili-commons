@@ -1,18 +1,22 @@
 <#bs4Body>
 <div class="container-fluid">
     <form class="form" id="_form">
-        <div class="form-group mb-2 mr-5">
-            <label for="code" class="justify-content-end mr-2 w-100px">客户编号:</label>
-            <input type="text" class="form-control" name="code" id="code" required/>
-        </div>
-        <div class="form-group">
-            <label for="s2">区域</label>
-            <div class="input-group">
-                <select id="s2" name="sw" required style="width: 20%" multiple>
+        <div class="row row-cols-2 collapse show" id="">
+            <div class="form-group col">
+                <label for="s2">区域</label>
+                <select name="other" class="form-control" id="" required>
+                    <option value=""></option>
+                    <option value="1">1</option>
                 </select>
-                <#bselect2 _id="s2" _provider="sexProvider" _value="[1,2]"/>
+            </div>
+            <div class="form-group col">
+                <label for="s2">区域</label>
+                <select id="s2" name="sw" required style="width: 20%" >
+                </select>
+                <#bselect2 _id="s2" _dataOption=""/>
             </div>
         </div>
+
         <button type="button" class="btn btn-primary" onclick="bui.util.debounce(saveOrUpdateHandler,1000,true)()">提交</button>
     </form>
 </div>
@@ -20,7 +24,7 @@
 <script>
     function saveOrUpdateHandler(){
         if ($('#_form').validate().form() != true) {
-            return;
+            return false;
         }
     }
 
