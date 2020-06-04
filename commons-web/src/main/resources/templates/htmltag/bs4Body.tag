@@ -34,7 +34,6 @@ ${tag.body}
 <script src="/resources/bui/lib/moment/moment-with-locales.min.js"></script>
 <script src="/resources/bui/lib/vendor/art-template.js"></script>
 <script src="/resources/bui/lib/log/logger.js"></script>
-<script src="/resources/bui/js/number.js"></script>
 <script src="/resources/bui/js/common.js"></script>
 </body>
 <#btagBase/>

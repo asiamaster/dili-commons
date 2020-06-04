@@ -49,6 +49,7 @@
                         return {
                             results: $.map(data, function (dataItem) {
                                 dataItem.id = dataItem["${_valueField!'value'}"];
+                                dataItem.text = dataItem["${_textField!'text'}"];
                                 return dataItem;
                             })
                         };
@@ -56,6 +57,9 @@
                 }
                 <% } %>
             },option));
+            <% if( isNotEmpty(_value) ) {%>
+            $('#${_id}').val(${_value}).trigger('change.select2');
+            <% } %>
         <% } else { %>
             //数据本地搜索
             //_logTable 动态标签元素计数器
@@ -66,7 +70,6 @@
                 }
                 ++${_logVariable!'Log'}.tableItemTagCount;
             }
-
 
             let dataOption = $.extend(
                 {${_dataOption!}},
@@ -84,6 +87,13 @@
                 {}
                 <% } %>
             );
+
+
+            $('#${_id}').select2($.extend(true,{
+                containerCssClass : 'form-control',
+                width: '100%'
+            },option));
+
             $.ajax($.extend(true,{
                 <% if( isNotEmpty(_provider) ) {%>
                 type: "post",
@@ -110,14 +120,16 @@
                     }
 
                     $.map(data, function (dataItem) {
-                        $('#${_id}').append(template('optionItem', $.extend(dataItem, {
-                            selected: '${_value!}' == dataItem.value + '',
-                            value:dataItem["${_valueField!'value'}"],
-                            text:dataItem["${_textField!'text'}"]
-                        })));
+                        var option = new Option(dataItem["${_textField!'text'}"], dataItem["${_valueField!'value'}"], false, false);
+                        $('#s2').append(option);
                     });
 
+                    <% if( isNotEmpty(_value) ) {%>
+                    $('#${_id}').val(${_value}).trigger('change.select2');
+                    <% } %>
+
                     <% if( isNotEmpty(_log)) {%>
+                    //组件加载计数器 日志收集
                     if(typeof(${_logVariable!'Log'}) !== 'undefined'){
                         if($table.length > 0){//待所有logTable元素加载完执行日志搜集
                             if(--${_logVariable!'Log'}.tableItemTagCount == 0){
@@ -138,11 +150,6 @@
                     console.log('数据接口异常');
                 }
             },dataOption));
-
-            $('#${_id}').select2($.extend(true,{
-                containerCssClass : 'form-control',
-                width: '100%'}
-                ,option));
         <% } %>
     })
 <% if(isNotEmpty(_escape) && _escape == "true") {%>

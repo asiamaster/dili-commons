@@ -14,7 +14,7 @@
         }
 
         let option = {${_option!}};
-        let values = ${_values!'[]'};
+        let values = ${_value!'[]'};
         $.ajax($.extend(true,{
             <% if( isNotEmpty(_provider) ) {%>
             type: "post",
@@ -46,7 +46,7 @@
                     $('#${_containerId}').append(template('checkboxItem', $.extend(dataItem, {
                         containerId: '${_containerId!}',
                         name: '${_name!}',
-                        checked: values.includes(dataItem.value),
+                        checked: values.inArray(dataItem.value),
                         required:${_required!false},
                         value:dataItem["${_valueField!'value'}"],
                         text:dataItem["${_textField!'text'}"],
