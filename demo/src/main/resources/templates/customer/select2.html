@@ -11,9 +11,9 @@
             </div>
             <div class="form-group col">
                 <label for="s2">区域</label>
-                <select id="s2" name="sw" required style="width: 20%" >
+                <select id="s2" name="sw" required style="width: 20%" required>
                 </select>
-                <#bselect2 _id="s2" _provider="sexProvider" _value="2"/>
+                <#bselect2 _id="s2" _provider="sexProvider" _value=""/>
             </div>
         </div>
 
@@ -26,6 +26,7 @@
         if ($('#_form').validate().form() != true) {
             return false;
         }
+        console.log('okkkkkkkk')
     }
 
     // $('#s2').select2({
