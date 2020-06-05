@@ -18,6 +18,7 @@
                 width: '100%',
                 <% if( isNotEmpty(_provider) ) {%>
                 ajax: {
+                    delay: 250, // wait 250 milliseconds before triggering the request
                     type:'post',
                     url: '/provider/getLookupList.action',
                     data: function (params) {
