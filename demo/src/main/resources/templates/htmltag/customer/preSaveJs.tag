@@ -1,6 +1,33 @@
 <script>
 
 
+    var boothAutoCompleteOption = {
+        paramName: 'keyword',
+        displayFieldName: 'name',
+        serviceUrl: '/booth/search.action',
+        transformResult: function (result) {
+            debugger
+            if(result.success){
+                let data = result.data;
+                return {
+                    suggestions: $.map(data, function (dataItem) {
+                        return $.extend(dataItem, {
+                                value: dataItem.name + '(' + (dataItem.secondAreaName? dataItem.areaName + '->' + dataItem.secondAreaName : dataItem.areaName) + ')'
+                            }
+                        );
+                    })
+                }
+            }else{
+                bs4pop.alert(result.message, {type: 'error'});
+                return;
+            }
+        },
+        selectFn: function (suggestion) {
+            $('#assetsName').val(suggestion.name);
+            $('#assetsId').val(suggestion.id);
+        }
+    }
+
     function buildFormData(){
         // let formData = new FormData($('#saveForm')[0]);
         let formData = $("input:not(table input),textarea,select").serializeObject();

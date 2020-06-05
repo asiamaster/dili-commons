@@ -72,7 +72,7 @@
             title: 'iframe新增',//对话框title
             content: '${contextPath}/customer/preSave.html?', //对话框内容，可以是 string、element，$object
             width: '80%',//宽度
-            height: '500px',//高度
+            height: '700px',//高度
             isIframe: true,//默认是页面层，非iframe
             //按钮放在父页面用此处的 btns 选项。也可以放在页面里直接在页面写div。
             /*btns: [{label: '取消',className: 'btn btn-secondary',onClick(e, $iframe){

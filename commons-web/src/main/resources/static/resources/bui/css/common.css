@@ -12,6 +12,7 @@ html {
     right: 0;
     bottom: 0;
     width: 100%;
+    background: #fff;
 }
 .modal-footer-wrap .modal-footer {
     padding-bottom: 0;
