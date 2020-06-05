@@ -16,9 +16,9 @@
             $('#${_id}').select2($.extend(true,{
                 containerCssClass : 'form-control',
                 width: '100%',
-                <% if( isNotEmpty(_provider) ) {%>
                 ajax: {
                     delay: 250, // wait 250 milliseconds before triggering the request
+                    <% if( isNotEmpty(_provider) ) {%>
                     type:'post',
                     url: '/provider/getLookupList.action',
                     data: function (params) {
@@ -55,8 +55,8 @@
                             })
                         };
                     }
+                    <% } %>
                 }
-                <% } %>
             },option));
             <% if( isNotEmpty(_value) ) {%>
             $('#${_id}').val(${_value}).trigger('change.select2');
