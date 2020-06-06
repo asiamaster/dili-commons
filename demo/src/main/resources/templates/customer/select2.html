@@ -10,10 +10,11 @@
                 </select>
             </div>
             <div class="form-group col">
-                <label for="s2">区域</label>
-                <select id="s2" name="sw" required style="width: 20%" required>
+                <label for="s2" _log>区域</label>
+                <select id="s2" name="sw" required style="width: 20%" required multiple>
+                    <option value="1">test</option>
                 </select>
-                <#bselect2 _id="s2" _provider="sexProvider" _value=""/>
+                <#bselect2 _id="s2" _mode="remote" _provider="cityProvider" _value="[1]"/>
             </div>
         </div>
 
@@ -22,6 +23,7 @@
 </div>
 </#bs4Body>
 <script>
+    console.log('main')
     function saveOrUpdateHandler(){
         if ($('#_form').validate().form() != true) {
             return false;

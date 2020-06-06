@@ -175,7 +175,10 @@
         module.exports = Logger
     }
 })();
-//初始化默认实例
-if(Logger.defaults.isInitDefaultLog){
-    window.Log = new Logger();
-}
+//初始化Logger默认实例
+$(function () {
+    //初始化默认实例
+    if(Logger.defaults.isInitDefaultLog){
+        window.Log = new Logger();
+    }
+});
