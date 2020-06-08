@@ -85,7 +85,13 @@
                     let objEl = $('#' + $(el).prop('htmlFor'));
                     if (objEl.prop('tagName') == "SELECT") {
                         let option = objEl.find("option:selected");
-                        fields[$(el).text()] = option.length > 0? option.val() ? option.text() : '' : '';
+                        let texts = [];
+                        if(option.length > 0){
+                            option.each(function (i,optionItem) {
+                                texts.push($(optionItem).val()?$(optionItem).text() : '');
+                            });
+                        }
+                        fields[$(el).text()] = texts.length > 0? texts.join() : '';
                     } else if (objEl.prop('type') == "radio") {
                         if (!fields[$(el).text()]) {
                             fields[$(el).text()] = $('[name="' + objEl.prop('name') + '"]:checked').next().text();
