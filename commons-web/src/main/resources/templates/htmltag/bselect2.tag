@@ -14,6 +14,7 @@
         //数据远程搜索（自动完成框）
         <% if( isNotEmpty(_mode) && _mode == "remote" ) {%>
             $('#${_id}').select2($.extend(true,{
+                language: 'zh-CN',
                 containerCssClass : 'form-control',
                 width: '100%',
                 ajax: {
