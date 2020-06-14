@@ -31,6 +31,7 @@ ${tag.body}
 <script src="/resources/bui/lib/jquery-validation-1.19.1/jquery.validate-extend.js"></script>
 <script src="/resources/bui/lib/jquery/jquery.autocomplete.min.js"></script>
 <script src="/resources/bui/lib/select2-4.0.13/dist/js/select2.full.min.js"></script>
+<script src="/resources/bui/lib/select2-4.0.13/dist/js/i18n/zh-CN.js"></script>
 <script src="/resources/bui/lib/moment/moment-with-locales.min.js"></script>
 <script src="/resources/bui/lib/vendor/art-template.js"></script>
 <script src="/resources/bui/lib/log/logger.js"></script>
