@@ -78,6 +78,16 @@ public class CustomerController {
      * @param modelMap
      * @return String
      */
+    @RequestMapping(value="/hotkey.html", method = RequestMethod.GET)
+    public String hotkey(ModelMap modelMap) {
+        return "customer/hotkey";
+    }
+
+    /**
+     * 跳转到Customer页面
+     * @param modelMap
+     * @return String
+     */
     @RequestMapping(value="/select2.html", method = RequestMethod.GET)
     public String select2(ModelMap modelMap) {
         return "customer/select2";
