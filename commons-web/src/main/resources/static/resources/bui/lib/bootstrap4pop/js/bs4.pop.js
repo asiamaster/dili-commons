@@ -86,7 +86,7 @@ let bs4pop = {};
 					onClick(cb){},
 				}, btn);
 
-				let $btn = $('<button type="button" class="btn '+btn.className+' pl-5 pr-5">'+btn.label+'</button>');
+			let $btn = $('<button type="button" id="' + (btn.id ? btn.id : '') + '" class="btn ' + btn.className + ' pl-5 pr-5">' + btn.label + '</button>');
 
 				$btn.on('click', evt => {
 

@@ -57,7 +57,6 @@
 					return;
 				console.log('you press ' + handler.key);
 				e.preventDefault();
-				let el = e.target;
 				$(this).on('click',function(e){
 					console.log(e.target);
 					if($(this).attr('preventDefault') !== undefined)

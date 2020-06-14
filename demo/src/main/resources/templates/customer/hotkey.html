@@ -64,6 +64,21 @@
     hk.start();
     console.log('init..')
 
+    $.fn.hotkeys = function (hotkey) {
+        hotkeys(hotkey, {
+                scope: 'non-input-field'
+            }, (e, handler) => {
+                if($(this).is(":hidden"))
+                    return;
+                if (arguments[1] == undefined || typeof (arguments[1]) == 'string') {
+                    e.preventDefault();
+                    $(this).trigger(arguments[1] ? arguments[1] : 'click');
+                } else if (typeof (arguments[1]) == 'function') {
+                    arguments[1](e, handler);
+                }
+        });
+    }
+
     function add() {
         bs4pop.dialog({
             title: '新增',
@@ -76,14 +91,20 @@
             width: '40%',
             btns: [
                 {
-                    label: '确定', className: 'btn-primary', onClick(e) {
-                        console.log('sure')
+                    label: '确定',id:'ok-btn', className: 'btn-primary', onClick(e) {
+                        console.log('sure');
+                        return false;
                     }
                 },
-                {label: '取消', className: 'btn-secondary', onClick(e) {
+                {label: '取消',id:'cancel-btn', className: 'btn-secondary', onClick(e) {
+                        console.log('cancel');
+                        return false;
                     }}
             ]
         });
+
+        $('#ok-btn').hotkeys('q',function(e, handler){console.log(handler)});
+        $('#cancel-btn').hotkeys('w');
     }
 
 </script>
