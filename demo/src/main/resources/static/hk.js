@@ -38,11 +38,8 @@
 			let el = event.target || event.srcElement;
 			let tagName = el.tagName;
 			let type = el.type;
-			if (!(el.isContentEditable ||
-				(type == 'text' || type == 'number' || type == 'password' || type == 'email' || type == 'url' || type ==
-					'date' || type == 'search') ||
-				(tagName === 'TEXTAREA' || tagName === 'SELECT')) ||
-				el.readOnly || el.disabled) { //事件元素非输入域或不可编辑状态
+			if (!(el.isContentEditable || (type == 'text' || type == 'number' || type == 'password' || type == 'email' || type == 'url' || type == 'date' || type == 'search') || (tagName === 'TEXTAREA' || tagName === 'SELECT')) ||
+				el.readOnly || el.disabled || event.ctrlKey || event.altKey || event.shiftKey || (event.keyCode >= 112 && event.keyCode <= 135)) { //事件元素非输入域或不可编辑状态
 				hotkeys.setScope('non-input-field');
 			} else { //事件元素输入域
 				hotkeys.setScope();
@@ -101,7 +98,6 @@
 
 	return {
 		start,
-		// focusElSelector : 'input,textarea,select,button,.btn,[contenteditable]',
 		focusElSelector : 'input,textarea,select,[contenteditable]',
 		focusElFilter : ':not(:hidden,[type="button"],[type="reset"],[type="submit"],[readonly],[disabled])'
 	};
