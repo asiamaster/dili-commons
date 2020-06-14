@@ -34,12 +34,12 @@
 	const start = function() {
 		// 如何增加过滤可编辑标签 <div contentEditable="true"></div>
 		// contentEditable老浏览器不支持滴
-		hotkeys.filter = function(event) {
-			let el = event.target || event.srcElement;
+		hotkeys.filter = function(e) {
+			let el = e.target || e.srcElement;
 			let tagName = el.tagName;
 			let type = el.type;
 			if (!(el.isContentEditable || (type == 'text' || type == 'number' || type == 'password' || type == 'email' || type == 'url' || type == 'date' || type == 'search') || (tagName === 'TEXTAREA' || tagName === 'SELECT')) ||
-				el.readOnly || el.disabled || event.ctrlKey || event.altKey || event.shiftKey || (event.keyCode >= 112 && event.keyCode <= 135)) { //事件元素非输入域或不可编辑状态
+				el.readOnly || el.disabled || e.ctrlKey || e.altKey || e.shiftKey || (e.keyCode >= 112 && e.keyCode <= 135)) { //事件元素非输入域或不可编辑状态
 				hotkeys.setScope('non-input-field');
 			} else { //事件元素输入域
 				hotkeys.setScope();
@@ -52,12 +52,12 @@
 			let key = $(this).attr('hotkey');
 			hotkeys(key, {
 				scope: 'non-input-field'
-			}, (event, handler) => {
+			}, (e, handler) => {
 				if($(this).is(":hidden"))
 					return;
 				console.log('you press ' + handler.key);
-				event.preventDefault();
-				let el = event.target;
+				e.preventDefault();
+				let el = e.target;
 				$(this).on('click',function(e){
 					console.log(e.target);
 					if($(this).attr('preventDefault') !== undefined)
@@ -68,30 +68,30 @@
 		});
 
 		//扫描监听enter right快捷键
-		hotkeys('enter', (event, handler) => {
+		hotkeys('enter', (e, handler) => {
 			console.log('you press ' + handler.key);
-			let el = event.target;
+			let el = e.target;
 			if ($(el).is(hk.focusElSelector) && $(el).is(hk.focusElFilter)) {
-				event.preventDefault();
+				e.preventDefault();
 				let nextEl = nextCtl(el, 1);
 				nextEl.focus();
 			}
 		});
 
 		//扫描监听enter right快捷键
-		hotkeys('right', (event, handler) => {
+		hotkeys('right', (e, handler) => {
 			console.log('you press ' + handler.key);
-			event.preventDefault();
-			let el = event.target;
+			e.preventDefault();
+			let el = e.target;
 			let nextEl = nextCtl(el, 1);
 			nextEl.focus();
 		});
 
 		//扫描监听left快捷键
-		hotkeys('left', (event, handler) => {
+		hotkeys('left', (e, handler) => {
 			console.log('you press ' + handler.key);
-			event.preventDefault();
-			let el = event.target;
+			e.preventDefault();
+			let el = e.target;
 			nextCtl(el, 2).focus();
 		});
 	}
