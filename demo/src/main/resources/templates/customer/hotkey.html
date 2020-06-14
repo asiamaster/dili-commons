@@ -64,20 +64,10 @@
     hk.start();
     console.log('init..')
 
-    $.fn.hotkeys = function (hotkey) {
-        hotkeys(hotkey, {
-                scope: 'non-input-field'
-            }, (e, handler) => {
-                if($(this).is(":hidden"))
-                    return;
-                if (arguments[1] == undefined || typeof (arguments[1]) == 'string') {
-                    e.preventDefault();
-                    $(this).trigger(arguments[1] ? arguments[1] : 'click');
-                } else if (typeof (arguments[1]) == 'function') {
-                    arguments[1](e, handler);
-                }
-        });
-    }
+    $('[hotkey]').on('click',function(e){
+        console.log(e.target);
+        e.preventDefault();
+    });
 
     function add() {
         bs4pop.dialog({
@@ -103,7 +93,7 @@
             ]
         });
 
-        $('#ok-btn').hotkeys('q',function(e, handler){console.log(handler)});
+        $('#ok-btn').hotkeys('q');
         $('#cancel-btn').hotkeys('w');
     }
 

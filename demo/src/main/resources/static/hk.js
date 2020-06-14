@@ -3,6 +3,24 @@
 		typeof define === 'function' && define.amd ? define(['jquery', 'hotkeys'], factory) :
 			(global = global || window, global.hk = factory(jQuery, hotkeys));
 }(this, function($, hotkeys) {
+
+	/**
+	 * 扩展jquery 对象方法（快捷键注册）
+	 * @param hotkey
+	 */
+	$.fn.hotkeys = function (hotkey) {
+		let args = arguments;
+		this.each(function () {
+			let key = hotkey ? hotkey : $(this).attr('hotkey');
+			hotkeys(key, (e, handler) => {
+				if ($(this).is(":hidden"))
+					return;
+				e.preventDefault();
+				$(this).trigger(args[1] ? args[1] : 'click');
+			});
+		})
+	}
+
 	/**
 	 * 获取下一个焦点元素
 	 * @param $ctl
@@ -34,37 +52,16 @@
 	const start = function() {
 		// 如何增加过滤可编辑标签 <div contentEditable="true"></div>
 		// contentEditable老浏览器不支持滴
-		hotkeys.filter = function(e) {
-			let el = e.target || e.srcElement;
+		hotkeys.filter = function (e) {
+			let el = e.target;
 			let tagName = el.tagName;
 			let type = el.type;
-			if (!(el.isContentEditable || (type == 'text' || type == 'number' || type == 'password' || type == 'email' || type == 'url' || type == 'date' || type == 'search') || (tagName === 'TEXTAREA' || tagName === 'SELECT')) ||
-				el.readOnly || el.disabled || e.ctrlKey || e.altKey || e.shiftKey || (e.keyCode >= 112 && e.keyCode <= 135)) { //事件元素非输入域或不可编辑状态
-				hotkeys.setScope('non-input-field');
-			} else { //事件元素输入域
-				hotkeys.setScope();
-			}
-			return true;
+			return !(el.isContentEditable || (type == 'text' || type == 'number' || type == 'password' || type == 'email' || type == 'url' || type == 'date' || type == 'search') || (tagName === 'TEXTAREA' || tagName === 'SELECT')) ||
+				el.readOnly || el.disabled || e.ctrlKey || e.altKey || e.shiftKey || (e.keyCode >= 112 && e.keyCode <= 135) || e.keyCode == 13;
 		}
 
 		//扫描监听相关自定义快捷键
-		$('[hotkey]').each(function(index) {
-			let key = $(this).attr('hotkey');
-			hotkeys(key, {
-				scope: 'non-input-field'
-			}, (e, handler) => {
-				if($(this).is(":hidden"))
-					return;
-				console.log('you press ' + handler.key);
-				e.preventDefault();
-				$(this).on('click',function(e){
-					console.log(e.target);
-					if($(this).attr('preventDefault') !== undefined)
-						e.preventDefault();
-				});
-				$(this).trigger('click');
-			});
-		});
+		$('[hotkey]').hotkeys();
 
 		//扫描监听enter right快捷键
 		hotkeys('enter', (e, handler) => {
