@@ -111,16 +111,7 @@ public class CustomerController {
      */
     @RequestMapping(value="/listPage.action", method = {RequestMethod.GET, RequestMethod.POST})
     public @ResponseBody String listPage(Customer customer, HttpServletRequest request) throws Exception {
-        List<Customer> customers = customerService.listByExample(customer);
-        customers.forEach(o->{
-            Map<String,String> map = new HashMap<>();
-            map.put("001","张三");
-            map.put("002","李四");
-            o.setChildMap(Arrays.asList(map));
-        });
-        List results = ValueProviderUtils.buildDataByProvider(customer, customers);
-        long total = results instanceof Page ? ( (Page) results).getTotal() : results.size();
-        return  new EasyuiPageOutput(Integer.parseInt(String.valueOf(total)), results).toString();
+        return customerService.listEasyuiPageByExample(customer, true).toString();
     }
 
     /**
