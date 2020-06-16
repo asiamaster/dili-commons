@@ -15,17 +15,23 @@
         $(window).resize(function () {
             _grid.bootstrapTable('resetView')
         });
-        _grid.bootstrapTable('refreshOptions', {url: '/customer/listPage.action'});
+        initTable();
     });
     /******************************驱动执行区 end****************************/
 
     /*****************************************函数区 begin************************************/
 
+    function initTable() {
+        _grid.bootstrapTable();
+        _grid.bootstrapTable('refreshOptions', {url: '/customer/listPage.action'});
+    }
+
     /**
      * 查询处理
      */
     function queryDataHandler() {
-        _grid.bootstrapTable('refresh');
+        _grid.bootstrapTable('destroy');
+        initTable();
     }
 
     /**
@@ -345,18 +351,6 @@
         $(cur_table).bootstrapTable('refreshOptions', {url: '/customer/listPage.action'});
     });
 
-    _grid.on('load-success.bs.table', function (e,data){
-        var columns = _grid.bootstrapTable('getOptions').columns;
-
-        if (columns && columns[0][1].visible) {
-            _grid.treegrid({
-                treeColumn: 2,
-                onChange: function() {
-
-                }
-            })
-        }
-    });
 
 
 
