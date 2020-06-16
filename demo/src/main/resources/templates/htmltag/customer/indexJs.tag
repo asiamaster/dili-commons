@@ -15,7 +15,7 @@ $(function () {
     $(window).resize(function () {
         _grid.bootstrapTable('resetView')
     });
-    _grid.bootstrapTable('refreshOptions', {url: '/customer/listPage.action'});
+    queryDataHandler();
 });
 /******************************驱动执行区 end****************************/
 
@@ -25,7 +25,7 @@ $(function () {
  * 查询处理
  */
 function queryDataHandler() {
-    _grid.bootstrapTable('refreshOptions', {pageNumber:1});
+    _grid.bootstrapTable('refreshOptions', {pageNumber: 1, url: '/customer/listPage.action'});
 }
 
 /**
