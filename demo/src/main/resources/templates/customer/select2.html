@@ -3,19 +3,11 @@
     <form class="form" id="_form">
         <div class="row row-cols-2 collapse show" id="">
             <div class="form-group col">
-                <label for="s3" _log>区域1</label>
-                <select name="other" class="form-control" id="s3"  required>
-                    <option value="1">一</option>
-                    <option value="2">二</option>
-                    <option value="3">三</option>
-                </select>
-            </div>
-            <div class="form-group col">
                 <label for="s2" _log>区域2</label>
                 <select id="s2" name="sw" required style="width: 20%" required multiple>
                     <option value="1">test</option>
                 </select>
-                <#bselect2 _id="s2" _mode="remote" _provider="cityProvider" _value="[1]"/>
+                <#bselect2 _id="s2" _mode="remote" _provider="cityProvider" _value="[1]" _optionVariable="cityAutoCompleteOption" />
             </div>
         </div>
 
@@ -31,6 +23,13 @@
         }
         console.log('okkkkkkkk')
     }
+
+    var cityAutoCompleteOption = {
+        width: '100%',
+        language: 'zh-CN',
+        maximumSelectionLength: 2,
+    }
+
 
     // $('#s2').select2({
     //     data:[{id:1,text:'张三'},{id:2,text:'李四'}],
