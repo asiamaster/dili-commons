@@ -53,10 +53,10 @@
             content: bui.util.HTMLDecode(template('addForm', {})), //对话框内容，可以是 string、element，$object
             width: '80%',//宽度
             height: '95%',//高度
-            btns: [{label: '取消',className: 'btn btn-secondary',onClick(e){
+            btns: [{label: '取消',className: 'btn-secondary',onClick(e){
 
                 }
-            }, {label: '确定',className: 'btn btn-primary',onClick(e){
+            }, {label: '确定',className: 'btn-primary',onClick(e){
                     bui.util.debounce(saveOrUpdateHandler,1000,true)()
                     return false;
                 }
@@ -75,10 +75,10 @@
             height: '700px',//高度
             isIframe: true,//默认是页面层，非iframe
             //按钮放在父页面用此处的 btns 选项。也可以放在页面里直接在页面写div。
-            /*btns: [{label: '取消',className: 'btn btn-secondary',onClick(e, $iframe){
+            /*btns: [{label: '取消',className: 'btn-secondary',onClick(e, $iframe){
 
                 }
-            }, {label: '确定',className: 'btn btn-primary',onClick(e, $iframe){
+            }, {label: '确定',className: 'btn-primary',onClick(e, $iframe){
                     let diaWindow = $iframe[0].contentWindow;
                     bui.util.debounce(diaWindow.saveOrUpdateHandler,1000,true)()
                     return false;
@@ -105,10 +105,10 @@
             height: '500px',//高度
             isIframe: true,//默认是页面层，非iframe
             //按钮放在父页面用此处的 btns 选项。也可以放在页面里直接在页面写div。
-            /*btns: [{label: '取消',className: 'btn btn-secondary',onClick(e, $iframe){
+            /*btns: [{label: '取消',className: 'btn-secondary',onClick(e, $iframe){
 
                 }
-            }, {label: '确定',className: 'btn btn-primary',onClick(e, $iframe){
+            }, {label: '确定',className: 'btn-primary',onClick(e, $iframe){
                     let diaWindow = $iframe[0].contentWindow;
                     bui.util.debounce(diaWindow.saveOrUpdateHandler,1000,true)()
                     return false;
