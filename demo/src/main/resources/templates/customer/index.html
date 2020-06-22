@@ -5,20 +5,20 @@
     <form id="queryForm" role="form" >
             <div class="row row-cols-6">
                 <div class="form-group col">
-                    <label for="code">客户编号:</label>
+                    <label for="code">客户编号</label>
                     <input type="text" class="form-control" name="code" id="code"/>
                 </div>
                 <div class="form-group col">
-                    <label for="certificateType">证件类型:</label>
+                    <label for="certificateType">证件类型</label>
                     <select id="certificateType" name="certificateType" class="form-control"></select>
                     <#bcomboProvider _id="certificateType" _provider="certificateTypeProvider" _value="" _onLoadSuccess=""/>
                 </div>
                 <div class="form-group col">
-                    <label for="certificateType">经营地区:</label>
+                    <label for="certificateType">经营地区</label>
                     <#bautoCompleteProvider _hiddenDomainId="operatingArea" _hiddenDomainName="operatingArea" _displayDomainId="_operatingArea" _placeholder="" _provider="cityProvider" _value="" _text="" _option=""/>
                 </div>
                 <div class="form-group col-auto">
-                    <label for="createdStart">创建时间:</label>
+                    <label for="createdStart">创建时间</label>
                     <div class="form-inline">
                         <div class="input-group">
                             <input type="text" name="createdStart" id="createdStart" class="form-control date laydatetime laystart" value="${createdStart!,dateFormat='yyyy-MM-dd HH:mm:ss'}"/>
