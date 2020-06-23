@@ -65,7 +65,7 @@
     }
 
     /**
-     打开更新窗口:iframe
+     打开新增窗口:iframe
      */
     function openInsertIframeHandler() {
         dia = bs4pop.dialog({
@@ -89,9 +89,9 @@
 
 
     /**
-     打开更新窗口:iframe
+     * 打开更新窗口:页面层
      */
-    function openUpdateHandler() {
+    function openInsertHandler() {
         //获取选中行的数据
         let rows = _grid.bootstrapTable('getSelections');
         if (null == rows || rows.length == 0) {
@@ -99,7 +99,33 @@
             return false;
         }
         dia = bs4pop.dialog({
-            title: 'iframe新增',//对话框title
+            title: '打开更新窗口:页面层',//对话框title
+            content: bui.util.HTMLDecode(template('addForm', $.extend(rows[0], {   }))), //对话框内容，可以是 string、element，$object
+            width: '80%',//宽度
+            height: '95%',//高度
+            btns: [{label: '取消',className: 'btn-secondary',onClick(e){
+
+                }
+            }, {label: '确定',className: 'btn-primary',onClick(e){
+                    bui.util.debounce(saveOrUpdateHandler,1000,true)()
+                    return false;
+                }
+            }]
+        });
+    }
+
+    /**
+     打开更新窗口:iframe
+     */
+    function openUpdateIframeHandler() {
+        //获取选中行的数据
+        let rows = _grid.bootstrapTable('getSelections');
+        if (null == rows || rows.length == 0) {
+            bs4pop.alert('请选中一条数据');
+            return false;
+        }
+        dia = bs4pop.dialog({
+            title: '打开更新窗口:iframe',//对话框title
             content: '${contextPath}/customer/preSave.html?id='+rows[0].id, //对话框内容，可以是 string、element，$object
             width: '80%',//宽度
             height: '500px',//高度
