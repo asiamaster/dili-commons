@@ -1,45 +1,47 @@
 <#bs4Body>
 
 <div class="container-fluid">
+    <#bs4nav>
     <form id="queryForm" role="form" >
             <div class="row row-cols-6">
                 <div class="form-group col">
-                    <label for="code">客户编号:</label>
+                    <label for="code">客户编号</label>
                     <input type="text" class="form-control" name="code" id="code"/>
                 </div>
                 <div class="form-group col">
-                    <label for="certificateType">证件类型:</label>
+                    <label for="certificateType">证件类型</label>
                     <select id="certificateType" name="certificateType" class="form-control"></select>
                     <#bcomboProvider _id="certificateType" _provider="certificateTypeProvider" _value="" _onLoadSuccess=""/>
                 </div>
                 <div class="form-group col">
-                    <label for="certificateType">经营地区:</label>
+                    <label for="certificateType">经营地区</label>
                     <#bautoCompleteProvider _hiddenDomainId="operatingArea" _hiddenDomainName="operatingArea" _displayDomainId="_operatingArea" _placeholder="" _provider="cityProvider" _value="" _text="" _option=""/>
                 </div>
                 <div class="form-group col-auto">
-                    <label for="createdStart">创建时间:</label>
+                    <label for="createdStart">创建时间</label>
                     <div class="form-inline">
                         <div class="input-group">
-                            <input type="text" name="createdStart" id="createdStart" class="form-control date laydatetime laystart" value="${createdStart!,dateFormat='yyyy-MM-dd HH:mm:ss'}"/>
+                            <input type="text" name="createdStart" id="createdStart" class="form-control laydatetime laystart" value="${createdStart!,dateFormat='yyyy-MM-dd HH:mm:ss'}"/>
                             <div class="input-group-append">
                                 <label for="createdStart" class="input-group-text fa fa-calendar"></label>
                             </div>
                         </div>&nbsp;&nbsp;至&nbsp;&nbsp;
                         <div class="input-group" id="datetimepicker3">
-                            <input type="text" name="createdEnd" id="createdEnd" class="form-control date laydatetime layend" value="${createdEnd!,dateFormat='yyyy-MM-dd HH:mm:ss'}"/>
+                            <input type="text" name="createdEnd" id="createdEnd" class="form-control laydatetime layend" value="${createdEnd!,dateFormat='yyyy-MM-dd HH:mm:ss'}"/>
                             <div class="input-group-append">
                                 <label for="createdEnd" class="input-group-text fa fa-calendar"></label>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col align-self-center mt-3">
+                <div class="col-auto align-self-center mt-3">
                     <button id="clear" type="button" class="btn btn-outline-primary mr-2" onclick="javascript:$('#queryForm .form-control').val('');"><i class="fa fa-refresh"></i> 清空</button>
                     <button id="query" type="button" class="btn btn-outline-primary" onclick="queryDataHandler()"><i class="fa fa-search"></i> 查询</button>
                 </div>
             </div>
         </form>
-
+    </#bs4nav>
+<hr>
     <div class="row">
         <div class="col-12">
             <div id="toolbar" class="btn-group" role="group" aria-label="工具栏">
@@ -58,8 +60,7 @@
             <table id="grid" data-toggle="table" data-title="客户列表" class="table" data-toolbar="#toolbar" data-pagination="true" data-page-number="1" data-page-size="10"
                    data-query-params="queryParams" data-side-pagination="server" data-method="POST" data-content-type="application/x-www-form-urlencoded" data-single-select="true"
                    data-click-to-select="true"  data-checkbox-header="true" data-unique-id="id" data-sort-name="id" data-sort-order="desc"  data-icons="bui.variable.icons" data-buttons-class="primary"
-                   data-show-refresh="true" data-show-fullscreen="true" data-show-columns="true" data-detail-view="true"
-            >
+                   data-show-refresh="true" data-show-fullscreen="true" data-show-columns="true" data-detail-view="true">
                 <thead>
                 <tr>
                     <th data-checkbox="true"></th>
@@ -97,7 +98,6 @@
     </div>
 </div>
 
-</div>
 </#bs4Body>
 <#customer_indexJs />
 
