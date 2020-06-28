@@ -348,8 +348,8 @@
          */
         function bindMetadata(gridId) {
             var opts = $("#" + gridId).bootstrapTable('getOptions');
-            //获取最后一行的列(可能是多表头)
-            var lastColumns = opts.columns[opts.columns.length - 1];
+            //获取实际字段的表头(可能是多表头)
+            var lastColumns = opts.columns.flat().filter(item => item["field"]);
             //赋默认值
             var params = {};
             params["metadata"] = {};
