@@ -157,7 +157,11 @@
                 //多表头遍历
                 for (let cols of opts.columns) {
                     for (let col of cols) {
-                        col['hidden'] = !col.field || !col.visible;
+                        if(col.field === 0){
+                            col['hidden'] = true;
+                        }else{
+                            col['hidden'] = !col.visible;
+                        }
                     }
                 }
                 token = guid();
