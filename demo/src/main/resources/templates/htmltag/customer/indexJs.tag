@@ -175,7 +175,7 @@
                 if(!ret.success){
                     bs4pop.alert(ret.message, {type: 'error'});
                 }else{
-                    parent.closeDialog(parent.dia);
+                    parent.dia.hide()
                 }
             },
             error: function (error) {
