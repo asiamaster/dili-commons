@@ -91,7 +91,7 @@
     /**
      * 打开更新窗口:页面层
      */
-    function openInsertHandler() {
+    function openUpdateHandler() {
         //获取选中行的数据
         let rows = _grid.bootstrapTable('getSelections');
         if (null == rows || rows.length == 0) {
