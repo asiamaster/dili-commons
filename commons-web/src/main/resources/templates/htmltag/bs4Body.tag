@@ -24,7 +24,9 @@ ${tag.body}
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
 <script src="/resources/bui/lib/bootstrap-4.4.1-dist/js/bootstrap.bundle.min.js"></script>
 <script src="/resources/bui/lib/bootstrap4pop/js/bs4.pop.js"></script>
+<script src="/resources/bui/lib/bootstrap-table/dist/extensions/editable/bootstrap-editable.min.js"></script>
 <script src="/resources/bui/lib/bootstrap-table/dist/bootstrap-table.min.js"></script>
+<script src="/resources/bui/lib/bootstrap-table/dist/extensions/editable/bootstrap-table-editable.min.js"></script>
 <script src="/resources/bui/lib/bootstrap-table/dist/locale/bootstrap-table-zh-CN.min.js"></script>
 <script src="/resources/bui/lib/laydate/laydate.js"></script>
 <script src="/resources/bui/lib/jquery-validation-1.19.1/jquery.validate.min.js"></script>
