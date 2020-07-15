@@ -157,7 +157,7 @@
                 //多表头遍历
                 for (let cols of opts.columns) {
                     for (let col of cols) {
-                        if(col.field === 0){
+                        if(col.checkbox || col.radio){
                             col['hidden'] = true;
                         }else{
                             col['hidden'] = !col.visible;
