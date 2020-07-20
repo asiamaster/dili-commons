@@ -23,7 +23,7 @@ function accDiv(arg1,arg2){
 /**
  * 给Number类型增加一个div方法，调用起来更加方便。
  * @param arg
- * @returns {number}
+ * @returns {number} accDiv(this, arg)
  */
 Number.prototype.div = function (arg){
     return accDiv(this, arg);
@@ -82,7 +82,7 @@ Number.prototype.add = function (arg){
 /**
  * 说明：javascript的减法结果会有误差，在两个浮点数相加的时候会比较明显。这个函数返回较为精确的加法结果。
  * 调用：accSub(arg1,arg2)
- * 返回值：arg1加上arg2的精确结果
+ * 返回值：arg1减去arg2的精确结果
  * @param arg1
  * @param arg2
  * @returns {string}
@@ -101,10 +101,10 @@ function accSub(arg1,arg2){
 /**
  * 给Number类型增加一个sub方法，调用起来更加方便。
  * @param arg
- * @returns {string}
+ * @returns {string} accSub(this,arg)
  */
 Number.prototype.sub = function (arg){
-    return accSub(arg,this);
+    return accSub(this,arg);
 };
 
 /**
