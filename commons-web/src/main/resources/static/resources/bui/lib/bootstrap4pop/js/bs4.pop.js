@@ -13,6 +13,7 @@ let bs4pop = {};
 			height: '',//高度
 			target: 'body',//在什么dom内创建dialog
 			isIframe: false,//默认是页面层，非iframe
+			mode : 'local', //local 本地片段 remote远程片段（配合content使用，content为对应远程片段URL）
 			isCenter: true, //默认剧中
 
 			closeBtn: true, //是否有关闭按钮
@@ -111,13 +112,19 @@ let bs4pop = {};
 		}
 
 		if(!opts.isIframe){
-			//创建内容
-			if(typeof opts.content === 'string'){
-				$body.html(opts.content);
-			}else if(typeof opts.content === 'object'){
-				$body.empty();
-				$(opts.content).contents().appendTo($body);//移动dom到 modal-body下
+			if (opts.mode == 'local') {
+				//创建内容
+				if(typeof opts.content === 'string'){
+					$body.html(opts.content);
+				}else if(typeof opts.content === 'object'){
+					$body.empty();
+					$(opts.content).contents().appendTo($body);//移动dom到 modal-body下
+				}
+			} else if (opts.mode == 'remote'){
+				$body.load(opts.content);
 			}
+
+
 		}else{
 		    $iframe = $(`<iframe class="d-block w-100 h-100 border-0" src="${opts.content}"></iframe>`);
 			$iframe.appendTo($body);
