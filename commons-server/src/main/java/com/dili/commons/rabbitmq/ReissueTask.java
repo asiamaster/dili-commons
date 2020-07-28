@@ -1,11 +1,9 @@
 package com.dili.commons.rabbitmq;
 
-import com.google.common.collect.Sets;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -27,6 +25,9 @@ public class ReissueTask implements Runnable {
 
     public void run() {
         HashSet all = SendFailedMessageHolder.getAll();
+        if(all.isEmpty()){
+            return;
+        }
         List<CorrelationDataExt> messageCorrelationDataList = new ArrayList<>(all);
         all.removeAll(messageCorrelationDataList);
         logger.info(String.format("------------------获取到%d条ack=false的消息，准备重发------------------", messageCorrelationDataList.size()));
