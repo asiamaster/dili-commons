@@ -1,4 +1,4 @@
-package com.dili.jmsf.common;
+package com.dili.commons.bstable;
 
 import java.io.Serializable;
 import java.util.List;
@@ -18,10 +18,10 @@ public class TableResult<T> implements Serializable {
     private Object extendData;
  
  
-    public TableSplitResult() {
+    public TableResult() {
     }
  
-    public TableSplitResult(Integer page, Long total, List<T> rows) {
+    public TableResult(Integer page, Long total, List<T> rows) {
         this.page = page;
         this.total = total;
         this.rows = rows;

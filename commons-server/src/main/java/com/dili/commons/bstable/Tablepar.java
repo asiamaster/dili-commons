@@ -1,4 +1,4 @@
-package com.dili.jmsf.common;
+package com.dili.commons.bstable;
 
 /**
  * boostrap table post 参数
