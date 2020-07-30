@@ -152,11 +152,23 @@ Array.prototype.inArray = function (val) {
 }
 
 /**
+ * var data = [
+ { id: 1, name: "办公管理", parentId: 0 },
+ { id: 2, name: "请假申请", parentId: 1 },
+ { id: 3, name: "出差申请", parentId: 1 },
+ { id: 4, name: "请假记录", parentId: 2 },
+ { id: 5, name: "系统设置", parentId: 0 },
+ { id: 6, name: "权限管理", parentId: 5 },
+ { id: 7, name: "用户角色", parentId: 6 },
+ { id: 8, name: "菜单设置", parentId: 6 },
+ ];
+ */
+/**
  * 转换数据库树形结构成ele ui结构
  * @param data
  * @returns {[]}
  */
-function toEleTree(data) {
+function toEleTree(data , options) {
     // 删除 所有 children,以防止多次调用
     data.forEach(function (item) {
         delete item.children;
@@ -171,8 +183,8 @@ function toEleTree(data) {
     const val = [];
     data.forEach(function (item) {
         // 以当前遍历项，的pid,去map对象中找到索引的id
-        item.label = item.name;
-        const parent = map[item.pid];
+        item.label = item[options.label];
+        const parent = map[item[options.pid]];
         // 如果找到索引，那么说明此项不在顶级当中,那么需要把此项添加到，他对应的父级中
         if (parent) {
             (parent.children || (parent.children = [])).push(item);
