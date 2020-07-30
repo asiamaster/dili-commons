@@ -113,7 +113,9 @@ tr[data-has-detail-view] td:first-child .detail-icon {
 /****************************  select2  ****************************************/
 
 .select2-selection.form-control {
-    height: calc(1.5em + .75rem + 2px);
+    height: fit-content;
+    padding-top: 0;
+    padding-bottom: 0;
     border-color: #DBDDE1;
 }
 .select2-selection.form-control.is-invalid {
