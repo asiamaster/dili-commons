@@ -16,4 +16,7 @@
     .element-ui label:first-child {
         margin-bottom: 0;
     }
+    .el-cascader, .el-input__inner {
+        line-height: unset;
+    }
 </style>
