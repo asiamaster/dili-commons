@@ -31,10 +31,9 @@ public class ConvertController {
      * @return
      */
     @PostMapping({"/list.action"})
-    @ResponseBody
     public List<ValuePair<?>> getLookupList(@RequestBody Map<String, Object> queryMap) {
         String provider = queryMap.get("provider").toString();
-        var result = new ArrayList<ValuePair<?>>();
+        List result = new ArrayList<ValuePair<?>>();
         queryMap.remove("provider");
         List<ValuePair<?>> value = this.valueProviderUtils.getLookupList(provider, queryMap.get("value"), queryMap);
         value.forEach(valuePair -> {
