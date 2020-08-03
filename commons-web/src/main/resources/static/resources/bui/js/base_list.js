@@ -234,7 +234,6 @@
                     url: url,
                     type: type,
                     dataType: dataType,
-                    contentType: "application/json",
                     data: data,
                     success: function (result) {
                         $.operate.ajaxSuccess(result)
