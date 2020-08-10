@@ -390,7 +390,7 @@
                 })
             },
             msgReload: function (msg, type) {
-                bs4pop.alert(msg, {type: $.modal.icon(type)}, function () {
+                bs4pop.alert(msg, {type: $.modal.icon(type), backdrop: 'static'}, function () {
                     $.modal.reload();
                 });
             },
