@@ -330,7 +330,11 @@
                 if (result.code == web_status.SUCCESS) {
                     $.modal.msgReload("保存成功,正在刷新数据请稍后……", modal_status.SUCCESS)
                 } else {
-                    $.modal.alertError(result.message);
+                    if (result.message) {
+                        $.modal.alertError(result.message);
+                    } else {
+                        $.modal.alertError("系统异常");
+                    }
                 }
                 $.modal.closeLoading();
             }, // post请求传输
