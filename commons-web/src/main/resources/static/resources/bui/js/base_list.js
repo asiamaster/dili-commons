@@ -277,7 +277,7 @@
 
                 var url = $.table._option.enableUrl.replace("{id}", rows[0]);
                 var data = {
-                    "id": rows[0]
+                    "ids": rows.join()
                 };
                 $.operate.submit(url, "post", "json", data);
             },
@@ -290,7 +290,7 @@
 
                 var url = $.table._option.disableUrl.replace("{id}", rows[0]);
                 var data = {
-                    "id": rows[0]
+                    "ids": rows.join()
                 };
                 $.operate.submit(url, "post", "json", data);
             },
