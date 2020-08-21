@@ -33,11 +33,16 @@ public class ConvertController {
     @PostMapping({"/list.action"})
     public List<ValuePair<?>> getLookupList(@RequestBody Map<String, Object> queryMap) {
         String provider = queryMap.get("provider").toString();
-        List result = new ArrayList<ValuePair<?>>();
+        boolean typeString = false;
+        if (queryMap.get("stringValue") != null) {
+            typeString = Boolean.parseBoolean(queryMap.get("stringValue").toString());
+        }
+        var result = new ArrayList<ValuePair<?>>();
         queryMap.remove("provider");
         List<ValuePair<?>> value = this.valueProviderUtils.getLookupList(provider, queryMap.get("value"), queryMap);
+        boolean finalTypeString = typeString;
         value.forEach(valuePair -> {
-            if (NumberUtil.isNumber(valuePair.getValue().toString())) {
+            if (NumberUtil.isNumber(valuePair.getValue().toString()) && !finalTypeString) {
                 result.add(new ValuePairImpl(valuePair.getText(), Long.valueOf(valuePair.getValue().toString())));
             } else {
                 result.add(valuePair);
