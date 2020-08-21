@@ -2052,6 +2052,10 @@
 	var $ = window.jQuery;
 
 	var deepCopy = function deepCopy(arg) {
+	  if (arg === undefined) {
+	    return arg;
+	  }
+
 	  return $.extend(true, Array.isArray(arg) ? [] : {}, arg);
 	};
 
@@ -2082,6 +2086,8 @@
 	    this.$table.on('all.bs.table', function (e, name, args) {
 	      var eventName = $.fn.bootstrapTable.events[name];
 	      eventName = eventName.replace(/([A-Z])/g, '-$1').toLowerCase();
+
+	      _this.$emit.apply(_this, ['on-all'].concat(_toConsumableArray(args)));
 
 	      _this.$emit.apply(_this, [eventName].concat(_toConsumableArray(args)));
 	    });
@@ -2269,7 +2275,7 @@
 	  
 
 	  
-	  const __vue_component__ = normalizeComponent(
+	  const __vue_component__ = /*#__PURE__*/normalizeComponent(
 	    { render: __vue_render__, staticRenderFns: __vue_staticRenderFns__ },
 	    __vue_inject_styles__,
 	    __vue_script__,
