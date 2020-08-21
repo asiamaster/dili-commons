@@ -37,7 +37,7 @@ public class ConvertController {
         if (queryMap.get("stringValue") != null) {
             typeString = Boolean.parseBoolean(queryMap.get("stringValue").toString());
         }
-        var result = new ArrayList<ValuePair<?>>();
+        List result = new ArrayList<ValuePair<?>>();
         queryMap.remove("provider");
         List<ValuePair<?>> value = this.valueProviderUtils.getLookupList(provider, queryMap.get("value"), queryMap);
         boolean finalTypeString = typeString;
