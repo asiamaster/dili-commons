@@ -48,7 +48,11 @@
             <input type="number" name="grade" id="grade" max="100"/>
         </div>
         <div>
-            <button type="button" hotkey="i" onclick="add()" preventDefault>新增(i)</button>
+            <label for="grade">成绩：</label>
+            <input type="number" name="grade" id="grade1" max="100"/>
+        </div>
+        <div>
+            <button hotkey="i" onclick="add()" preventDefault>新增(i)</button>
             <button type="button" hotkey="D" preventDefault>取消(D)</button>
             <button type="button" hotkey="s">保存(S)</button>
             <input type="button" value="测试 input button(a)" hotkey="a"/>
@@ -83,12 +87,10 @@
                 {
                     label: '确定',id:'ok-btn', className: 'btn-primary', onClick(e) {
                         console.log('sure');
-                        return false;
                     }
                 },
                 {label: '取消',id:'cancel-btn', className: 'btn-secondary', onClick(e) {
                         console.log('cancel');
-                        return false;
                     }}
             ]
         });

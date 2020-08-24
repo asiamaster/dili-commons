@@ -1,22 +1,33 @@
 <#bs4Body>
 <div class="container-fluid">
     <form class="form" id="_form">
-        <div class="row row-cols-2 collapse show" id="">
+        <div class="row row-cols-2 collapse show" >
             <div class="form-group col">
                 <label for="s2" _log>区域2</label>
-                <select id="s2" name="sw" required style="width: 20%" required multiple>
+                <select id="s2" name="sw" required style="width: 20%" required >
                     <option value="1">test</option>
                 </select>
                 <#bselect2 _id="s2" _mode="remote" _provider="cityProvider" _value="[1]" _optionVariable="cityAutoCompleteOption" />
             </div>
         </div>
-
         <button type="button" class="btn btn-primary" onclick="bui.util.debounce(saveOrUpdateHandler,1000,true)()">提交</button>
+        <button type="button" class="btn btn-primary" onclick="openSelect2Dialog()">测试对话框</button>
     </form>
 </div>
 </#bs4Body>
 <script>
-    console.log('main')
+    function openSelect2Dialog(){
+        bs4pop.dialog({
+            title: 'iframe新增',//对话框title
+            content: bui.util.HTMLDecode(template('editTpl',{})), //对话框内容，可以是 string、element，$object
+            // content:'http://127.0.0.1/customer/select2.html?index='+ Math.random()*10,
+            width: '80%',//宽度
+            height: '700px',//高度
+            backdrop : 'static',
+            // isIframe :true
+        });
+    }
+
     function saveOrUpdateHandler(){
         if ($('#_form').validate().form() != true) {
             return false;
@@ -27,7 +38,7 @@
     var cityAutoCompleteOption = {
         width: '100%',
         language: 'zh-CN',
-        maximumSelectionLength: 2,
+        maximumSelectionLength: 2
     }
 
 
@@ -72,4 +83,15 @@
     //     console.log(data);
     // });
     $('#s2').val(1).trigger('change.select2');
+</script>
+<!-- 编辑模板 -->
+<script id="editTpl" type="text/html">
+    <div class="row row-cols-2 collapse show" >
+        <div class="form-group col">
+            <label for="s3" _log>区域3</label>
+            <select id="s3" name="sw1" required style="width: 20%" required multiple>
+            </select>
+            <#bselect2 _escape="true" _id="s3" _mode="remote" _provider="cityProvider"  />
+        </div>
+    </div>
 </script>
