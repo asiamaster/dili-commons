@@ -40,7 +40,7 @@ let bs4pop = {};
 		let $el = opts.id !== '' ? $('#'+opts.id) : undefined;
 		if(!$el || !$el.length){
 			$el = $(`
-				<div class="modal fade" role="dialog" data-backdrop="${opts.backdrop}">
+				<div id="${opts.id}" class="modal fade" tabindex="-1" role="dialog" data-backdrop="${opts.backdrop}">
 					<div class="modal-dialog ">
 						<div class="modal-content">
 							<div class="modal-body"></div>

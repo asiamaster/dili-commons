@@ -11,9 +11,15 @@
             option = {${_option!}};
         <% } %>
 
+        //将下拉框位置定位在modal下
+        let dropdownParent = $(document.body);
+        if ($('#${_id}').parents('.modal:first').length !== 0)
+            dropdownParent = $('#${_id}').parents('.modal:first');
+
         //数据远程搜索（自动完成框）
         <% if( isNotEmpty(_mode) && _mode == "remote" ) {%>
             $('#${_id}').select2($.extend(true,{
+                dropdownParent: dropdownParent,//将下拉框位置定位在modal下
                 language: 'zh-CN',
                 containerCssClass : 'form-control',
                 width: '100%',
@@ -92,6 +98,7 @@
 
 
             $('#${_id}').select2($.extend(true,{
+                dropdownParent: dropdownParent,//将下拉框位置定位在modal下
                 containerCssClass : 'form-control',
                 width: '100%'
             },option));
