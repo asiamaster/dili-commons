@@ -172,6 +172,7 @@
                 param.queryParams = JSON.stringify(_gridExportQueryParams);
                 param.title = opts.title;
                 param.url = opts.url;
+                param.contentType = opts.contentType;
                 param.token = token;
                 if (!exportUrl) {
                     exportUrl = "${contextPath}/export/serverExport.action";
@@ -195,6 +196,7 @@
                         "<input type='hidden' id='title' name='title'/>" +
                         "<input type='hidden' id='url' name='url'/>" +
                         "<input type='hidden' id='token' name='token'/>" +
+                        "<input type='hidden' id='contentType' name='contentType'/>" +
                         "</form></div>";
                     $(formStr).appendTo("body");
                 }
@@ -203,6 +205,7 @@
                 $('#title').val(param.title);
                 $('#url').val(param.url);
                 $('#token').val(param.token);
+                $('#contentType').val(param.contentType);
                 // 显示进度条
                 bui.loading.show('数据导出中，请稍候。。。');
                 checkFinished(token);
