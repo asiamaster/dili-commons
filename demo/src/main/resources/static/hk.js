@@ -56,8 +56,12 @@
 			let el = e.target;
 			let tagName = el.tagName;
 			let type = el.type;
-			return !(el.isContentEditable || (type == 'text' || type == 'number' || type == 'password' || type == 'email' || type == 'url' || type == 'date' || type == 'search') || (tagName === 'TEXTAREA' || tagName === 'SELECT')) ||
-				el.readOnly || el.disabled || e.ctrlKey || e.altKey || e.shiftKey || (e.keyCode >= 112 && e.keyCode <= 135) || e.keyCode == 13;
+			return !(el.isContentEditable || (type == 'text' || type == 'number' || type == 'password' || type == 'email' || type == 'url' || type == 'date' || type == 'search') //可编辑标签快捷键失效
+				|| (tagName === 'TEXTAREA' || tagName === 'SELECT'))  //多行文本框、下拉
+				||	el.readOnly || el.disabled || e.ctrlKey || e.altKey || e.shiftKey //只读、禁用、(ctrl、alt、shift组合快捷键)
+				|| (e.keyCode >= 112 && e.keyCode <= 135) //F1-F24
+				|| e.key == 'Enter' || e.key == 'ArrowLeft' || e.key == 'ArrowRight' //回车、方向左、方向右
+				;
 		}
 
 		//扫描监听相关自定义快捷键
@@ -67,11 +71,9 @@
 		hotkeys('enter', (e, handler) => {
 			console.log('you press ' + handler.key);
 			let el = e.target;
-			if ($(el).is(hk.focusElSelector) && $(el).is(hk.focusElFilter)) {
-				e.preventDefault();
-				let nextEl = nextCtl(el, 1);
-				nextEl.focus();
-			}
+			e.preventDefault();
+			let nextEl = nextCtl(el, 1);
+			nextEl.focus();
 		});
 
 		//扫描监听enter right快捷键

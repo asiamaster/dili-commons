@@ -76,11 +76,10 @@
     function add() {
         bs4pop.dialog({
             title: '新增',
-            content: '/customer/log.html',
-            isIframe:true,
+            content: template('hkTpl', {}),
             closeBtn: true,
-            autoFocus: true,
-            btnAutoFocus:true,
+            // autoFocus: true,
+            // btnAutoFocus:true,
             backdrop : 'static',
             width: '40%',
             btns: [
@@ -103,7 +102,7 @@
 <script id="hkTpl" type="text/html">
     <div>
         <label for="boss">老板：</label>
-        <input type="text" id="boss" autofocus/>
+        <input type="text" id="boss" />
     </div>
     <div>
         <label for="enterprise">企业：</label>
