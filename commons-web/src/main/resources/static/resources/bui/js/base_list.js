@@ -328,7 +328,7 @@
             },
             saveSuccess: function (result) {
                 if (result.code == web_status.SUCCESS) {
-                    $.modal.msgReload("保存成功,正在刷新数据请稍后……", modal_status.SUCCESS)
+                    $.modal.msgReload("保存成功", modal_status.SUCCESS)
                 } else {
                     if (result.message) {
                         $.modal.alertError(result.message);
@@ -429,7 +429,7 @@
                     url = "404.html";
                 }
                 if ($.common.isEmpty(width)) {
-                    width = 800;
+                    width = 1200;
                 }
                 if ($.common.isEmpty(height)) {
                     height = ($(window).height() - 50);
