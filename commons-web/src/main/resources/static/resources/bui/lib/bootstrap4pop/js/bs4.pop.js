@@ -126,7 +126,7 @@ let bs4pop = {};
 
 
 		}else{
-		    $iframe = $(`<iframe class="d-block w-100 h-100 border-0" src="${opts.content}"></iframe>`);
+		    $iframe = $(`<iframe class="d-block w-100 h-100 border-0" src="${opts.content}" autofocus></iframe>`);
 			$iframe.appendTo($body);
 		}
 

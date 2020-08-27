@@ -53,9 +53,9 @@
         </div>
         <div>
             <button hotkey="i" onclick="add()" preventDefault>新增(i)</button>
-            <button type="button" hotkey="D" preventDefault>取消(D)</button>
-            <button type="button" hotkey="s">保存(S)</button>
-            <input type="button" value="测试 input button(a)" hotkey="a"/>
+            <button type="button" hotkey="D" hotkey-scope="scope1" preventDefault>取消(D)-scope1</button>
+            <button type="button" hotkey="S" hotkey-scope="scope2">保存(S)-scope2</button>
+            <input type="button" value="测试(A)" hotkey="A" hotkey-trigger-event="click" onclick="console.log('triggerEvent:click')" onchange="console.log('triggerEvent:change')"/>
         </div>
 
     </form>
@@ -63,10 +63,9 @@
 
 </#bs4Body>
 <script src="/hotkeys.js"></script>
-<script src="/hk.js"></script>
+<script src="/hotkeys-extend.js"></script>
 <script>
-    hk.start();
-    console.log('init..')
+    hotkey.start();
 
     $('[hotkey]').on('click',function(e){
         console.log(e.target);
@@ -77,25 +76,26 @@
         bs4pop.dialog({
             title: '新增',
             content: template('hkTpl', {}),
+            // content:'/customer/hotkey.html?a='+Math.random(),
             closeBtn: true,
-            // autoFocus: true,
+            // isIframe:true,
             // btnAutoFocus:true,
             backdrop : 'static',
             width: '40%',
             btns: [
                 {
-                    label: '确定',id:'ok-btn', className: 'btn-primary', onClick(e) {
+                    label: '确定(T)',id:'ok-btn', className: 'btn-primary', onClick(e) {
                         console.log('sure');
                     }
                 },
-                {label: '取消',id:'cancel-btn', className: 'btn-secondary', onClick(e) {
+                {label: '取消(W)',id:'cancel-btn', className: 'btn-secondary', onClick(e) {
                         console.log('cancel');
                     }}
             ]
         });
 
-        $('#ok-btn').hotkeys('q');
-        $('#cancel-btn').hotkeys('w');
+        $('#ok-btn').hotkey({hotkey: 't', scope: 'modal'});
+        $('#cancel-btn').hotkey({hotkey: 'w', scope: 'modal'});
     }
 
 </script>
@@ -108,4 +108,5 @@
         <label for="enterprise">企业：</label>
         <input type="text" id="enterprise"/>
     </div>
+    <button type="button" hotkey="Q" onclick="javascript:console.log('q')">保存(q)</button>
 </script>
