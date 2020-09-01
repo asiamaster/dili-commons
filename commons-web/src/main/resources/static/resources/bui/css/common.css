@@ -6,6 +6,10 @@ html {
 .red {
     color: #E54937;
 }
+hr {
+    margin-top: .5rem;
+    margin-bottom: .5rem;
+}
 /*按钮固定在右下角*/
 .modal-footer-wrap {
     position: fixed;
