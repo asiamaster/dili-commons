@@ -11,14 +11,12 @@
     $.fn.hotkey = function (options) {
         let opts = $.extend({}, $.fn.hotkey.defaults, options);
         this.each(function () {
-            let key = opts.hotkey || $(this).attr('hotkey');
-            let scope = $(this).attr('hotkey-scope') || opts.scope;
-            let triggerEvent = $(this).attr('hotkey-trigger-event') || opts.triggerEvent;
-            hotkeys(key, scope, (e, handler) => {
+            $.extend(opts, eval($(this).data('hotkey')) || {});
+            hotkeys(opts.key, opts.scope, (e, handler) => {
                 if ($(this).is(":hidden"))
                     return;
                 e.preventDefault();
-                $(this).trigger(triggerEvent);
+                $(this).trigger(opts.triggerEvent);
             });
         })
     }
@@ -69,13 +67,13 @@
         }
 
         //扫描监听相关自定义快捷键
-        $('[hotkey]').hotkey();
+        $('[data-hotkey]').hotkey();
         hotkeys.setScope('root');//初始化 作用域范围默认root
 
         //弹框打开事件
         $(document).on('show.bs.modal', '.modal', function (e) {
             //扫描监听相关自定义快捷键
-            $(e.target).find('[hotkey]').hotkey({scope: 'modal'});
+            $(e.target).find('[data-hotkey]').hotkey({scope: 'modal'});
             hotkeys.setScope('modal');
         });
 

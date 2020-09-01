@@ -474,15 +474,15 @@
                     }, wait);
 
                     if(trigger) {
-                        fn.apply(this, arguments);
+                        return fn.apply(this, arguments);
                     }
-                    return;
+                    return false;
                 }
 
                 timer = setTimeout(() => {
-                    fn.apply(this, arguments);
+                    return fn.apply(this, arguments);
                 }, wait);
-                return;
+                return false;
             }
         };
 

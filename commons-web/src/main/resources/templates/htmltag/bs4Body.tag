@@ -20,7 +20,6 @@
 </head>
 <body>
 ${tag.body}
-<#bfrontJs/>
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
 <script src="/resources/bui/lib/bootstrap-4.4.1-dist/js/bootstrap.bundle.min.js"></script>
