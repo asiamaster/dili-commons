@@ -5,11 +5,14 @@
  *
  ***/
 
-(function () {
-    window.Logger = Logger;
+;(function (global, factory) {
+    typeof module !== 'undefined' && typeof exports === 'object' ? module.exports = factory() :
+        typeof define === 'function' && (define.cmd || define.amd) ? define(factory) :
+            (global.Logger = factory());
+}(this, function () {
     function Logger(option) {
         this.oldFields = {};
-        if(loggerContextPath){
+        if (loggerContextPath) {
             Logger.defaults.remoteUrl = loggerContextPath + '/api/businessLog/save';
             loggerContextPath = false;
         }
@@ -19,9 +22,9 @@
 
     Logger.defaults = {
         //作用范围
-        scope : 'body',
+        scope: 'body',
         //是否初始化默认实例
-        isInitDefaultLog : true,
+        isInitDefaultLog: true,
         //日志记录远程URL
         remoteUrl: 'http://logger.diligrp.com:8283/api/businessLog/save',
         /**
@@ -86,12 +89,12 @@
                     if (objEl.prop('tagName') == "SELECT") {
                         let option = objEl.find("option:selected");
                         let texts = [];
-                        if(option.length > 0){
-                            option.each(function (i,optionItem) {
-                                texts.push($(optionItem).val()?$(optionItem).text() : '');
+                        if (option.length > 0) {
+                            option.each(function (i, optionItem) {
+                                texts.push($(optionItem).val() ? $(optionItem).text() : '');
                             });
                         }
-                        fields[$(el).text()] = texts.length > 0? texts.join() : '';
+                        fields[$(el).text()] = texts.length > 0 ? texts.join() : '';
                     } else if (objEl.prop('type') == "radio") {
                         if (!fields[$(el).text()]) {
                             fields[$(el).text()] = $('[name="' + objEl.prop('name') + '"]:checked').next().text();
@@ -111,7 +114,7 @@
                     if ($(el).prop('tagName') == "SELECT") {
                         if (!fields[field]) {
                             let option = $(el).find("option:selected");
-                            fields[field] = option.length > 0? option.val() ? option.text() : '' : '';
+                            fields[field] = option.length > 0 ? option.val() ? option.text() : '' : '';
                         }
                     } else if ($(el).prop('type') == "radio") {
                         if (!fields[field]) {
@@ -140,7 +143,7 @@
         buildFields(selector) {
             let self = this;
             let $el = selector ? $(selector) : $(`${self.scope} [_log]:not([_logTable] [_log])`);
-            let fields = $.extend({},self.buildFields2El($el),self.buildTableFields($('[_logTable]')));
+            let fields = $.extend({}, self.buildFields2El($el), self.buildTableFields($('[_logTable]')));
             return fields;
         },
         /**
@@ -177,14 +180,12 @@
         }
     }
 
-    if (typeof module === "object" && typeof module.exports === "object") {
-        module.exports = Logger
-    }
-})();
-//初始化Logger默认实例
-$(function () {
-    //初始化默认实例
-    if(Logger.defaults.isInitDefaultLog){
-        window.Log = new Logger();
-    }
-});
+    //初始化Logger默认实例
+    $(function () {
+        //初始化默认实例
+        if (Logger.defaults.isInitDefaultLog) {
+            window.Log = new Logger();
+        }
+    });
+
+}));

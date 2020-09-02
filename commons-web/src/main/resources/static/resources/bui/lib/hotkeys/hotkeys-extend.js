@@ -1,8 +1,15 @@
-(function(global, factory) {
-	typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory(jQuery, hotkeys) :
-		typeof define === 'function' && define.amd ? define(['jquery', 'hotkeys'], factory) :
-		(global = global || window, global.hotkey = factory(jQuery, hotkeys));
-}(this, function($, hotkeys) {
+/**
+ * hotkeys-extend.js 前端WEB快捷键组件模块
+ * @Date 2020-09-01 17:30:00
+ * @author jiangchengyong
+ *
+ ***/
+
+;(function(global, factory) {
+	typeof module !== 'undefined' && typeof exports === 'object' ? module.exports = factory() :
+		typeof define === 'function' && (define.cmd || define.amd) ? define(factory) :
+			(global.hotkey = factory());
+}(this, function() {
 
 	/**
 	 * 焦点转移
@@ -109,8 +116,8 @@
 				let type = el.type;
 				if (type != 'button' && type != 'submit' && type != 'reset' && tagName != 'BUTTON') {
 					e.preventDefault();
-					$(this).trigger(opts.triggerEvent);
 				}
+				$(this).trigger(opts.triggerEvent);
 			});
 		})
 	}
