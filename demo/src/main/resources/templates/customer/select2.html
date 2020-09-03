@@ -3,12 +3,12 @@
     <form class="form" id="_form">
         <div class="row row-cols-2 collapse show" >
             <div class="form-group col">
-                <label for="s2" _log>区域2</label>
-                <select id="s2" name="sw" required style="width: 20%" required >
-                    <option value="1">test</option>
-                </select>
-                <#bselect2 _id="s2" _mode="remote" _provider="cityProvider" _value="[1]" _optionVariable="cityAutoCompleteOption" />
-            </div>
+            <label for="s2" _log>区域2</label>
+            <select id="s2" name="sw" required style="width: 20%" required >
+                <option value="1">test</option>
+            </select>
+            <#bselect2 _id="s2" _mode="remote" _provider="cityProvider" _value="[1]" _optionVariable="cityAutoCompleteOption" />
+        </div>
         </div>
         <button type="button" class="btn btn-primary" onclick="bui.util.debounce(saveOrUpdateHandler,1000,true)()">提交</button>
         <button type="button" class="btn btn-primary" onclick="openSelect2Dialog()">测试对话框</button>

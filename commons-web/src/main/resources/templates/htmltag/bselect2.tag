@@ -12,9 +12,7 @@
         <% } %>
 
         //将下拉框位置定位在modal下
-        let dropdownParent = $(document.body);
-        if ($('#${_id}').parents('.modal:first').length !== 0)
-            dropdownParent = $('#${_id}').parents('.modal:first');
+        let dropdownParent = $('#${_id}').parent();
 
         //数据远程搜索（自动完成框）
         <% if( isNotEmpty(_mode) && _mode == "remote" ) {%>

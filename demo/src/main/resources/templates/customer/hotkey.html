@@ -18,7 +18,7 @@
     <form>
         <div>
             <label for="realName">姓名：</label>
-            <input type="text" id="realName" name="realName" focus-shift/>
+            <input type="text" id="realName" name="realName" focus-shift autofocus/>
         </div>
         <div>
             <label for="userName">昵称：</label>
@@ -39,16 +39,32 @@
         </div>
         <div>
             <label for="userName">性别：</label>
-            <input type="radio" name="sex"  focus-shift/>男
-            <input type="radio" name="sex"  focus-shift/>女
-        </div>
-        <div>
-            <label>性别：</label>
-            <select focus-shift>
-                <option>-请选择-</option>
+            <select class="form-control" id="s1" focus-shift >
+                <option>--请选择--</option>
                 <option value="1">男</option>
                 <option value="2">女</option>
             </select>
+        </div>
+        <div>
+            <label>性别：</label>
+            <select class="form-control" id="s0" focus-shift multiple>
+                <option selected="selected">orange</option>
+                <option>white</option>
+                <option>purple</option>
+            </select>
+            <#bselect2 _id="s0" _option="tags: true"/>
+        </div>
+        <div>
+            <label>性别：</label>
+            <select class="form-control" id="s2" focus-shift >
+            </select>
+            <#bselect2 _id="s2" _mode="remote" _provider="cityProvider" _option="allowClear:true,placeholder:'请选择'"/>
+        </div>
+        <div>
+            <label>性别：</label>
+            <select class="form-control" id="s3" focus-shift multiple>
+            </select>
+            <#bselect2 _id="s3" _mode="remote" _provider="cityProvider"/>
         </div>
         <div>
             <label for="grade">成绩：</label>
@@ -60,20 +76,25 @@
         </div>
         <div>
             <button type="button" id="add" data-hotkey="{key: 'I'}" onclick="debounceAddFn()" focus-shift>新增(i)</button>
+<!--
             <button data-hotkey="{key:'D',scope:'scope1'}" focus-shift>取消(D)-scope1</button>
+-->
             <button type="button" data-hotkey="{key:'S'}" onclick="debounceSaveFn()">保存(S)</button>
             <input id="tt" type="button" value="测试(A)" data-hotkey="{key:'A',triggerEvent:'click'}"
                    onclick="console.log('triggerEvent:click')"
                    onchange="console.log('triggerEvent:change')"/>
+<!--
             <input type="submit" value="submit" focus-shift>
+-->
             <input type="reset" value="reset" focus-shift>
+            <button id="tt1" type="button" data-hotkey="{key:'C'}" onclick="debounceSaveFn()">保存(C)</button>
         </div>
 
     </form>
 </div>
-<#bhotkey/>
-</#bs4Body>
 
+</#bs4Body>
+<#bhotkey/>
 <script>
     /**
      * 快捷键配置，目前只有焦点转移功能配置
@@ -94,9 +115,14 @@
     hotkey.start();
 
     function save() {
-        bs4pop.alert("保存成功");
+        console.log("保存成功");
         // return false;
     }
+
+    $('#tt1').on('keydown', function (evt) {
+        evt.stopPropagation();
+        console.log("keydown执行完毕");
+    });
 
     var debounceSaveFn = bui.util.debounce(save, 1000, true);
 
@@ -105,9 +131,9 @@
         bs4pop.dialog({
             title: '新增',
             content: template('hkTpl', {}),
-            // content:'/customer/hotkey.html?a='+Math.random(),
+            content:'/customer/hotkey.html?a='+Math.random(),
             closeBtn: true,
-            // isIframe:true,
+            isIframe:true,
             // btnAutoFocus:true,
             backdrop : 'static',
             width: '40%',
@@ -118,7 +144,7 @@
                     className: 'btn-primary',
                     onClick: bui.util.debounce(save, 1000, true),
                     hotkey: {
-                        key: 't',
+                        key: 'ctrl+s',
                         focusShift: true
                     }
                 },
@@ -147,5 +173,5 @@
         <label for="enterprise">企业：</label>
         <input type="text" id="enterprise"/>
     </div>
-    <button type="button" data-hotkey="{key:'Q'}" onclick="javascript:console.log('q')">保存(q)</button>
+    <button type="button" data-hotkey="{key:'ctrl+e'}" onclick="javascript:console.log('q')">保存(q)</button>
 </script>

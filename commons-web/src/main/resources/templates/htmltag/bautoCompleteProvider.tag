@@ -1,13 +1,13 @@
 <input type="text" class="${_displayDomainClass!} form-control ${_validatorMethod!}" id="${_displayDomainId!}" name="${_displayDomainName!}" value="${_text!}" placeholder="${_placeholder!}"
    <% if( isNotEmpty(_log)) {%>
        _log=${_log}
-    <% } %>
-   <% if( isNotEmpty(_required) && _required == "true") {%>
-       required
-    <% } %>
-    <% if( isNotEmpty(_readonly) && _readonly == "true") {%>
+           <% } %>
+           <% if( isNotEmpty(_required) && _required == "true") {%>
+               required
+        <% } %>
+        <% if( isNotEmpty(_readonly) && _readonly == "true") {%>
        readonly
-    <% } %>
+        <% } %>
 />
 <input type="hidden" name="${_hiddenDomainName!}" class="${_hiddenDomainClass!}" id="${_hiddenDomainId!}"  value="${_value!}" text="${_text!}"/>
 <% if(isNotEmpty(_escape) && _escape == "true") {%>
