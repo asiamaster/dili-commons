@@ -31,11 +31,9 @@
 
 			//扫描监听enter right快捷键
 			opts.enableHotkeys.includes('ENTER') && hotkeys('ENTER', (e, handler) => {
-				e.stopPropagation();
 				console.log('you press ' + handler.key);
 				let el = e.target;
 				let tagName = el.tagName;
-				console.log(el)
 				let type = el.type;
 				if (type != 'button' && type != 'submit' && type != 'reset' && tagName != 'BUTTON') {
 					e.preventDefault();
@@ -44,9 +42,13 @@
 						let $select2Container = $(el).parents('.select2-container');
 						el = $select2Container.siblings('select');
 						if ($(el).length > 0) {
-							if ($(el).attr('multiple') && $select2Container.siblings('.select2-container').length == 1
-								&& $select2Container.siblings('.select2-container').find('.select2-results__option.select2-results__message').length == 0)
+							let $otherselect2Container = $select2Container.siblings('.select2-container');
+							if ($(el).attr('multiple') && $otherselect2Container.length == 1
+								&& $otherselect2Container.find('.select2-results__option.select2-results__option--highlighted').length > 0) {
+								$(el).select2('close');
 								return;
+							}
+
 							$(el).select2('close');
 							this.nextCtl(el, 1).focus();
 						}

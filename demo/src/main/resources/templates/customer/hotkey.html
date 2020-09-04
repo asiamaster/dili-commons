@@ -46,7 +46,16 @@
             </select>
         </div>
         <div>
-            <label>性别：</label>
+            <label>性别-1：</label>
+            <select class="form-control" id="s-1" focus-shift>
+                <option selected="selected">orange</option>
+                <option>white</option>
+                <option>purple</option>
+            </select>
+            <#bselect2 _id="s-1" _option="tags: true"/>
+        </div>
+        <div>
+            <label>性别0：</label>
             <select class="form-control" id="s0" focus-shift multiple>
                 <option selected="selected">orange</option>
                 <option>white</option>
@@ -55,13 +64,13 @@
             <#bselect2 _id="s0" _option="tags: true"/>
         </div>
         <div>
-            <label>性别：</label>
-            <select class="form-control" id="s2" focus-shift >
+            <label>性别2：</label>
+            <select class="form-control" id="s2"  data-placeholder="Select an option"  focus-shift >
             </select>
-            <#bselect2 _id="s2" _mode="remote" _provider="cityProvider" _option="allowClear:true,placeholder:'请选择'"/>
+            <#bselect2 _id="s2" _mode="remote" _provider="cityProvider" _option="allowClear:true"/>
         </div>
         <div>
-            <label>性别：</label>
+            <label>性别3：</label>
             <select class="form-control" id="s3" focus-shift multiple>
             </select>
             <#bselect2 _id="s3" _mode="remote" _provider="cityProvider"/>
@@ -76,18 +85,13 @@
         </div>
         <div>
             <button type="button" id="add" data-hotkey="{key: 'I'}" onclick="debounceAddFn()" focus-shift>新增(i)</button>
-<!--
             <button data-hotkey="{key:'D',scope:'scope1'}" focus-shift>取消(D)-scope1</button>
--->
             <button type="button" data-hotkey="{key:'S'}" onclick="debounceSaveFn()">保存(S)</button>
             <input id="tt" type="button" value="测试(A)" data-hotkey="{key:'A',triggerEvent:'click'}"
                    onclick="console.log('triggerEvent:click')"
                    onchange="console.log('triggerEvent:change')"/>
-<!--
             <input type="submit" value="submit" focus-shift>
--->
             <input type="reset" value="reset" focus-shift>
-            <button id="tt1" type="button" data-hotkey="{key:'C'}" onclick="debounceSaveFn()">保存(C)</button>
         </div>
 
     </form>
@@ -119,11 +123,6 @@
         // return false;
     }
 
-    $('#tt1').on('keydown', function (evt) {
-        evt.stopPropagation();
-        console.log("keydown执行完毕");
-    });
-
     var debounceSaveFn = bui.util.debounce(save, 1000, true);
 
     function add() {
@@ -144,7 +143,7 @@
                     className: 'btn-primary',
                     onClick: bui.util.debounce(save, 1000, true),
                     hotkey: {
-                        key: 'ctrl+s',
+                        key: 'T',
                         focusShift: true
                     }
                 },
