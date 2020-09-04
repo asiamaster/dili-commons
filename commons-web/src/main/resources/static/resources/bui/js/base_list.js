@@ -106,6 +106,11 @@
                             //         }
                             //     }
                             // }
+                        },
+                        onExpandRow: function (index, row, $detail) {
+                            if ($.table._option.onExpandRow) {
+                                $.table._option.onExpandRow(index, row, $detail);
+                            }
                         }
                     });
                 };
