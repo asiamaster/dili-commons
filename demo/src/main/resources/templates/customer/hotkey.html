@@ -18,7 +18,7 @@
     <form>
         <div>
             <label for="realName">姓名：</label>
-            <input type="text" id="realName" name="realName" focus-shift autofocus/>
+            <input type="text" id="realName" name="realName" focus-shift/>
         </div>
         <div>
             <label for="userName">昵称：</label>
@@ -84,9 +84,9 @@
             <input type="number" name="grade" id="grade1" max="100" focus-shift/>
         </div>
         <div>
-            <button type="button" id="add" data-hotkey="{key: 'I'}" onclick="debounceAddFn()" focus-shift>新增(i)</button>
+            <button type="button" data-hotkey="{key: 'I'}" onclick="add()" focus-shift>新增(i)</button>
             <button data-hotkey="{key:'D',scope:'scope1'}" focus-shift>取消(D)-scope1</button>
-            <button type="button" data-hotkey="{key:'S'}" onclick="debounceSaveFn()">保存(S)</button>
+            <button type="button" data-hotkey="{key:'S'}" onclick="save()">保存(S)</button>
             <input id="tt" type="button" value="测试(A)" data-hotkey="{key:'A',triggerEvent:'click'}"
                    onclick="console.log('triggerEvent:click')"
                    onchange="console.log('triggerEvent:change')"/>
@@ -123,16 +123,13 @@
         // return false;
     }
 
-    var debounceSaveFn = bui.util.debounce(save, 1000, true);
-
     function add() {
-        console.log(1)
         bs4pop.dialog({
             title: '新增',
             content: template('hkTpl', {}),
-            content:'/customer/hotkey.html?a='+Math.random(),
+            // content:'/customer/hotkey.html?a='+Math.random(),
             closeBtn: true,
-            isIframe:true,
+            // isIframe:true,
             // btnAutoFocus:true,
             backdrop : 'static',
             width: '40%',
@@ -141,7 +138,9 @@
                     label: '确定(T)',
                     id: 'ok-btn',
                     className: 'btn-primary',
-                    onClick: bui.util.debounce(save, 1000, true),
+                    onClick: function () {
+                        console.log("关闭");
+                    },
                     hotkey: {
                         key: 'T',
                         focusShift: true
@@ -159,8 +158,6 @@
             ]
         });
     }
-
-    var debounceAddFn = bui.util.debounce(add, 1000, true);
 
 </script>
 <script id="hkTpl" type="text/html">

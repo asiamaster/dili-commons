@@ -86,22 +86,13 @@
                 <% } %>
             );
 
-            $.extend(option,
-                <% if( isNotEmpty(_onLoadSuccess) ) {%>
-                {onLoadSuccess : ${_onLoadSuccess!}}
-                <% } else { %>
-                {}
-                <% } %>
-            );
-
-
             $('#${_id}').select2($.extend(true,{
                 dropdownParent: dropdownParent,//将下拉框位置定位在modal下
                 containerCssClass : 'form-control',
                 width: '100%'
             },option));
 
-            $.ajax($.extend(true,{
+            let ajaxOptions = $.extend(true,{
                 <% if( isNotEmpty(_provider) ) {%>
                 type: "post",
                 url: '/provider/getLookupList.action',
@@ -156,7 +147,9 @@
                 error: function () {
                     console.log('数据接口异常');
                 }
-            },dataOption));
+            },dataOption);
+
+            ajaxOptions.url && $.ajax(ajaxOptions);
         <% } %>
     })
 <% if(isNotEmpty(_escape) && _escape == "true") {%>

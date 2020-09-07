@@ -131,18 +131,46 @@
 		}
 	}
 
+	/**
+	 * fn [function] 需要防抖的函数
+	 * wait [number] 毫秒，防抖期限值
+	 * immediate 是否立即执行
+	 */
+	const _debounce = (fn, wait, immediate = false) => {
+		let timer;
+		return function () {
+			if (timer) clearTimeout(timer);
+			if (immediate) {
+				let trigger = !timer;
+				timer = setTimeout(() => {
+					timer = null;
+				}, wait);
+
+				if (trigger) {
+					return fn.apply(this, arguments);
+				}
+				return false;
+			}
+
+			timer = setTimeout(() => {
+				return fn.apply(this, arguments);
+			}, wait);
+			return false;
+		}
+	};
+
 
 	/**
 	 * 扩展jquery 对象方法（快捷键注册）
 	 * @param options {hotkey,scope,triggerEvent}
 	 */
 	$.fn.hotkey = function(options) {
-		this.each(function() {
+		this.each(function () {
 			let hotkeyOpts = $(this).data('hotkey');
 			hotkeyOpts = typeof hotkeyOpts !== 'object' ? (hotkeyOpts ? eval('(' + hotkeyOpts + ')') : undefined) :
 				hotkeyOpts;
 			let opts = $.extend({}, $.fn.hotkey.defaults, options, hotkeyOpts || {});
-			hotkeys(opts.key, opts.scope, (e, handler) => {
+			hotkeys(opts.key, opts.scope, _debounce((e, handler) => {
 				console.log('you press ' + handler.key);
 				if ($(this).is(":hidden"))
 					return;
@@ -153,7 +181,7 @@
 					e.preventDefault();
 				}
 				$(this).trigger(opts.triggerEvent);
-			});
+			}, 500, true));
 		})
 	}
 
