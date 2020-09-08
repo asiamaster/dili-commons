@@ -31,7 +31,7 @@
          * tr 行元素格式化
          * @param itemFields
          * @returns {string}
-         */
+        */
         trItemFormatter: function (itemFields) {
             // {'摊位编号':'一号摊位','数量':'123'}
             let itemFieldsArr = [];
@@ -187,5 +187,7 @@
             window.Log = new Logger();
         }
     });
+
+    return Logger;
 
 }));
