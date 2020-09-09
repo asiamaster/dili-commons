@@ -1,5 +1,7 @@
 package com.dili.commons.bstable;
 
+import java.util.Map;
+
 /**
  * boostrap table post 参数
  * @author shaofan
@@ -8,8 +10,9 @@ package com.dili.commons.bstable;
 public class Tablepar {
 	private int pageNum;//页码
 	private int pageSize;//数量
-	private String orderByColumn;//排序字段
-	private String isAsc;//排序字符 asc desc 
+	private String sortName;//排序字段
+	private String sortOrder;//排序字符 asc desc
+	private Map metadata; // metadata
 	public int getPageNum() {
 		return pageNum;
 	}
@@ -22,17 +25,27 @@ public class Tablepar {
 	public void setPageSize(int pageSize) {
 		this.pageSize = pageSize;
 	}
-	public String getOrderByColumn() {
-		return orderByColumn;
+	public String getSortName() {
+		return sortName;
 	}
-	public void setOrderByColumn(String orderByColumn) {
-		this.orderByColumn = orderByColumn;
+
+	public void setSortName(String sortName) {
+		this.sortName = sortName;
 	}
-	public String getIsAsc() {
-		return isAsc;
+
+	public String getSortOrder() {
+		return sortOrder;
 	}
-	public void setIsAsc(String isAsc) {
-		this.isAsc = isAsc;
+
+	public void setSortOrder(String sortOrder) {
+		this.sortOrder = sortOrder;
 	}
-	
+
+	public Map getMetadata() {
+		return metadata;
+	}
+
+	public void setMetadata(Map metadata) {
+		this.metadata = metadata;
+	}
 }

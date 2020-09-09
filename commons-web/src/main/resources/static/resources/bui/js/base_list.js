@@ -21,7 +21,7 @@
                         cache: false,            //是否使用缓存，默认为true，所以一般情况下需要设置一下这个属性（*）
                         pagination: true,          //是否显示分页（*）
                         sortable: true,           //是否启用排序
-                        sortOrder: "asc",          //排序方式
+                        sortOrder: "desc",          //排序方式
                         queryParams: $.table.queryParams,//传递参数（*）
                         smartDisplay: false,
                         sidePagination: "server",      //分页方式：client客户端分页，server服务端分页（*）
@@ -122,8 +122,8 @@
                 search.pageNum = params.pageNumber;
                 search.searchText = params.searchText;
                 //排序
-                search.orderByColumn = params.sortName;
-                search.isAsc = params.sortOrder;
+                search.sortName = params.sortName;
+                search.sortOrder = params.sortOrder;
                 return $.extend(search, $.table.bindGridMeta2Form(null));
 
             },
