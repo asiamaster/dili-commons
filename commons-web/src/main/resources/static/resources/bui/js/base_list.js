@@ -111,6 +111,11 @@
                             if ($.table._option.onExpandRow) {
                                 $.table._option.onExpandRow(index, row, $detail);
                             }
+                        },
+                        onCheck: function (row, $element) {
+                            if ($.table._option.onCheck) {
+                                $.table._option.onCheck(row, $element);
+                            }
                         }
                     });
                 };
