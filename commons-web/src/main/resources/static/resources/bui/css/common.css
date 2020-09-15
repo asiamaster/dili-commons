@@ -27,13 +27,13 @@ hr {
 /***************************************bs*****************************/
 /*避免表格中含有输入框时高度太高*/
 .form-group {
-    margin-bottom: .4rem;
+    margin-bottom: .8rem;
 }
 .form-control {
     padding: .2rem .4rem;
 }
 label {
-    margin-bottom: .2rem;
+    margin-bottom: .4rem;
 }
 
 /*nav*/
@@ -120,7 +120,8 @@ tr[data-has-detail-view] td:first-child .detail-icon {
     border-color: #DBDDE1;
 }
 .select2-selection--multiple.form-control {
-    height: fit-content;
+    height: 33.5px;
+    overflow: auto;
     padding-top: 0;
     padding-bottom: 0;
     border-color: #DBDDE1;
