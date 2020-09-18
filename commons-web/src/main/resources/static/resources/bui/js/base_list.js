@@ -266,6 +266,10 @@
                     $.modal.alertWarning("请至少选择一条记录");
                     return
                 }
+                if (rows.length > 1) {
+                    $.modal.alertWarning("只能选择一条记录");
+                    return
+                }
                 var url = $.table._option.updateUrl.replace("{id}", rows[0]);
                 $.modal.open("修改" + $.table._option.modalName, url);
             },
