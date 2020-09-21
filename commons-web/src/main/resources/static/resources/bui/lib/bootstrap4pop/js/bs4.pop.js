@@ -371,7 +371,6 @@
                 hideRemove: true,
                 btnAutoFocus: true,
                 width: 360,
-                height: 240,
                 btns: [{
                     label: '确定',
                     onClick() {
@@ -396,7 +395,6 @@
                 title: '确认框',
                 content: content,
                 width: 360,
-                height: 240,
                 hideRemove: true,
                 btnAutoFocus: true,
                 btns: [{
@@ -447,7 +445,6 @@
                 content: $content,
                 hideRemove: true,
                 width: 360,
-                height: 240,
                 btns: [
 
                     {
