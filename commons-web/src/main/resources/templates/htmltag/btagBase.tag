@@ -153,6 +153,14 @@
                 //没有url就没有查询过，不作导出
                 if (opts.url == null || opts.url == '')
                     return;
+                var _gridExportQueryParams;
+                if (formId == null || formId === '') {
+                    _gridExportQueryParams = $.table.bindGridMeta2Form(null);
+                } else {
+                    _gridExportQueryParams = bindGridMeta2Form(gridId, formId);
+                }
+                _gridExportQueryParams["sort"] = opts.sortName;
+                _gridExportQueryParams["order"] = opts.sortOrder;
                 var param = {};
                 //多表头遍历
                 for (let cols of opts.columns) {
@@ -165,20 +173,12 @@
 
                         //opts.sortName默认取到的是fieldName
                         if (col.field === opts.sortName) {
-                            opts.sortName = col.sortName;
+                            _gridExportQueryParams["sort"] = col.sortName || opts.sortName;
                         }
                     }
                 }
                 token = guid();
                 param.columns = JSON.stringify(opts.columns);
-                var _gridExportQueryParams;
-                if (formId == null || formId === '') {
-                    _gridExportQueryParams = $.table.bindGridMeta2Form(null);
-                } else {
-                    _gridExportQueryParams = bindGridMeta2Form(gridId, formId);
-                }
-                _gridExportQueryParams["sort"] = opts.sortName;
-                _gridExportQueryParams["order"] = opts.sortOrder;
                 param.queryParams = JSON.stringify(_gridExportQueryParams);
                 param.title = opts.title;
                 param.url = opts.url;
