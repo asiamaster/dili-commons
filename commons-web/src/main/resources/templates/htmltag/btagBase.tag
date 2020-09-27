@@ -162,6 +162,11 @@
                         }else{
                             col['hidden'] = !col.visible;
                         }
+
+                        //opts.sortName默认取到的是fieldName
+                        if (col.field === opts.sortName) {
+                            opts.sortName = col.sortName;
+                        }
                     }
                 }
                 token = guid();
