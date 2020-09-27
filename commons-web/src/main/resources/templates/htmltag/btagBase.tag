@@ -171,7 +171,12 @@
                 }
                 token = guid();
                 param.columns = JSON.stringify(opts.columns);
-                var _gridExportQueryParams = bindGridMeta2Form(gridId, formId);
+                var _gridExportQueryParams;
+                if (formId == null || formId === '') {
+                    _gridExportQueryParams = $.table.bindGridMeta2Form(null);
+                } else {
+                    _gridExportQueryParams = bindGridMeta2Form(gridId, formId);
+                }
                 _gridExportQueryParams["sort"] = opts.sortName;
                 _gridExportQueryParams["order"] = opts.sortOrder;
                 param.queryParams = JSON.stringify(_gridExportQueryParams);

@@ -370,7 +370,7 @@
                 content: content,
                 hideRemove: true,
                 btnAutoFocus: true,
-                width: 500,
+                width: 360,
                 btns: [{
                     label: '确定',
                     onClick() {
@@ -394,6 +394,7 @@
             let dialogOpts = $.extend(true, {
                 title: '确认框',
                 content: content,
+                width: 360,
                 hideRemove: true,
                 btnAutoFocus: true,
                 btns: [{
@@ -443,7 +444,7 @@
                 title: '输入框',
                 content: $content,
                 hideRemove: true,
-                width: 500,
+                width: 360,
                 btns: [
 
                     {

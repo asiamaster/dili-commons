@@ -1,0 +1,82 @@
+{
+  "_from": "vue-ele-form-image-uploader",
+  "_id": "vue-ele-form-image-uploader@0.1.8",
+  "_inBundle": false,
+  "_integrity": "sha512-8gBRh+vjAFsE8G147AoBTikAIyNSBlSZDkhCXsoeSbdFaFHombrAyVx0ZMK/4otIRYbJydKnIgBZf0+E9FTItw==",
+  "_location": "/vue-ele-form-image-uploader",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "tag",
+    "registry": true,
+    "raw": "vue-ele-form-image-uploader",
+    "name": "vue-ele-form-image-uploader",
+    "escapedName": "vue-ele-form-image-uploader",
+    "rawSpec": "",
+    "saveSpec": null,
+    "fetchSpec": "latest"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/vue-ele-form-image-uploader/-/vue-ele-form-image-uploader-0.1.8.tgz",
+  "_shasum": "46c51fd17c90423351703da16cc0d7f5501fbffb",
+  "_spec": "vue-ele-form-image-uploader",
+  "_where": "/Users/shaofan/Desktop/eladmin-web",
+  "bugs": {
+    "url": "https://github.com/dream2023/vue-ele-form-image-uploader/issues"
+  },
+  "bundleDependencies": false,
+  "dependencies": {
+    "vue-ele-upload-image": "^2.0.12"
+  },
+  "deprecated": false,
+  "description": "vue-ele-form 的图片上传组件",
+  "devDependencies": {
+    "@vue/cli-plugin-babel": "^3.9.0",
+    "@vue/cli-plugin-eslint": "^3.9.0",
+    "@vue/cli-service": "^3.9.0",
+    "@vue/eslint-config-standard": "^4.0.0",
+    "babel-eslint": "^10.0.1",
+    "core-js": "^2.6.5",
+    "element-ui": "^2.10.1",
+    "eslint": "^5.16.0",
+    "eslint-plugin-vue": "^5.0.0",
+    "lint-staged": "^8.1.5",
+    "vue": "^2.6.10",
+    "vue-ele-form": "^0.3.30",
+    "vue-template-compiler": "^2.6.10"
+  },
+  "gitHooks": {
+    "pre-commit": "lint-staged"
+  },
+  "homepage": "https://github.com/dream2023/vue-ele-form-image-uploader",
+  "keywords": [
+    "vue-ele-form",
+    "image-uploader",
+    "图片上传",
+    "vue-uploader",
+    "uploader",
+    "image"
+  ],
+  "lint-staged": {
+    "*.{js,vue}": [
+      "vue-cli-service lint",
+      "git add"
+    ]
+  },
+  "main": "dist/vue-ele-form-image-uploader.umd.min.js",
+  "name": "vue-ele-form-image-uploader",
+  "private": false,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dream2023/vue-ele-form-image-uploader.git"
+  },
+  "scripts": {
+    "build": "vue-cli-service build",
+    "build:lib": "vue-cli-service build --target lib --name vue-ele-form-image-uploader --dest ./dist/ ./lib/index.js",
+    "lint": "vue-cli-service lint",
+    "serve": "vue-cli-service serve"
+  },
+  "version": "0.1.8"
+}
