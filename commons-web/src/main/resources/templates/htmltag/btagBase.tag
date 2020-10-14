@@ -131,9 +131,11 @@
 
             //通过token判断导出是否完成
             function checkFinished(token) {
+                let exporterPath = '<#config name="exporter.contextPath" defValue=""/>';
+                let url = exporterPath == "" ? "${contextPath}/export/isFinished.action?token=" + token : exporterPath + "/exporter/isFinished.action?token=" + token;
                 $.ajax({
                     type: "POST",
-                    url: "${contextPath}/export/isFinished.action?token=" + token,
+                    url: url,
                     processData: true,
                     dataType: "json",
                     success: function (data) {
@@ -181,11 +183,15 @@
                 param.columns = JSON.stringify(opts.columns);
                 param.queryParams = JSON.stringify(_gridExportQueryParams);
                 param.title = opts.title;
-                param.url = opts.url;
+                var serverPath = '<#config name="project.serverPath" defValue=""/>';
+                param.url = serverPath + opts.url;
                 param.contentType = opts.contentType;
                 param.token = token;
-                if (!exportUrl) {
-                    exportUrl = "${contextPath}/export/serverExport.action";
+                if(!exportUrl){
+                    // exportUrl = "${contextPath}/export/serverExport.action";
+                    var exporterPath = '<#config name="exporter.contextPath" defValue=""/>';
+                    //如果配置了exporter.contextPath, 则使用导出器
+                    exportUrl = exporterPath == "" ? '${contextPath}/export/serverExport.action' : exporterPath+'/exporter/serverExport.action';
                 }
                 exportByUrl(exportUrl, param);
             }

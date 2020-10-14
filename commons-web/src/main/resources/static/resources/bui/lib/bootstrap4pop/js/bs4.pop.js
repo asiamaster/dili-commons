@@ -22,7 +22,7 @@
                 title: '', //对话框title
                 content: '', //对话框内容，可以是 string、element，$object
                 className: '', //自定义样式
-                width: 500, //宽度
+                width: 360, //宽度
                 height: '', //高度
                 target: 'body', //在什么dom内创建dialog
                 isIframe: false, //默认是页面层，非iframe

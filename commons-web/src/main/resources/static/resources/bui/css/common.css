@@ -23,6 +23,15 @@ hr {
     padding-right: 0;
 }
 
+/*寿光定制 start */
+ .dialog-left .modal-dialog {
+     left: 0!important;
+ }
+.dialog-right .modal-dialog {
+    position: fixed!important;
+    right: 0!important;
+}
+/*寿光定制  end */
 
 /***************************************bs*****************************/
 /*避免表格中含有输入框时高度太高*/
