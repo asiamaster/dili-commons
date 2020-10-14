@@ -34,6 +34,7 @@
                 escape: true, //Esc 退出
                 autoFocus: true, //初始化时自动获得焦点
                 btnAutoFocus: false, //按钮自动获取焦点
+                btnAutoFocusIndex: 0, //按钮索引值
                 show: true, //是否在一开始时就显示对话框
                 backdrop: true, //模态背景 true: 显示模态，false: 没有模态，'static': 显示模态，单击模态不关闭对话框
                 btns: [], //footer按钮 [{label: 'Button',	className: 'btn-primary',onClick(e){}}]
@@ -188,7 +189,7 @@
             $el.on('shown.bs.modal', evt => {
                 //按钮是否自动获取焦点
                 if (opts.btnAutoFocus) {
-                    $('.modal-footer button').length > 0 && $('.modal-footer button').get(0).focus();
+                    $('.modal-footer button').length > 0 && $('.modal-footer button').get(opts.btnAutoFocusIndex || $('.modal-footer button').length - 1).focus();
                 }
                 //元素焦点自动获取
                 $('.modal-body [autofocus]').length > 0 && $('.modal-body [autofocus]').get(0).focus();
@@ -397,6 +398,7 @@
                 width: 360,
                 hideRemove: true,
                 btnAutoFocus: true,
+                btnAutoFocusIndex: 1,
                 btns: [{
                     label: '取消',
                     className: 'btn-secondary',
