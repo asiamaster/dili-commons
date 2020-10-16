@@ -158,7 +158,7 @@
 
 
             } else {
-                $iframe = $(`<iframe class="d-block w-100 h-100 border-0" src="${opts.content}" autofocus></iframe>`);
+                $iframe = $(`<iframe class="d-block w-100 h-100 border-0" src="${opts.content}"></iframe>`);
                 $iframe.appendTo($body);
             }
 
@@ -193,6 +193,8 @@
                 }
                 //元素焦点自动获取
                 $('.modal-body [autofocus]').length > 0 && $('.modal-body [autofocus]').get(0).focus();
+                //打开iframe自动获得焦点
+                $iframe && $iframe[0].contentWindow.focus();
                 opts.onShowEnd(evt, $iframe);
             });
             $el.on('hide.bs.modal', evt => {
