@@ -3,6 +3,7 @@ package com.dili.commons.rabbitmq;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
 import org.springframework.stereotype.Component;
 
 import java.util.concurrent.Executors;
@@ -10,6 +11,7 @@ import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 
 @Component
+@ConditionalOnClass(RabbitTemplate.class)
 public class ReissueMessageSchedule implements InitializingBean {
 
     @Autowired
