@@ -258,7 +258,7 @@
             },
             add: function (id) {
                 var url = $.common.isEmpty(id) ? $.table._option.createUrl : $.table._option.createUrl.replace("{id}", id);
-                $.modal.open("添加" + $.table._option.modalName, url);
+                $.modal.open("添加" + $.table._option.modalName, url, $.table._option.dialogWidth, $.table._option.dialogHeight);
             },
             edit: function () {
                 var rows = $.common.isEmpty($.table._option.id) ? $.table.selectFirstColumns() : $.table.selectColumns($.table._option.id);
@@ -271,7 +271,7 @@
                     return
                 }
                 var url = $.table._option.updateUrl.replace("{id}", rows[0]);
-                $.modal.open("修改" + $.table._option.modalName, url);
+                $.modal.open("修改" + $.table._option.modalName, url, $.table._option.dialogWidth, $.table._option.dialogHeight);
             },
             view: function () {
                 var rows = $.common.isEmpty($.table._option.id) ? $.table.selectFirstColumns() : $.table.selectColumns($.table._option.id);
