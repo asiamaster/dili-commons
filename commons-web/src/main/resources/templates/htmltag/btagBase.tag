@@ -149,8 +149,13 @@
                 });
             }
 
-            //导出excel
-            function doExport(gridId, formId, exportUrl) {
+            /***
+             * grid **tableID
+             * formId **查询参数表单ID
+             * exportUrl 导出URL
+             * extendQueryParams 导出扩展参数
+             * */
+            function doExport(gridId, formId, exportUrl , extendQueryParams) {
                 var opts = $('#' + gridId).bootstrapTable('getOptions');
                 //没有url就没有查询过，不作导出
                 if (opts.url == null || opts.url == '')
@@ -167,9 +172,9 @@
                 //多表头遍历
                 for (let cols of opts.columns) {
                     for (let col of cols) {
-                        if(col.checkbox || col.radio){
+                        if (col.checkbox || col.radio) {
                             col['hidden'] = true;
-                        }else{
+                        } else {
                             col['hidden'] = !col.visible;
                         }
 
@@ -181,7 +186,7 @@
                 }
                 token = guid();
                 param.columns = JSON.stringify(opts.columns);
-                param.queryParams = JSON.stringify(_gridExportQueryParams);
+                param.queryParams = JSON.stringify($.extend(_gridExportQueryParams, extendQueryParams));
                 param.title = opts.title;
                 var serverPath = '<#config name="project.serverPath" defValue=""/>';
                 param.url = serverPath + opts.url;

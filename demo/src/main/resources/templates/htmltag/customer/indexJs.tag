@@ -44,20 +44,25 @@
         return $.extend(temp, bui.util.bindGridMeta2Form('grid', 'queryForm'));
     }
 
+    function  a() {
+        return {};
+    }
+
     /**
      * 打开新增窗口:页面层
      */
     function openInsertHandler() {
+        let a = bui.util.debounce(saveOrUpdateHandler,1000,true);
         dia = bs4pop.dialog({
             title: '页面层新增',//对话框title
             content: bui.util.HTMLDecode(template('addForm', {})), //对话框内容，可以是 string、element，$object
             width: '80%',//宽度
             height: '95%',//高度
             btns: [{label: '取消',className: 'btn-secondary',onClick(e){
+                    a();
 
                 }
             }, {label: '确定',className: 'btn-primary',onClick(e){
-                    bui.util.debounce(saveOrUpdateHandler,1000,true)()
                     return false;
                 }
             }]
