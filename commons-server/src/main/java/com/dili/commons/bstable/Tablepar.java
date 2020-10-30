@@ -8,8 +8,8 @@ import java.util.Map;
  *
  */
 public class Tablepar {
-	private int pageNum;//页码
-	private int pageSize;//数量
+	private int pageNum = 1;//页码
+	private int pageSize = Integer.MAX_VALUE;//数量
 	private String sortName;//排序字段
 	private String sortOrder;//排序字符 asc desc
 	private Map metadata; // metadata
