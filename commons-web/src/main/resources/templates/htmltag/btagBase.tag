@@ -162,9 +162,9 @@
                     return;
                 var _gridExportQueryParams;
                 if (formId == null || formId === '') {
-                    try{
+                    try {
                         _gridExportQueryParams = $.table.bindGridMeta2Form(null);
-                    }catch (e) {
+                    } catch (e) {
                         console.log('未引入VUE。。。')
                     }
                 } else {
