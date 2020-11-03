@@ -3,6 +3,9 @@
 html {
     font-size: 14px;
 }
+body {
+    padding-top: 10px;
+}
 .red {
     color: #E54937;
 }
