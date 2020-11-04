@@ -222,4 +222,30 @@ tr[data-has-detail-view] td:first-child .detail-icon {
     75%{transform:scaleY(0.4);}
     100%{transform:scaleY(0.4);}
 }
+/*elementui重置*/
+.el-button--primary {
+    color: #fff;
+    background-color: #007bff;
+    border-color: #007bff;
+    padding-left: 3rem!important;
+    padding-right: 3rem!important;
+}
+
+.el-button--primary:focus, .el-button--primary:hover {
+    color: #fff;
+    background-color: #0069d9;
+    border-color: #0062cc;
+}
+.el-button--default {
+    color: #fff;
+    background-color: #6c757d;
+    border-color: #6c757d;
+    padding-left: 3rem!important;
+    padding-right: 3rem!important;
+}
+.el-button--default:focus, .el-button--default:hover {
+    color: #fff;
+    background-color: #5a6268;
+    border-color: #545b62;
+}
 /****************************loading style end****************************************/
