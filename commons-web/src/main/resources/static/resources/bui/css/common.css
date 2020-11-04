@@ -223,7 +223,10 @@ tr[data-has-detail-view] td:first-child .detail-icon {
     100%{transform:scaleY(0.4);}
 }
 /*elementui重置*/
-.ele-form .el-button--primary {
+.ele-form-btns {
+    text-align: right;
+}
+.ele-form-btns .el-button--primary {
     color: #fff;
     background-color: #007bff;
     border-color: #007bff;
@@ -231,19 +234,19 @@ tr[data-has-detail-view] td:first-child .detail-icon {
     padding-right: 3rem!important;
 }
 
-.ele-form .el-button--primary:focus, .ele-form .el-button--primary:hover {
+.ele-form-btns .el-button--primary:focus, .ele-form-btns .el-button--primary:hover {
     color: #fff;
     background-color: #0069d9;
     border-color: #0062cc;
 }
-.ele-form .el-button--default {
+.ele-form-btns .el-button--default {
     color: #fff;
     background-color: #6c757d;
     border-color: #6c757d;
     padding-left: 3rem!important;
     padding-right: 3rem!important;
 }
-.ele-form .el-button--default:focus, .ele-form .el-button--default:hover {
+.ele-form-btns .el-button--default:focus, .ele-form-btns .el-button--default:hover {
     color: #fff;
     background-color: #5a6268;
     border-color: #545b62;
