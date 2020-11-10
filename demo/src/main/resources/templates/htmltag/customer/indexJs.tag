@@ -15,16 +15,34 @@
         $(window).resize(function () {
             _grid.bootstrapTable('resetView')
         });
-        let vcolumns = localStorage.getItem('vcol');
-        if (vcolumns) {
-            _grid.bootstrapTable('refreshOptions', {pageNumber: 1, url: '/customer/listPage.action', columns: JSON.parse(vcolumns)});
-        } else {
-            queryDataHandler();
-        }
+        initLoadHandler();
     });
     /******************************驱动执行区 end****************************/
 
     /*****************************************函数区 begin************************************/
+
+    /**
+     * 初始化加载table数据
+     */
+    function initLoadHandler() {
+        let hcolCache = localStorage.getItem('hcol');
+        if (hcolCache) {
+            hcolCache = JSON.parse(hcolCache);
+            let columns = _grid.bootstrapTable('getOptions').columns.flat().filter(item => item["field"]);
+            for (let col of columns) {
+                if (hcolCache[col.field])
+                    col.visible = false;
+            }
+
+            _grid.bootstrapTable('refreshOptions', {
+                pageNumber: 1,
+                url: '/customer/listPage.action',
+                columns: columns
+            });
+        } else {
+            queryDataHandler();
+        }
+    }
 
     /**
      * 查询处理
@@ -32,6 +50,7 @@
     function queryDataHandler() {
         _grid.bootstrapTable('refreshOptions', {pageNumber: 1, url: '/customer/listPage.action'});
     }
+
 
     /**
      * table参数组装
@@ -382,8 +401,19 @@
     });
 
     _grid.on('column-switch.bs.table', function (e,field, checked) {
-        let columns = _grid.bootstrapTable('getVisibleColumns');
-        localStorage.setItem('vcol',JSON.stringify(columns));
+        let hcolCache = localStorage.getItem('hcol');
+        if (hcolCache) {
+            hcolCache = JSON.parse(hcolCache);
+        } else {
+            hcolCache = {};
+        }
+
+        if (checked) {
+            delete hcolCache[field]
+        } else {
+            hcolCache[field] = field;
+        }
+        localStorage.setItem('hcol',JSON.stringify(hcolCache));
     });
 
 
