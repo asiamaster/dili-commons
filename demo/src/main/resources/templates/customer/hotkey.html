@@ -18,7 +18,7 @@
     <form>
         <div>
             <label for="realName">姓名：</label>
-            <input type="text" id="realName" name="realName" focus-shift/>
+            <input type="text" id="realName" name="realName" focus-shift autofocus/>
         </div>
         <div>
             <label for="userName">昵称：</label>
@@ -96,10 +96,14 @@
 
     </form>
 </div>
+<iframe id="tiframe"></iframe>
 
 </#bs4Body>
 <#bhotkey/>
 <script>
+    $(function () {
+        // $('#realName')[0].focus();
+    })
     /**
      * 快捷键配置，目前只有焦点转移功能配置
      * 如下配置为初始化默认配置项，若满足业务需求，此项可以不进行配置
@@ -124,39 +128,41 @@
     }
 
     function add() {
-        bs4pop.dialog({
-            title: '新增',
-            content: template('hkTpl', {}),
-            // content:'/customer/hotkey.html?a='+Math.random(),
-            closeBtn: true,
-            // isIframe:true,
-            // btnAutoFocus:true,
-            backdrop : 'static',
-            width: '40%',
-            btns: [
-                {
-                    label: '确定(T)',
-                    id: 'ok-btn',
-                    className: 'btn-primary',
-                    onClick: function () {
-                        console.log("关闭");
-                    },
-                    hotkey: {
-                        key: 'T',
-                        focusShift: true
-                    }
-                },
-                {
-                    label: '取消(W)', id: 'cancel-btn', className: 'btn-secondary', onClick(e) {
-                        console.log('cancel');
-                    },
-                    hotkey: {
-                        key: 'w',
-                        focusShift: true
-                    }
-                }
-            ]
-        });
+        $('#tiframe').attr('src','/customer/hotkey.html?a='+Math.random());
+        $('#tiframe')[0].contentWindow.focus();
+        // bs4pop.dialog({
+        //     title: '新增',
+        //     content: template('hkTpl', {}),
+        //     // content:'/customer/hotkey.html?a='+Math.random(),
+        //     closeBtn: true,
+        //     // isIframe:true,
+        //     // btnAutoFocus:true,
+        //     backdrop : 'static',
+        //     width: '40%',
+        //     btns: [
+        //         {
+        //             label: '确定(T)',
+        //             id: 'ok-btn',
+        //             className: 'btn-primary',
+        //             onClick: function () {
+        //                 console.log("关闭");
+        //             },
+        //             hotkey: {
+        //                 key: 'T',
+        //                 focusShift: true
+        //             }
+        //         },
+        //         {
+        //             label: '取消(W)', id: 'cancel-btn', className: 'btn-secondary', onClick(e) {
+        //                 console.log('cancel');
+        //             },
+        //             hotkey: {
+        //                 key: 'w',
+        //                 focusShift: true
+        //             }
+        //         }
+        //     ]
+        // });
     }
 
 </script>

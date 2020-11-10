@@ -15,7 +15,12 @@
         $(window).resize(function () {
             _grid.bootstrapTable('resetView')
         });
-        queryDataHandler();
+        let vcolumns = localStorage.getItem('vcol');
+        if (vcolumns) {
+            _grid.bootstrapTable('refreshOptions', {pageNumber: 1, url: '/customer/listPage.action', columns: JSON.parse(vcolumns)});
+        } else {
+            queryDataHandler();
+        }
     });
     /******************************驱动执行区 end****************************/
 
@@ -376,6 +381,10 @@
         $(cur_table).bootstrapTable('refreshOptions', {url: '/customer/listPage.action'});
     });
 
+    _grid.on('column-switch.bs.table', function (e,field, checked) {
+        let columns = _grid.bootstrapTable('getVisibleColumns');
+        localStorage.setItem('vcol',JSON.stringify(columns));
+    });
 
 
     /*****************************************自定义事件区 end**************************************/
