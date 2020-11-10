@@ -7,6 +7,7 @@
     let _form = $('#_form');
     let _modal = $('#_modal');
     var dia;
+    let hcolCache;
     /*********************变量定义区 end***************/
 
 
@@ -25,10 +26,10 @@
      * 初始化加载table数据
      */
     function initLoadHandler() {
-        let hcolCache = localStorage.getItem('hcol');
-        if (hcolCache) {
-            hcolCache = JSON.parse(hcolCache);
-            let columns = _grid.bootstrapTable('getOptions').columns.flat().filter(item => item["field"]);
+        let hcolCacheStr = localStorage.getItem('hcol'); //查缓存（localStorage 或redis 在此查询隐藏列）
+        if (hcolCacheStr) {
+            hcolCache = JSON.parse(hcolCacheStr);
+            let columns = _grid.bootstrapTable('getOptions').columns.flat();
             for (let col of columns) {
                 if (hcolCache[col.field])
                     col.visible = false;
@@ -401,19 +402,13 @@
     });
 
     _grid.on('column-switch.bs.table', function (e,field, checked) {
-        let hcolCache = localStorage.getItem('hcol');
-        if (hcolCache) {
-            hcolCache = JSON.parse(hcolCache);
-        } else {
-            hcolCache = {};
-        }
-
+        hcolCache = hcolCache || {};
         if (checked) {
             delete hcolCache[field]
         } else {
             hcolCache[field] = field;
         }
-        localStorage.setItem('hcol',JSON.stringify(hcolCache));
+        localStorage.setItem('hcol',JSON.stringify(hcolCache)); //设置缓存（localStorage 或redis 在此设置隐藏列）
     });
 
 
