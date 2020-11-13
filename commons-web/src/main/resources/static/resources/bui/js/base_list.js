@@ -134,8 +134,11 @@
             },
             bindGridMeta2Form: function (formId, containsNull) {
                 var param = $.table.bindMetadata();
-                if (!app || !app.formData) return param;
-                return $.extend(param, app.formData);
+                try {
+                    return $.extend(param, app.formData);
+                } catch (e) {
+                    return param
+                }
             },
             bindMetadata: function () {
                 //获取最后一行的列(可能是多表头)
