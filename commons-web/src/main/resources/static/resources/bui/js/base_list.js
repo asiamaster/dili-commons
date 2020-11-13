@@ -134,7 +134,7 @@
             },
             bindGridMeta2Form: function (formId, containsNull) {
                 var param = $.table.bindMetadata();
-                if (!app.formData) return param;
+                if (!app || !app.formData) return param;
                 return $.extend(param, app.formData);
             },
             bindMetadata: function () {
