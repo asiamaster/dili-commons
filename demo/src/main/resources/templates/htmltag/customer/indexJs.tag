@@ -7,6 +7,7 @@
     let _form = $('#_form');
     let _modal = $('#_modal');
     var dia;
+    let hcolCache;
     /*********************变量定义区 end***************/
 
 
@@ -15,11 +16,34 @@
         $(window).resize(function () {
             _grid.bootstrapTable('resetView')
         });
-        queryDataHandler();
+        initLoadHandler();
     });
     /******************************驱动执行区 end****************************/
 
     /*****************************************函数区 begin************************************/
+
+    /**
+     * 初始化加载table数据
+     */
+    function initLoadHandler() {
+        let hcolCacheStr = localStorage.getItem('hcol'); //查缓存（localStorage 或redis 在此查询隐藏列）
+        if (hcolCacheStr) {
+            hcolCache = JSON.parse(hcolCacheStr);
+            let columns = _grid.bootstrapTable('getOptions').columns.flat();
+            for (let col of columns) {
+                if (hcolCache[col.field])
+                    col.visible = false;
+            }
+
+            _grid.bootstrapTable('refreshOptions', {
+                pageNumber: 1,
+                url: '/customer/listPage.action',
+                columns: columns
+            });
+        } else {
+            queryDataHandler();
+        }
+    }
 
     /**
      * 查询处理
@@ -27,6 +51,7 @@
     function queryDataHandler() {
         _grid.bootstrapTable('refreshOptions', {pageNumber: 1, url: '/customer/listPage.action'});
     }
+
 
     /**
      * table参数组装
@@ -376,6 +401,15 @@
         $(cur_table).bootstrapTable('refreshOptions', {url: '/customer/listPage.action'});
     });
 
+    _grid.on('column-switch.bs.table', function (e,field, checked) {
+        hcolCache = hcolCache || {};
+        if (checked) {
+            delete hcolCache[field]
+        } else {
+            hcolCache[field] = field;
+        }
+        localStorage.setItem('hcol',JSON.stringify(hcolCache)); //设置缓存（localStorage 或redis 在此设置隐藏列）
+    });
 
 
     /*****************************************自定义事件区 end**************************************/
