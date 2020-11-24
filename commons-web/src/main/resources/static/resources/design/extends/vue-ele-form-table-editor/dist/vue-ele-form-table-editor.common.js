@@ -5115,12 +5115,12 @@ if (typeof window !== 'undefined') {
 // EXTERNAL MODULE: ./node_modules/core-js/modules/es.function.name.js
 var es_function_name = __webpack_require__("b0c0");
 
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"298a8b6a-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/EleFormTableEditor.vue?vue&type=template&id=78e226a6&
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"298a8b6a-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/EleFormTableEditor.vue?vue&type=template&id=98d11dce&
 var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('ele-table-editor',_vm._g(_vm._b({ref:"table-editor",staticClass:"ele-form-table-editor",class:_vm.desc.class,style:(_vm.desc.style),scopedSlots:_vm._u([_vm._l((_vm.desc.slots),function(render,key){return {key:key,fn:function(data){return [_c('extend-slot',{key:key,attrs:{"data":data,"render":render}})]}}})],null,true),model:{value:(_vm.newValue),callback:function ($$v) {_vm.newValue=$$v},expression:"newValue"}},'ele-table-editor',_vm.attrs,false),_vm.onEvents))}
 var staticRenderFns = []
 
 
-// CONCATENATED MODULE: ./src/EleFormTableEditor.vue?vue&type=template&id=78e226a6&
+// CONCATENATED MODULE: ./src/EleFormTableEditor.vue?vue&type=template&id=98d11dce&
 
 // EXTERNAL MODULE: ./node_modules/core-js/modules/es.object.to-string.js
 var es_object_to_string = __webpack_require__("d3b7");
@@ -6712,7 +6712,7 @@ function mock () {
 
 
 /* harmony default export */ var EleFormTableEditorvue_type_script_lang_js_ = ({
-  name: "EleFormTableEditor",
+  name: "table-editor",
   mixins: [formMixin],
   components: {
     EleTableEditor: ele_table_editor_src
