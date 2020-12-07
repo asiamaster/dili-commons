@@ -156,12 +156,16 @@
      * @_grid 表格元素
      **/
     function getVisibleColumnsDataHandler(model, grid){
-        debugger
-        let hiddenColumnsData = JSON.parse(localStorage.getItem(model+'HiddenColumns')).data || getModelSaveHandler(model) || [];
+        let hiddenColumnsData;
+        let localStorageHiddenColumns= JSON.parse(localStorage.getItem(model+'HiddenColumns'));
+        if (localStorageHiddenColumns){
+            hiddenColumnsData = localStorageHiddenColumns.data
+        } else {
+            hiddenColumnsData =  getModelSaveHandler(model) || [];
+        }
         let columns = grid.bootstrapTable('getOptions').columns.flat();
 
         if(hiddenColumnsData.length && hiddenColumnsData.__proto__ ==  Array.prototype) {
-            debugger
             columns = columns.map(function(col){
                 if (hiddenColumnsData.includes(col.field)) {
                     col.visible = false;
