@@ -4,11 +4,18 @@
 <script>
 <% }%>
     $(function () {
-        let option;
+        let option; //组件配置变量
         <% if( isNotEmpty(_optionVariable) ) {%>
             option = ${_optionVariable!};
         <% } else { %>
             option = {${_option!}};
+        <% } %>
+
+        let event; //事件配置变量
+        <% if( isNotEmpty(_optionVariable) ) {%>
+        event = ${_eventVariable!};
+        <% } else if (isNotEmpty(_event)) { %>
+        event = {${_event!}};
         <% } %>
 
         //将下拉框位置定位在modal下
@@ -151,6 +158,12 @@
 
             ajaxOptions.url && $.ajax(ajaxOptions);
         <% } %>
+
+        //注册事件
+        if (event) {
+            $('#${_id}').on(event.eventName, event.eventHandler);
+        }
+
     })
 <% if(isNotEmpty(_escape) && _escape == "true") {%>
 &lt;/script&gt;
