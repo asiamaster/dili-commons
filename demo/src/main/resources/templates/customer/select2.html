@@ -7,7 +7,7 @@
             <select id="s2" name="sw" required style="width: 20%" required >
                 <option value="1">test</option>
             </select>
-            <#bselect2 _id="s2" _mode="remote" _provider="cityProvider" _value="[1]" _optionVariable="cityAutoCompleteOption" />
+            <#bselect2 _id="s2" _mode="remote" _provider="cityProvider" _value="[1]" _optionVariable="cityAutoCompleteOption"  _eventVariable="assetEvent"/>
         </div>
         </div>
         <button type="button" class="btn btn-primary" onclick="bui.util.debounce(saveOrUpdateHandler,1000,true)()">提交</button>
@@ -16,6 +16,14 @@
 </div>
 </#bs4Body>
 <script>
+
+    var assetEvent = {
+        eventName: 'select2:selecting',
+        eventHandler: function (e) {
+            console.log(e);
+            return false;
+        }
+    }
     function openSelect2Dialog(){
         bs4pop.dialog({
             title: 'iframe新增',//对话框title

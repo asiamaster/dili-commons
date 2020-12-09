@@ -12,7 +12,7 @@
         <% } %>
 
         let event; //事件配置变量
-        <% if( isNotEmpty(_optionVariable) ) {%>
+        <% if( isNotEmpty(_eventVariable) ) {%>
         event = ${_eventVariable!};
         <% } else if (isNotEmpty(_event)) { %>
         event = {${_event!}};
