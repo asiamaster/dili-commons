@@ -1,6 +1,7 @@
 <script>
 
     var creatorId = ${@com.dili.uap.sdk.session.SessionContext.getSessionContext().getUserTicket().getId()};
+    // window.gatewayUrl   后台配置。
 
     /**
      * 保存当前模块当前用户自定义的 “查询条件”
@@ -13,7 +14,7 @@
             return false;
         }
         $.ajax({
-            url: 'http://gateway.diligrp.com:8285/assets-service/api/query/add',
+            url: gatewayUrl + '/assets-service/api/query/add',
             type: 'post',
             dataType: 'json',
             data: JSON.stringify({ creatorId, model, content: data }),
@@ -44,7 +45,7 @@
         })
         localStorage.setItem(model+'HiddenColumns',  JSON.stringify({ data}));
         $.ajax({
-            url: 'http://gateway.diligrp.com:8285/assets-service/api/query/add',
+            url: gatewayUrl + '/assets-service/api/query/add',
             type: 'post',
             dataType: 'json',
             data: JSON.stringify({ creatorId, model, content: data }),
@@ -69,7 +70,7 @@
     function getModelSaveHandler(model) {
         let getData;
         $.ajax({
-            url: 'http://gateway.diligrp.com:8285/assets-service/api/query/queryAll',
+            url: gatewayUrl + '/assets-service/api/query/queryAll',
             type: 'post',
             data: JSON.stringify({creatorId, model}),
             processData: false,
