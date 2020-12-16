@@ -22,7 +22,7 @@
             contentType: false,
             success(res){
                 if(res.success) {
-                    bs4pop.notice('保存成功', {type: 'success'});
+                    // bs4pop.notice('保存成功', {type: 'success'});
                 } else {
                     bs4pop.notice('保存失败', {type: 'success'});
                 }
@@ -53,7 +53,7 @@
             contentType: false,
             success(res){
                 if(res.success) {
-                    bs4pop.notice('保存成功', {type: 'success'});
+                    // bs4pop.notice('保存成功', {type: 'success'});
                 } else {
                     bs4pop.notice('保存失败', {type: 'success'});
                 }
