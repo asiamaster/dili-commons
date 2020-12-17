@@ -1,6 +1,7 @@
 <script>
 
     var creatorId = ${@com.dili.uap.sdk.session.SessionContext.getSessionContext().getUserTicket().getId()};
+    var sessionId = '${@com.dili.uap.sdk.util.WebContent.getCookie(@com.dili.uap.sdk.session.SessionConstants.SESSION_ID)}';
     // window.gatewayUrl   后台配置。
 
     /**
@@ -17,6 +18,7 @@
             url: gatewayUrl + '/assets-service/api/query/add',
             type: 'post',
             dataType: 'json',
+            headers:{'Content-Type':'application/json;charset=utf8',sessionId},
             data: JSON.stringify({ creatorId, model, content: data }),
             processData: false,
             contentType: false,
@@ -28,7 +30,7 @@
                 }
             },
             error(error) {
-                bs4pop.notice('保存失败', {type: 'success'});
+                bs4pop.notice(error.responseJSON.message, {type: 'success'});
             }
         })
     }
@@ -48,6 +50,7 @@
             url: gatewayUrl + '/assets-service/api/query/add',
             type: 'post',
             dataType: 'json',
+            headers:{'Content-Type':'application/json;charset=utf8',sessionId},
             data: JSON.stringify({ creatorId, model, content: data }),
             processData: false,
             contentType: false,
@@ -59,7 +62,7 @@
                 }
             },
             error(error) {
-                bs4pop.notice('保存失败', {type: 'success'});
+                bs4pop.notice(error.responseJSON.message, {type: 'success'});
             }
         })
     }
@@ -72,6 +75,7 @@
         $.ajax({
             url: gatewayUrl + '/assets-service/api/query/queryAll',
             type: 'post',
+            headers:{'Content-Type':'application/json;charset=utf8',sessionId},
             data: JSON.stringify({creatorId, model}),
             processData: false,
             contentType: false,
