@@ -11,11 +11,11 @@
             option = {${_option!}};
         <% } %>
 
-        let event; //事件配置变量
+        let events; //事件配置变量
         <% if( isNotEmpty(_eventVariable) ) {%>
-        event = ${_eventVariable!};
+        events = ${_eventVariable!};
         <% } else if (isNotEmpty(_event)) { %>
-        event = {${_event!}};
+        events = ${_event!};
         <% } %>
 
         //将下拉框位置定位在modal下
@@ -160,8 +160,10 @@
         <% } %>
 
         //注册事件
-        if (event) {
-            $('#${_id}').on(event.eventName, event.eventHandler);
+        if (events && events.length > 0) {
+            events.forEach(function (event,i,arr) {
+                $('#${_id}').on(event.eventName, event.eventHandler);
+            });
         }
 
     })
