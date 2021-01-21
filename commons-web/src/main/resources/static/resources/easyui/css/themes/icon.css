@@ -89,6 +89,9 @@
 .l-btn:hover .icon-back{
     background:url('icons/back-on.png') no-repeat center center;
 }
+.icon-back:hover {
+    background:url('icons/back-on.png') no-repeat center center;
+}
 .icon-sum{
     background:url('icons/sum.png') no-repeat center center;
 }
