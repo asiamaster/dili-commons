@@ -86,7 +86,7 @@
                 getData = JSON.parse(res.data[len].content);
             },
             error(error) {
-                bs4pop.notice('获取失败', {type: 'success'});
+                // bs4pop.notice('获取失败', {type: 'success'});
             }
         })
         return getData;
