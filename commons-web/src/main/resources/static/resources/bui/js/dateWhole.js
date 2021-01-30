@@ -91,5 +91,6 @@ function wholeDateCalc(startDate, endDate) {
             }
         }
     }
+    return {wholeYear, wholeMonth, WholeDay};
     console.log('wholeYear: ' + wholeYear + '  wholeMonth:' + wholeMonth + '  WholeDay: ' + WholeDay)
 }
