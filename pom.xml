@@ -11,8 +11,8 @@
 	<packaging>pom</packaging>
 
 	<parent>
-		<artifactId>dili-parent</artifactId>
 		<groupId>com.dili</groupId>
+		<artifactId>dili-parent</artifactId>
 		<version>3.7.1-SNAPSHOT</version>
 	</parent>
 	<modules>

@@ -99,6 +99,9 @@
 .panel-tool-close {
   background: url('images/panel_tools.png') no-repeat -16px 0px;
 }
+.panel-tool-close:hover {
+  background: url('images/panel_tools-on.png') no-repeat -16px 0px;
+}
 .panel-tool-min {
   background: url('images/panel_tools.png') no-repeat 0px 0px;
 }
